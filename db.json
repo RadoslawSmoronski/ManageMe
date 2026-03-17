@@ -1,60 +1,6 @@
 {
   "projects": [
     {
-      "id": "62c3",
-      "name": "Global Redesign v4.0",
-      "description": "This is an automatically generated description for project #1. It focuses on improving the overall architecture, user experience, and performance of the redesign.",
-      "status": "Completed"
-    },
-    {
-      "id": "84c5",
-      "name": "AI-driven Platform v2.0",
-      "description": "This is an automatically generated description for project #1. It focuses on improving the overall architecture, user experience, and performance of the platform.",
-      "status": "In Progress"
-    },
-    {
-      "id": "fa11",
-      "name": "Next-Gen Platform v4.0",
-      "description": "This is an automatically generated description for project #2. It focuses on improving the overall architecture, user experience, and performance of the platform.",
-      "status": "Completed"
-    },
-    {
-      "id": "9e5b",
-      "name": "Internal System v3.0",
-      "description": "This is an automatically generated description for project #2. It focuses on improving the overall architecture, user experience, and performance of the system.",
-      "status": "Completed"
-    },
-    {
-      "id": "57de",
-      "name": "Internal Platform v5.0",
-      "description": "This is an automatically generated description for project #3. It focuses on improving the overall architecture, user experience, and performance of the platform.",
-      "status": "Planned"
-    },
-    {
-      "id": "43b9",
-      "name": "Internal Platform v5.0",
-      "description": "This is an automatically generated description for project #3. It focuses on improving the overall architecture, user experience, and performance of the platform.",
-      "status": "Completed"
-    },
-    {
-      "id": "6281",
-      "name": "Enterprise Portal v1.0",
-      "description": "This is an automatically generated description for project #4. It focuses on improving the overall architecture, user experience, and performance of the portal.",
-      "status": "In Progress"
-    },
-    {
-      "id": "f48b",
-      "name": "Web Migration v2.0",
-      "description": "This is an automatically generated description for project #4. It focuses on improving the overall architecture, user experience, and performance of the migration.",
-      "status": "Planned"
-    },
-    {
-      "id": "7dd4",
-      "name": "Web Migration v3.0",
-      "description": "This is an automatically generated description for project #5. It focuses on improving the overall architecture, user experience, and performance of the migration.",
-      "status": "Completed"
-    },
-    {
       "id": "40e3",
       "name": "Cloud Platform v3.0",
       "description": "This is an automatically generated description for project #5. It focuses on improving the overall architecture, user experience, and performance of the platform.",
