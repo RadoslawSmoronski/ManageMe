@@ -1,30 +1,6 @@
 {
   "projects": [
     {
-      "id": "40e3",
-      "name": "Cloud Platform v3.0",
-      "description": "This is an automatically generated description for project #5. It focuses on improving the overall architecture, user experience, and performance of the platform.",
-      "status": "In Progress"
-    },
-    {
-      "id": "a792",
-      "name": "Enterprise Platform v4.0",
-      "description": "This is an automatically generated description for project #6. It focuses on improving the overall architecture, user experience, and performance of the platform.",
-      "status": "Planned"
-    },
-    {
-      "id": "4676",
-      "name": "Enterprise System v1.0",
-      "description": "This is an automatically generated description for project #6. It focuses on improving the overall architecture, user experience, and performance of the system.",
-      "status": "In Progress"
-    },
-    {
-      "id": "7cc5",
-      "name": "Internal Portal v3.0",
-      "description": "This is an automatically generated description for project #7. It focuses on improving the overall architecture, user experience, and performance of the portal.",
-      "status": "Completed"
-    },
-    {
       "id": "e1b3",
       "name": "Web API v3.0",
       "description": "This is an automatically generated description for project #7. It focuses on improving the overall architecture, user experience, and performance of the api.",

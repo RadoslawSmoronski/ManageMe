@@ -2,6 +2,7 @@ import { Row, Col, Card } from 'react-bootstrap';
 import type { Project } from '../../types/project';
 import { useNavigate } from 'react-router-dom';
 import { ProjectStatusBadge } from './ProjectStatusBadge';
+import { confirmDelete } from '../../utils/alerts';
 
 export interface ProjectsMobileListProps {
   projects: Project[];
@@ -10,6 +11,19 @@ export interface ProjectsMobileListProps {
 
 export default function ProjectsMobileList({ projects, removeProject }: ProjectsMobileListProps) {
   const navigate = useNavigate();
+
+      const handleDeleteClick = async (e: React.MouseEvent, id: string, name: string) => {
+          e.stopPropagation();
+  
+          const isConfirmed = await confirmDelete(
+              "Delete Project?", 
+              `Are you sure you want to delete "${name}"? This action is permanent.`
+          );
+  
+          if (isConfirmed) {
+              removeProject(id);
+          }
+      };
 
   return (
     <div className="d-lg-none px-2">
@@ -35,10 +49,7 @@ export default function ProjectsMobileList({ projects, removeProject }: Projects
 
                 <div 
                   className="d-flex flex-column align-items-center justify-content-center"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    removeProject(p.id);
-                  }}
+                  onClick={(e) => handleDeleteClick(e, p.id, p.name)}
                   style={{ 
                     width: '100px',
                     backgroundColor: '#fff1f1',

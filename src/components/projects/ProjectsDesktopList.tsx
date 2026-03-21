@@ -2,6 +2,7 @@ import { Table } from 'react-bootstrap';
 import type { Project } from '../../types/project';
 import { useNavigate } from 'react-router-dom';
 import { ProjectStatusBadge } from './ProjectStatusBadge';
+import { confirmDelete } from '../../utils/alerts';
 
 export interface ProjectsDesktopListProps {
   projects: Project[];
@@ -10,6 +11,19 @@ export interface ProjectsDesktopListProps {
 
 export default function ProjectsDesktopList({ projects, removeProject }: ProjectsDesktopListProps) {
     const navigate = useNavigate();
+
+    const handleDeleteClick = async (e: React.MouseEvent, id: string, name: string) => {
+        e.stopPropagation();
+
+        const isConfirmed = await confirmDelete(
+            "Delete Project?", 
+            `Are you sure you want to delete "${name}"? This action is permanent.`
+        );
+
+        if (isConfirmed) {
+            removeProject(id);
+        }
+    };
 
     return (
         <div className="d-none d-lg-block">
@@ -58,7 +72,7 @@ export default function ProjectsDesktopList({ projects, removeProject }: Project
                             <td className="py-4 text-end pe-4" onClick={(e) => e.stopPropagation()}>
                                 <button 
                                     className="btn btn-link text-danger p-2 delete-btn shadow-none border-0"
-                                    onClick={() => removeProject(p.id)}
+                                    onClick={(e) => handleDeleteClick(e, p.id, p.name)}
                                     title="Delete project"
                                 >
                                     <i className="bi bi-trash fs-5"></i>
