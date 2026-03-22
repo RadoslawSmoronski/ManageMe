@@ -5,10 +5,12 @@ import { projectService } from '../services/projectService';
 
 interface ProjectContextType {
   projects: Project[];
+  activeProject: Project | null;
   isLoading: boolean;
   addProject: (data: ProjectFormData) => Promise<void>;
   editProject: (id: string, data: Partial<ProjectFormData>) => Promise<void>;
   removeProject: (id: string) => Promise<void>;
+  setActiveProjectId: (id: string | null) => void;
 }
 
 const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
@@ -16,6 +18,19 @@ const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
 export const ProjectProvider = ({ children }: { children: ReactNode }) => {
   const [projects, setProjects] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [activeProjectId, setActiveProjectId] = useState<string | null>(
+    localStorage.getItem('activeProjectId')
+  );
+
+  const activeProject = projects.find(p => p.id === activeProjectId) || null;
+
+  useEffect(() => {
+    if (activeProjectId) {
+      localStorage.setItem('activeProjectId', activeProjectId);
+    } else {
+      localStorage.removeItem('activeProjectId');
+    }
+  }, [activeProjectId]);
 
   useEffect(() => {
     const loadProjects = async () => {
@@ -47,8 +62,16 @@ export const ProjectProvider = ({ children }: { children: ReactNode }) => {
     setProjects(prev => prev.filter(p => p.id !== id));
   };
 
-  return (
-    <ProjectContext.Provider value={{ projects, isLoading, addProject, editProject, removeProject }}>
+return (
+    <ProjectContext.Provider value={{ 
+      projects, 
+      activeProject,
+      setActiveProjectId,
+      isLoading, 
+      addProject, 
+      editProject, 
+      removeProject,
+    }}>
       {children}
     </ProjectContext.Provider>
   );
