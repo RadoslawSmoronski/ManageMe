@@ -5,6 +5,8 @@ export interface Project {
   name: string;
   description: string;
   status: ProjectStatus;
+  ownerId: string;
+  createdAt: Date;
 }
 
 export type ProjectFormData = Omit<Project, "id">;
