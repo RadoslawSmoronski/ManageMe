@@ -24,7 +24,7 @@ export default function Home() {
   const displayedProjects = filteredProjects.slice(0, visibleCount);
 
   return (
-    <div className="bg-white min-vh-100 py-5">
+    <div className="bg-white min-vh-100 py-4">
       <Container style={{ maxWidth: '1100px' }}>
         
         {/* Header */}

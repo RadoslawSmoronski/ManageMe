@@ -7,60 +7,334 @@
     }
   ],
   "projects": [
-    { "id": "p1", "name": "AI Analytics Dashboard", "description": "Cloud-based analytics for big data.", "status": "In Progress", "ownerId": "u1", "createdAt": "2026-01-10T08:00:00.000Z" },
-    { "id": "p2", "name": "E-commerce Mobile App", "description": "Native iOS/Android shopping experience.", "status": "Planned", "ownerId": "u1", "createdAt": "2026-01-15T09:00:00.000Z" },
-    { "id": "p3", "name": "Cybersecurity Audit Tool", "description": "Internal tool for security scanning.", "status": "Completed", "ownerId": "u1", "createdAt": "2026-01-20T10:00:00.000Z" },
-    { "id": "p4", "name": "Healthcare Patient Portal", "description": "System for managing medical records.", "status": "In Progress", "ownerId": "u1", "createdAt": "2026-02-01T11:00:00.000Z" },
-    { "id": "p5", "name": "Smart Home IoT Hub", "description": "Controller for zigbee/wifi devices.", "status": "Planned", "ownerId": "u1", "createdAt": "2026-02-05T12:00:00.000Z" },
-    { "id": "p6", "name": "Fintech Payment Gateway", "description": "High-throughput transaction processor.", "status": "In Progress", "ownerId": "u1", "createdAt": "2026-02-10T13:00:00.000Z" },
-    { "id": "p7", "name": "Game Engine v2.0", "description": "Physics and rendering engine upgrade.", "status": "Planned", "ownerId": "u1", "createdAt": "2026-02-15T14:00:00.000Z" },
-    { "id": "p8", "name": "HR Management System", "description": "Employee onboarding and payroll.", "status": "Completed", "ownerId": "u1", "createdAt": "2026-02-20T15:00:00.000Z" },
-    { "id": "p9", "name": "Real Estate Listing VR", "description": "Virtual tours for property buyers.", "status": "In Progress", "ownerId": "u1", "createdAt": "2026-02-25T16:00:00.000Z" },
-    { "id": "p10", "name": "Crypto Wallet Integration", "description": "Support for multi-chain assets.", "status": "Planned", "ownerId": "u1", "createdAt": "2026-03-01T17:00:00.000Z" },
-    { "id": "p11", "name": "Education LMS Platform", "description": "Video courses and quizzes.", "status": "In Progress", "ownerId": "u1", "createdAt": "2026-03-05T18:00:00.000Z" },
-    { "id": "p12", "name": "Logistics Route Planner", "description": "AI optimization for truck routes.", "status": "Completed", "ownerId": "u1", "createdAt": "2026-03-10T19:00:00.000Z" },
-    { "id": "p13", "name": "Social Media Ad Manager", "description": "Automated campaign scheduling.", "status": "In Progress", "ownerId": "u1", "createdAt": "2026-03-12T20:00:00.000Z" },
-    { "id": "p14", "name": "Cloud Storage Drive", "description": "Encrypted file sharing system.", "status": "Planned", "ownerId": "u1", "createdAt": "2026-03-15T21:00:00.000Z" },
-    { "id": "p15", "name": "DevOps Monitoring Bot", "description": "Slack integration for server alerts.", "status": "Completed", "ownerId": "u1", "createdAt": "2026-03-20T22:00:00.000Z" }
+    {
+      "id": "p4",
+      "name": "Healthcare Patient Portal",
+      "description": "System for managing medical records.",
+      "status": "In Progress",
+      "ownerId": "u1",
+      "createdAt": "2026-02-01T11:00:00.000Z"
+    },
+    {
+      "id": "p5",
+      "name": "Smart Home IoT Hub",
+      "description": "Controller for zigbee/wifi devices.",
+      "status": "Planned",
+      "ownerId": "u1",
+      "createdAt": "2026-02-05T12:00:00.000Z"
+    },
+    {
+      "id": "p6",
+      "name": "Fintech Payment Gateway",
+      "description": "High-throughput transaction processor.",
+      "status": "In Progress",
+      "ownerId": "u1",
+      "createdAt": "2026-02-10T13:00:00.000Z"
+    },
+    {
+      "id": "p7",
+      "name": "Game Engine v2.0",
+      "description": "Physics and rendering engine upgrade.",
+      "status": "Planned",
+      "ownerId": "u1",
+      "createdAt": "2026-02-15T14:00:00.000Z"
+    },
+    {
+      "id": "p8",
+      "name": "HR Management System",
+      "description": "Employee onboarding and payroll.",
+      "status": "Completed",
+      "ownerId": "u1",
+      "createdAt": "2026-02-20T15:00:00.000Z"
+    },
+    {
+      "id": "p9",
+      "name": "Real Estate Listing VR",
+      "description": "Virtual tours for property buyers.",
+      "status": "In Progress",
+      "ownerId": "u1",
+      "createdAt": "2026-02-25T16:00:00.000Z"
+    },
+    {
+      "id": "p10",
+      "name": "Crypto Wallet Integration",
+      "description": "Support for multi-chain assets.",
+      "status": "Planned",
+      "ownerId": "u1",
+      "createdAt": "2026-03-01T17:00:00.000Z"
+    },
+    {
+      "id": "p11",
+      "name": "Education LMS Platform",
+      "description": "Video courses and quizzes.",
+      "status": "In Progress",
+      "ownerId": "u1",
+      "createdAt": "2026-03-05T18:00:00.000Z"
+    },
+    {
+      "id": "p12",
+      "name": "Logistics Route Planner",
+      "description": "AI optimization for truck routes.",
+      "status": "Completed",
+      "ownerId": "u1",
+      "createdAt": "2026-03-10T19:00:00.000Z"
+    },
+    {
+      "id": "p13",
+      "name": "Social Media Ad Manager",
+      "description": "Automated campaign scheduling.",
+      "status": "In Progress",
+      "ownerId": "u1",
+      "createdAt": "2026-03-12T20:00:00.000Z"
+    },
+    {
+      "id": "p14",
+      "name": "Cloud Storage Drive",
+      "description": "Encrypted file sharing system.",
+      "status": "Planned",
+      "ownerId": "u1",
+      "createdAt": "2026-03-15T21:00:00.000Z"
+    },
+    {
+      "id": "p15",
+      "name": "DevOps Monitoring Bot",
+      "description": "Slack integration for server alerts.",
+      "status": "Completed",
+      "ownerId": "u1",
+      "createdAt": "2026-03-20T22:00:00.000Z"
+    }
   ],
   "stories": [
-    { "id": "s1", "name": "Setup Database", "description": "Initial Postgres setup.", "priority": "High", "projectId": "p1", "ownerId": "u1", "status": "Done", "createdAt": "2026-01-11T08:00:00.000Z" },
-    { "id": "s2", "name": "Login Screen", "description": "OAuth2 integration.", "priority": "Medium", "projectId": "p1", "ownerId": "u1", "status": "Doing", "createdAt": "2026-01-12T09:00:00.000Z" },
-    { "id": "s3", "name": "User Profile API", "description": "CRUD for user settings.", "priority": "Low", "projectId": "p1", "ownerId": "u1", "status": "Todo", "createdAt": "2026-01-13T10:00:00.000Z" },
-    { "id": "s4", "name": "Market Analysis UI", "description": "Charts using D3.js.", "priority": "High", "projectId": "p1", "ownerId": "u1", "status": "Todo", "createdAt": "2026-01-14T11:00:00.000Z" },
-    
-    { "id": "s5", "name": "Product Grid", "description": "Responsive layout for items.", "priority": "High", "projectId": "p2", "ownerId": "u1", "status": "Todo", "createdAt": "2026-01-16T12:00:00.000Z" },
-    { "id": "s6", "name": "Cart Logic", "description": "State management for basket.", "priority": "High", "projectId": "p2", "ownerId": "u1", "status": "Todo", "createdAt": "2026-01-17T13:00:00.000Z" },
-    
-    { "id": "s7", "name": "SSL Scan", "description": "Check certificate validity.", "priority": "Medium", "projectId": "p3", "ownerId": "u1", "status": "Done", "createdAt": "2026-01-21T14:00:00.000Z" },
-    { "id": "s8", "name": "Report Generator", "description": "PDF export for audits.", "priority": "Low", "projectId": "p3", "ownerId": "u1", "status": "Done", "createdAt": "2026-01-22T15:00:00.000Z" },
-    
-    { "id": "s9", "name": "Patient List View", "description": "Searchable table of patients.", "priority": "High", "projectId": "p4", "ownerId": "u1", "status": "Doing", "createdAt": "2026-02-02T16:00:00.000Z" },
-    { "id": "s10", "name": "Appointment Calendar", "description": "Drag & drop scheduling.", "priority": "Medium", "projectId": "p4", "ownerId": "u1", "status": "Todo", "createdAt": "2026-02-03T17:00:00.000Z" },
-    
-    { "id": "s11", "name": "Device Pairing", "description": "Bluetooth discovery flow.", "priority": "High", "projectId": "p5", "ownerId": "u1", "status": "Todo", "createdAt": "2026-02-06T18:00:00.000Z" },
-    
-    { "id": "s12", "name": "Stripe Integration", "description": "Credit card processing.", "priority": "High", "projectId": "p6", "ownerId": "u1", "status": "Doing", "createdAt": "2026-02-11T19:00:00.000Z" },
-    { "id": "s13", "name": "Refund API", "description": "Handle partial refunds.", "priority": "Medium", "projectId": "p6", "ownerId": "u1", "status": "Todo", "createdAt": "2026-02-12T20:00:00.000Z" },
-    
-    { "id": "s14", "name": "Collision Detection", "description": "AABB vs Sphere algorithm.", "priority": "High", "projectId": "p7", "ownerId": "u1", "status": "Todo", "createdAt": "2026-02-16T21:00:00.000Z" },
-    
-    { "id": "s15", "name": "Payroll Batch", "description": "Monthly salary calculator.", "priority": "Medium", "projectId": "p8", "ownerId": "u1", "status": "Done", "createdAt": "2026-02-21T22:00:00.000Z" },
-    
-    { "id": "s16", "name": "VR Camera Setup", "description": "Head tracking for WebXR.", "priority": "High", "projectId": "p9", "ownerId": "u1", "status": "Doing", "createdAt": "2026-02-26T23:00:00.000Z" },
-    
-    { "id": "s17", "name": "BTC Node Connection", "description": "Connect to testnet node.", "priority": "High", "projectId": "p10", "ownerId": "u1", "status": "Todo", "createdAt": "2026-03-02T08:00:00.000Z" },
-    
-    { "id": "s18", "name": "Video Player", "description": "HLS streaming support.", "priority": "Medium", "projectId": "p11", "ownerId": "u1", "status": "Doing", "createdAt": "2026-03-06T09:00:00.000Z" },
-    { "id": "s19", "name": "Quiz Logic", "description": "Multiple choice questions UI.", "priority": "Low", "projectId": "p11", "ownerId": "u1", "status": "Todo", "createdAt": "2026-03-07T10:00:00.000Z" },
-    
-    { "id": "s20", "name": "Map Integration", "description": "Leaflet route rendering.", "priority": "High", "projectId": "p12", "ownerId": "u1", "status": "Done", "createdAt": "2026-03-11T11:00:00.000Z" },
-    
-    { "id": "s21", "name": "FB API Auth", "description": "Marketing API tokens.", "priority": "Medium", "projectId": "p13", "ownerId": "u1", "status": "Doing", "createdAt": "2026-03-13T12:00:00.000Z" },
-    
-    { "id": "s22", "name": "File Upload S3", "description": "Multipart upload for large files.", "priority": "High", "projectId": "p14", "ownerId": "u1", "status": "Todo", "createdAt": "2026-03-16T13:00:00.000Z" },
-    
-    { "id": "s23", "name": "Slack Webhooks", "description": "Post alerts to channels.", "priority": "Low", "projectId": "p15", "ownerId": "u1", "status": "Done", "createdAt": "2026-03-21T14:00:00.000Z" }
+    {
+      "id": "s1",
+      "name": "Setup Database",
+      "description": "Initial Postgres setup.",
+      "priority": "High",
+      "projectId": null,
+      "ownerId": "u1",
+      "status": "Done",
+      "createdAt": "2026-01-11T08:00:00.000Z"
+    },
+    {
+      "id": "s2",
+      "name": "Login Screen",
+      "description": "OAuth2 integration.",
+      "priority": "Medium",
+      "projectId": null,
+      "ownerId": "u1",
+      "status": "Doing",
+      "createdAt": "2026-01-12T09:00:00.000Z"
+    },
+    {
+      "id": "s3",
+      "name": "User Profile API",
+      "description": "CRUD for user settings.",
+      "priority": "Low",
+      "projectId": null,
+      "ownerId": "u1",
+      "status": "Todo",
+      "createdAt": "2026-01-13T10:00:00.000Z"
+    },
+    {
+      "id": "s4",
+      "name": "Market Analysis UI",
+      "description": "Charts using D3.js.",
+      "priority": "High",
+      "projectId": null,
+      "ownerId": "u1",
+      "status": "Todo",
+      "createdAt": "2026-01-14T11:00:00.000Z"
+    },
+    {
+      "id": "s5",
+      "name": "Product Grid",
+      "description": "Responsive layout for items.",
+      "priority": "High",
+      "projectId": null,
+      "ownerId": "u1",
+      "status": "Todo",
+      "createdAt": "2026-01-16T12:00:00.000Z"
+    },
+    {
+      "id": "s6",
+      "name": "Cart Logic",
+      "description": "State management for basket.",
+      "priority": "High",
+      "projectId": null,
+      "ownerId": "u1",
+      "status": "Todo",
+      "createdAt": "2026-01-17T13:00:00.000Z"
+    },
+    {
+      "id": "s7",
+      "name": "SSL Scan",
+      "description": "Check certificate validity.",
+      "priority": "Medium",
+      "projectId": null,
+      "ownerId": "u1",
+      "status": "Done",
+      "createdAt": "2026-01-21T14:00:00.000Z"
+    },
+    {
+      "id": "s8",
+      "name": "Report Generator",
+      "description": "PDF export for audits.",
+      "priority": "Low",
+      "projectId": null,
+      "ownerId": "u1",
+      "status": "Done",
+      "createdAt": "2026-01-22T15:00:00.000Z"
+    },
+    {
+      "id": "s9",
+      "name": "Patient List View",
+      "description": "Searchable table of patients.",
+      "priority": "High",
+      "projectId": "p4",
+      "ownerId": "u1",
+      "status": "Doing",
+      "createdAt": "2026-02-02T16:00:00.000Z"
+    },
+    {
+      "id": "s10",
+      "name": "Appointment Calendar",
+      "description": "Drag & drop scheduling.",
+      "priority": "Medium",
+      "projectId": "p4",
+      "ownerId": "u1",
+      "status": "Todo",
+      "createdAt": "2026-02-03T17:00:00.000Z"
+    },
+    {
+      "id": "s11",
+      "name": "Device Pairing",
+      "description": "Bluetooth discovery flow.",
+      "priority": "High",
+      "projectId": "p5",
+      "ownerId": "u1",
+      "status": "Todo",
+      "createdAt": "2026-02-06T18:00:00.000Z"
+    },
+    {
+      "id": "s12",
+      "name": "Stripe Integration",
+      "description": "Credit card processing.",
+      "priority": "High",
+      "projectId": "p6",
+      "ownerId": "u1",
+      "status": "Doing",
+      "createdAt": "2026-02-11T19:00:00.000Z"
+    },
+    {
+      "id": "s13",
+      "name": "Refund API",
+      "description": "Handle partial refunds.",
+      "priority": "Medium",
+      "projectId": "p6",
+      "ownerId": "u1",
+      "status": "Todo",
+      "createdAt": "2026-02-12T20:00:00.000Z"
+    },
+    {
+      "id": "s14",
+      "name": "Collision Detection",
+      "description": "AABB vs Sphere algorithm.",
+      "priority": "High",
+      "projectId": "p7",
+      "ownerId": "u1",
+      "status": "Todo",
+      "createdAt": "2026-02-16T21:00:00.000Z"
+    },
+    {
+      "id": "s15",
+      "name": "Payroll Batch",
+      "description": "Monthly salary calculator.",
+      "priority": "Medium",
+      "projectId": "p8",
+      "ownerId": "u1",
+      "status": "Done",
+      "createdAt": "2026-02-21T22:00:00.000Z"
+    },
+    {
+      "id": "s16",
+      "name": "VR Camera Setup",
+      "description": "Head tracking for WebXR.",
+      "priority": "High",
+      "projectId": "p9",
+      "ownerId": "u1",
+      "status": "Doing",
+      "createdAt": "2026-02-26T23:00:00.000Z"
+    },
+    {
+      "id": "s17",
+      "name": "BTC Node Connection",
+      "description": "Connect to testnet node.",
+      "priority": "High",
+      "projectId": "p10",
+      "ownerId": "u1",
+      "status": "Todo",
+      "createdAt": "2026-03-02T08:00:00.000Z"
+    },
+    {
+      "id": "s18",
+      "name": "Video Player",
+      "description": "HLS streaming support.",
+      "priority": "Medium",
+      "projectId": "p11",
+      "ownerId": "u1",
+      "status": "Doing",
+      "createdAt": "2026-03-06T09:00:00.000Z"
+    },
+    {
+      "id": "s19",
+      "name": "Quiz Logic",
+      "description": "Multiple choice questions UI.",
+      "priority": "Low",
+      "projectId": "p11",
+      "ownerId": "u1",
+      "status": "Todo",
+      "createdAt": "2026-03-07T10:00:00.000Z"
+    },
+    {
+      "id": "s20",
+      "name": "Map Integration",
+      "description": "Leaflet route rendering.",
+      "priority": "High",
+      "projectId": "p12",
+      "ownerId": "u1",
+      "status": "Done",
+      "createdAt": "2026-03-11T11:00:00.000Z"
+    },
+    {
+      "id": "s21",
+      "name": "FB API Auth",
+      "description": "Marketing API tokens.",
+      "priority": "Medium",
+      "projectId": "p13",
+      "ownerId": "u1",
+      "status": "Doing",
+      "createdAt": "2026-03-13T12:00:00.000Z"
+    },
+    {
+      "id": "s22",
+      "name": "File Upload S3",
+      "description": "Multipart upload for large files.",
+      "priority": "High",
+      "projectId": "p14",
+      "ownerId": "u1",
+      "status": "Todo",
+      "createdAt": "2026-03-16T13:00:00.000Z"
+    },
+    {
+      "id": "s23",
+      "name": "Slack Webhooks",
+      "description": "Post alerts to channels.",
+      "priority": "Low",
+      "projectId": "p15",
+      "ownerId": "u1",
+      "status": "Done",
+      "createdAt": "2026-03-21T14:00:00.000Z"
+    }
   ],
   "$schema": "./node_modules/json-server/schema.json"
 }

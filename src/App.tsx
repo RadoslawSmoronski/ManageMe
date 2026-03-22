@@ -3,8 +3,9 @@ import Home from "./pages/Home"
 import { ProjectProvider } from "./context/ProjectContext"
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import AddProjectPage from "./pages/AddProjectPage"
-import ProjectDetailsPage from "./pages/ProjectDetailsPage"
+import ProjectPage from "./pages/ProjectPage"
 import { UserProvider } from "./context/UserContext"
+import ProjectDetailsPage from "./pages/ProjectDetailsPage"
 import AppNavbar from "./components/navbar";
 
 
@@ -18,7 +19,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects/new" element={<AddProjectPage />} />
-            <Route path="/projects/:id" element={<ProjectDetailsPage />} />
+            <Route path="/projects/:id" element={<ProjectPage />} />
+            <Route path="/projects/edit/:id" element={<ProjectDetailsPage />} />
           </Routes>
         </div>
       </ProjectProvider>
