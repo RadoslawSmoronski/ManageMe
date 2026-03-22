@@ -5,12 +5,15 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import AddProjectPage from "./pages/AddProjectPage"
 import ProjectDetailsPage from "./pages/ProjectDetailsPage"
 import { UserProvider } from "./context/UserContext"
+import AppNavbar from "./components/navbar";
 
 
 function App() {
   return (
     <UserProvider>
       <ProjectProvider>
+        <AppNavbar />
+        
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
