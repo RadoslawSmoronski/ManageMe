@@ -5,7 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import AddProjectPage from "./pages/AddProjectPage"
 import ProjectPage from "./pages/ProjectPage"
 import { UserProvider } from "./context/UserContext"
-import ProjectDetailsPage from "./pages/ProjectDetailsPage"
+import ProjectEditDetailsPage from "./pages/ProjectEditDetailsPage"
 import AppNavbar from "./components/navbar";
 
 
@@ -20,7 +20,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/projects/new" element={<AddProjectPage />} />
             <Route path="/projects/:id" element={<ProjectPage />} />
-            <Route path="/projects/edit/:id" element={<ProjectDetailsPage />} />
+            <Route path="/projects/edit/:id" element={<ProjectEditDetailsPage />} />
           </Routes>
         </div>
       </ProjectProvider>

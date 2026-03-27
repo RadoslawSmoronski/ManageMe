@@ -9,4 +9,4 @@ export interface Project {
   createdAt: Date;
 }
 
-export type ProjectFormData = Omit<Project, "id">;
+export type ProjectFormData = Omit<Project, "id" | "createdAt">;

@@ -2,10 +2,12 @@ import { Container, Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useProjects } from '../context/ProjectContext';
 import type { ProjectFormData } from '../types/project';
+import { useUser } from '../context/UserContext';
 
 export default function AddProjectPage() {
   const navigate = useNavigate();
   const { addProject } = useProjects();
+  const { user } = useUser();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -14,6 +16,7 @@ export default function AddProjectPage() {
     const newProject = Object.fromEntries(data.entries()) as unknown as ProjectFormData;
 
     if (newProject.name) {
+      newProject.ownerId = user.id;
       addProject(newProject);
       navigate('/');
     }
