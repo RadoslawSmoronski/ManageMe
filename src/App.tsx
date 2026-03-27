@@ -8,6 +8,7 @@ import { UserProvider } from "./context/UserContext"
 import ProjectEditDetailsPage from "./pages/ProjectEditDetailsPage"
 import AppNavbar from "./components/navbar";
 import { StoryProvider } from "./context/StoriesContext";
+import StoryFormPage from "./pages/StoryFormPage";
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
               <Route path="/projects/new" element={<AddProjectPage />} />
               <Route path="/projects/:id" element={<ProjectPage />} />
               <Route path="/projects/edit/:id" element={<ProjectEditDetailsPage />} />
+              <Route path="/projects/:id/stories/add" element={<StoryFormPage />} />
+              <Route path="/projects/:id/stories/edit/:storyId" element={<StoryFormPage />} />
             </Routes>
           </div>
         </StoryProvider>

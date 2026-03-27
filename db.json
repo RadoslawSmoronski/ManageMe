@@ -126,36 +126,6 @@
   ],
   "stories": [
     {
-      "id": "st-101",
-      "name": "Zigbee Protocol Research",
-      "description": "Check compatibility.",
-      "priority": "High",
-      "projectId": "p5",
-      "status": "Todo",
-      "createdAt": "2026-02-06T08:00:00.000Z",
-      "position": 1000
-    },
-    {
-      "id": "st-103",
-      "name": "MQTT Broker Setup",
-      "description": "Configure Mosquitto.",
-      "priority": "High",
-      "projectId": "p5",
-      "status": "Doing",
-      "createdAt": "2026-02-08T10:00:00.000Z",
-      "position": 1000
-    },
-    {
-      "id": "st-102",
-      "name": "Dashboard Wireframes",
-      "description": "Initial UI sketches.",
-      "priority": "Medium",
-      "projectId": "p5",
-      "status": "Done",
-      "createdAt": "2026-02-07T09:00:00.000Z",
-      "position": 1000
-    },
-    {
       "id": "st-201",
       "name": "PCI-DSS Compliance Check",
       "description": "Security standards.",
@@ -364,6 +334,36 @@
       "status": "Todo",
       "createdAt": "2026-03-25T15:00:00.000Z",
       "position": 1000
+    },
+    {
+      "id": "e445",
+      "name": "elo",
+      "description": "123",
+      "priority": "Low",
+      "status": "Doing",
+      "projectId": "p5",
+      "position": 1000,
+      "createdAt": "2026-03-27T12:08:32.670Z"
+    },
+    {
+      "id": "a0c1",
+      "name": "test",
+      "description": "elo",
+      "priority": "Medium",
+      "status": "Done",
+      "projectId": "p5",
+      "position": 31.25,
+      "createdAt": "2026-03-27T12:26:10.198Z"
+    },
+    {
+      "id": "5caf",
+      "name": "test2",
+      "description": "elo4",
+      "priority": "Medium",
+      "status": "Todo",
+      "projectId": "p5",
+      "position": 1000,
+      "createdAt": "2026-03-27T12:26:27.261Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
