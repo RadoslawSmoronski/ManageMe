@@ -336,16 +336,6 @@
       "position": 1000
     },
     {
-      "id": "e445",
-      "name": "elo",
-      "description": "123",
-      "priority": "Low",
-      "status": "Doing",
-      "projectId": "p5",
-      "position": 1000,
-      "createdAt": "2026-03-27T12:08:32.670Z"
-    },
-    {
       "id": "a0c1",
       "name": "test",
       "description": "elo",

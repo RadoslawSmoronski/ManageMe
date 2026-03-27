@@ -1,12 +1,12 @@
-import { Container, Row, Col, Card, Badge, Spinner } from 'react-bootstrap';
+import { Container, Row, Col, Card, Badge, Spinner, Button } from 'react-bootstrap';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import type { DropResult } from '@hello-pangea/dnd';
+import { useNavigate } from 'react-router-dom'; // Import navigate
 import { useStories } from '../../context/StoriesContext';
 import type { Story, StoryStatus } from '../../types/story';
 
 interface KanbanBoardProps {
   projectId: string;
-  onStoryClick?: (id: string) => void;
 }
 
 const COLUMNS: { label: string; value: StoryStatus }[] = [
@@ -15,7 +15,8 @@ const COLUMNS: { label: string; value: StoryStatus }[] = [
   { label: 'Done', value: 'Done' },
 ];
 
-export const KanbanBoard = ({ projectId, onStoryClick }: KanbanBoardProps) => {
+export const KanbanBoard = ({ projectId }: KanbanBoardProps) => {
+  const navigate = useNavigate(); // Hook for navigation
   const { getProjectStories, isLoading, editStory } = useStories();
   const projectStories = getProjectStories(projectId);
 
@@ -31,6 +32,11 @@ export const KanbanBoard = ({ projectId, onStoryClick }: KanbanBoardProps) => {
   const getStoriesByStatus = (status: StoryStatus) => 
     projectStories.filter(story => story.status === status);
 
+  // Handle clicking on a story to edit
+  const handleEditClick = (storyId: string) => {
+    navigate(`/projects/${projectId}/stories/edit/${storyId}`);
+  };
+
   const onDragEnd = async (result: DropResult) => {
     const { destination, source, draggableId } = result;
 
@@ -42,7 +48,6 @@ export const KanbanBoard = ({ projectId, onStoryClick }: KanbanBoardProps) => {
     const destStories = getStoriesByStatus(newStatus);
     let newPosition: number;
 
-    // Position Calculation Logic (Fractional Indexing)
     if (destStories.length === 0) {
       newPosition = 1000;
     } else if (destination.index === 0) {
@@ -53,7 +58,6 @@ export const KanbanBoard = ({ projectId, onStoryClick }: KanbanBoardProps) => {
       const prevStory = destStories[destination.index - 1];
       const nextStory = destStories[destination.index];
       
-      // Adjust neighbor logic if moving down in the same column
       if (source.droppableId === destination.droppableId && source.index < destination.index) {
           const actualNext = destStories[destination.index + 1];
           newPosition = actualNext 
@@ -79,11 +83,23 @@ export const KanbanBoard = ({ projectId, onStoryClick }: KanbanBoardProps) => {
             
             return (
               <Col key={col.value} xs={12} lg={4}>
+                {/* Column Header */}
                 <div className="d-flex align-items-center justify-content-between mb-3 px-2">
-                  <h5 className="fw-bold text-uppercase small text-muted mb-0">{col.label}</h5>
-                  <Badge bg="light" text="dark" className="rounded-pill border">
-                    {filteredStories.length}
-                  </Badge>
+                  <div className="d-flex align-items-center gap-2">
+                    <h5 className="fw-bold text-uppercase small text-muted mb-0">{col.label}</h5>
+                    <Badge bg="light" text="dark" className="rounded-pill border">
+                      {filteredStories.length}
+                    </Badge>
+                  </div>
+                  
+                  {/* Add Story Button - passing initial status via query param */}
+                  <Button 
+                    variant="link" 
+                    className="text-dark p-0 border-0 shadow-none d-flex align-items-center"
+                    onClick={() => navigate(`/projects/${projectId}/stories/add?status=${col.value}`)}
+                  >
+                    <i className="bi bi-plus-lg fs-5"></i>
+                  </Button>
                 </div>
 
                 <Droppable droppableId={col.value}>
@@ -103,11 +119,15 @@ export const KanbanBoard = ({ projectId, onStoryClick }: KanbanBoardProps) => {
                               ref={provided.innerRef}
                               {...provided.draggableProps}
                               {...provided.dragHandleProps}
+                              // Trigger edit on click
+                              onClick={() => handleEditClick(story.id)}
                               className={`mb-3 border-0 shadow-sm rounded-3 ${
                                 snapshot.isDragging ? 'shadow-lg bg-white' : ''
                               }`}
-                              style={{ ...provided.draggableProps.style, cursor: 'grab' }}
-                              onClick={() => onStoryClick?.(story.id)}
+                              style={{ 
+                                ...provided.draggableProps.style, 
+                                cursor: 'pointer' // Changed from grab to pointer to signal clickability
+                              }}
                             >
                               <Card.Body className="p-3">
                                 <div className="d-flex justify-content-between align-items-start mb-2">
