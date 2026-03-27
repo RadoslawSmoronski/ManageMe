@@ -8,5 +8,8 @@ export interface Story {
     priority: StoryPriority
     createdAt: Date
     status: StoryStatus
-    ownerId: string
+    projectId: string
+    position: number
 }
+
+export type StoryFormData = Omit<Story, "id" | "createdAt">;

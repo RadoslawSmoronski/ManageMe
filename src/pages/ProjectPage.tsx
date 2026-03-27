@@ -4,6 +4,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ProjectStatusBadge } from '../components/projects/ProjectStatusBadge';
 import { useProjects } from '../context/ProjectContext';
 import { confirmDelete } from '../utils/alerts';
+import { KanbanBoard } from '../components/projects/KanbanBoard';
+
+
 
 export default function ProjectDetailsPage() {
   const { id } = useParams();
@@ -92,7 +95,7 @@ export default function ProjectDetailsPage() {
         </section>
 
         <section>
-
+          <KanbanBoard projectId={activeProject.id} />
         </section>
 
       </Container>
