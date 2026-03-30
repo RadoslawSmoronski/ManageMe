@@ -1,10 +1,18 @@
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { useUser } from '../context/UserContext';
+import type { User } from '../types/user'
 import { useNavigate } from 'react-router-dom';
 
 export default function AppNavbar() {
-  const { user } = useUser();
+  const { currentUser } = useUser();
   const navigate = useNavigate();
+  
+  if (!currentUser) {
+    navigate('/');
+    return null;
+  }
+
+  const user: User = currentUser;
 
   return (
     <Navbar bg="white" expand="lg" className="py-3 border-bottom sticky-top shadow-sm">

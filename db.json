@@ -1,9 +1,88 @@
 {
-  "users": [
+"users": [
     {
       "id": "u1",
       "firstName": "Jan",
-      "lastName": "Kowalski"
+      "lastName": "Kowalski",
+      "role": "Admin"
+    },
+    {
+      "id": "u2",
+      "firstName": "Anna",
+      "lastName": "Nowak",
+      "role": "Developer"
+    },
+    {
+      "id": "u3",
+      "firstName": "Piotr",
+      "lastName": "Zieliński",
+      "role": "Devops"
+    },
+    {
+      "id": "u4",
+      "firstName": "Magda",
+      "lastName": "Wójcik",
+      "role": "Developer"
+    },
+    {
+      "id": "u5",
+      "firstName": "Łukasz",
+      "lastName": "Mazur",
+      "role": "Developer"
+    },
+    {
+      "id": "u6",
+      "firstName": "Katarzyna",
+      "lastName": "Krawczyk",
+      "role": "Devops"
+    },
+    {
+      "id": "u7",
+      "firstName": "Michał",
+      "lastName": "Jankowski",
+      "role": "Admin"
+    },
+    {
+      "id": "u8",
+      "firstName": "Agnieszka",
+      "lastName": "Kwiatkowska",
+      "role": "Developer"
+    },
+    {
+      "id": "u9",
+      "firstName": "Tomasz",
+      "lastName": "Woźniak",
+      "role": "Devops"
+    },
+    {
+      "id": "u10",
+      "firstName": "Karolina",
+      "lastName": "Duda",
+      "role": "Developer"
+    },
+    {
+      "id": "u11",
+      "firstName": "Paweł",
+      "lastName": "Szymański",
+      "role": "Developer"
+    },
+    {
+      "id": "u12",
+      "firstName": "Małgorzata",
+      "lastName": "Mróz",
+      "role": "Devops"
+    },
+    {
+      "id": "u13",
+      "firstName": "Robert",
+      "lastName": "Lewandowski",
+      "role": "Admin"
+    },
+    {
+      "id": "u14",
+      "firstName": "Julia",
+      "lastName": "Wysocka",
+      "role": "Developer"
     }
   ],
   "projects": [
@@ -14,14 +93,6 @@
       "status": "Planned",
       "ownerId": "u1",
       "createdAt": "2026-02-05T12:00:00.000Z"
-    },
-    {
-      "id": "p6",
-      "name": "Fintech Payment Gateway",
-      "description": "High-throughput transaction processor.",
-      "status": "In Progress",
-      "ownerId": "u1",
-      "createdAt": "2026-02-10T13:00:00.000Z"
     },
     {
       "id": "p7",
@@ -35,7 +106,7 @@
       "id": "p8",
       "name": "HR Management System",
       "description": "Employee onboarding and payroll.",
-      "status": "Completed",
+      "status": "In Progress",
       "ownerId": "u1",
       "createdAt": "2026-02-20T15:00:00.000Z"
     },
@@ -130,7 +201,7 @@
       "name": "PCI-DSS Compliance Check",
       "description": "Security standards.",
       "priority": "High",
-      "projectId": "p6",
+      "projectId": null,
       "status": "Done",
       "createdAt": "2026-02-11T11:00:00.000Z",
       "position": 78.125
@@ -140,7 +211,7 @@
       "name": "Webhook Notification System",
       "description": "Notify merchants.",
       "priority": "Medium",
-      "projectId": "p6",
+      "projectId": null,
       "status": "Doing",
       "createdAt": "2026-02-12T12:00:00.000Z",
       "position": 1000
@@ -150,7 +221,7 @@
       "name": "Apple Pay Integration",
       "description": "Implement SDK.",
       "priority": "High",
-      "projectId": "p6",
+      "projectId": null,
       "status": "Todo",
       "createdAt": "2026-02-13T13:00:00.000Z",
       "position": 1000
@@ -191,7 +262,7 @@
       "description": "Automate contracts.",
       "priority": "Medium",
       "projectId": "p8",
-      "status": "Todo",
+      "status": "Doing",
       "createdAt": "2026-02-22T17:00:00.000Z",
       "position": 1000
     },
@@ -340,9 +411,9 @@
       "name": "test",
       "description": "elo",
       "priority": "Medium",
-      "status": "Done",
+      "status": "Doing",
       "projectId": "p5",
-      "position": 31.25,
+      "position": 1000,
       "createdAt": "2026-03-27T12:26:10.198Z"
     },
     {

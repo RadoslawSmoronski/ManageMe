@@ -1,32 +1,56 @@
-import { createContext, useContext } from 'react';
-import type { ReactNode } from 'react';
-import type { User } from '../types/user';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import type { User } from '../types/user'; 
 
 interface UserContextType {
-  user: User
+  currentUser: User | null;
+  users: User[];
+  loading: boolean;
+  error: string | null;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
 
-export const UserProvider = ({ children }: { children: ReactNode }) => {
+export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [users, setUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-    const user : User = {
-        id: "u1",
-        firstName: "Jan",
-        lastName: "Kowalski"
-    }
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('http://localhost:3001/users'); 
+        if (!response.ok) throw new Error('Users fetching error');
+        
+        const data: User[] = await response.json();
+        setUsers(data);
+
+        const mockAdmin = data.find(u => u.id === 'u1');
+        if (mockAdmin) {
+          setCurrentUser(mockAdmin);
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Unknown error');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
 
   return (
-    <UserContext.Provider value={{ user }}>
+    <UserContext.Provider value={{ currentUser, users, loading, error }}>
       {children}
     </UserContext.Provider>
   );
 };
 
-export const useUser = () => { 
+export const useUser = () => {
   const context = useContext(UserContext);
-  if (!context) {
-    throw new Error("useUser must be used within a UserProvider");
+  if (context === undefined) {
+    throw new Error('useUser must be used within a UserProvider');
   }
   return context;
 };
