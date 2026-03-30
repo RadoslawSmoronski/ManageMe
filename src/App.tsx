@@ -9,6 +9,7 @@ import ProjectEditDetailsPage from "./pages/ProjectEditDetailsPage"
 import AppNavbar from "./components/navbar";
 import { StoryProvider } from "./context/StoriesContext";
 import StoryFormPage from "./pages/StoryFormPage";
+import TestUserSelectorPage from "./pages/testPage";
 
 
 function App() {
