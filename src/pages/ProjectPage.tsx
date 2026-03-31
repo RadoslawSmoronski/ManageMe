@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Container, Row, Col, Button, Badge, Spinner, Nav } from 'react-bootstrap';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { ProjectStatusBadge } from '../components/projects/ProjectStatusBadge';
 import { useProjects } from '../context/ProjectContext';
 import { confirmDelete } from '../utils/alerts';
-import { KanbanBoard } from '../components/projects/KanbanBoard';
-
 
 export default function ProjectDetailsPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { activeProject, isLoading, setActiveProjectId, removeProject } = useProjects();
   
-  const [activeTab, setActiveTab] = useState<'tasks' | 'stories'>('tasks');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeTab = (searchParams.get('tab') as 'columns' | 'list') || 'columns';
+
+  const { activeProject, isLoading, setActiveProjectId, removeProject } = useProjects();
 
   useEffect(() => {
     if (id) {
@@ -47,6 +47,10 @@ export default function ProjectDetailsPage() {
       await removeProject(id);
       navigate(`/`);
     }
+  };
+
+  const handleTabSelect = (k: string | null) => {
+    if (k) setSearchParams({ tab: k });
   };
 
   return (
@@ -91,33 +95,44 @@ export default function ProjectDetailsPage() {
           </Row>
         </section>
 
-        {/* Tabs Navigation Section */}
-        <div className="mb-4">
+        {/* Tabs & Actions Section */}
+        <div className="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
           <Nav 
             variant="pills" 
-            className="custom-tabs p-1 bg-light rounded-3 d-inline-flex w-100 w-md-auto"
+            className="custom-tabs p-1 bg-light rounded-3 d-inline-flex"
             activeKey={activeTab}
-            onSelect={(k) => setActiveTab(k as 'tasks' | 'stories')}
+            onSelect={handleTabSelect}
           >
-            <Nav.Item className="flex-fill flex-md-grow-0">
-              <Nav.Link eventKey="tasks" className="text-center px-4 py-2 fw-bold">
-                <i className="bi bi-layout-three-columns me-2"></i>Tasks
+            <Nav.Item>
+              <Nav.Link eventKey="columns" className="px-4 py-2 fw-bold">
+                <i className="bi bi-layout-three-columns me-2"></i>Stories columns
               </Nav.Link>
             </Nav.Item>
-            <Nav.Item className="flex-fill flex-md-grow-0">
-              <Nav.Link eventKey="stories" className="text-center px-4 py-2 fw-bold">
-                <i className="bi bi-list-check me-2"></i>Stories
+            <Nav.Item>
+              <Nav.Link eventKey="list" className="px-4 py-2 fw-bold">
+                <i className="bi bi-list-check me-2"></i>Stories list
               </Nav.Link>
             </Nav.Item>
           </Nav>
+
+          <div className="d-flex gap-2">
+              <Button 
+                variant="dark" 
+                className="fw-bold px-4 py-2 rounded-3 shadow-sm d-flex align-items-center gap-2"
+                onClick={() => navigate(`/projects/${activeProject.id}/stories/add`)}
+              >
+                <i className="bi bi-plus-lg"></i>
+                <span>Add Story</span>
+              </Button>
+          </div>
         </div>
 
         {/* Content Section */}
         <section className="animate-fade-in">
-          {activeTab === 'tasks' ? (
-            <KanbanBoard projectId={activeProject.id} />
+          {activeTab === 'columns' ? (
+            "columns"
           ) : (
-            "Stories"
+            "list"
           )}
         </section>
 
@@ -140,9 +155,6 @@ export default function ProjectDetailsPage() {
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
-        }
-        @media (max-width: 768px) {
-          .custom-tabs { display: flex; }
         }
       `}</style>
     </div>

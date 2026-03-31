@@ -256,7 +256,7 @@
       "description": "Basic rendering.",
       "priority": "High",
       "projectId": "p7",
-      "status": "Done",
+      "status": "Doing",
       "createdAt": "2026-02-16T14:00:00.000Z",
       "position": 1000,
       "ownerId": "u5"
@@ -267,9 +267,9 @@
       "description": "GLTF support.",
       "priority": "Medium",
       "projectId": "p7",
-      "status": "Doing",
+      "status": "Done",
       "createdAt": "2026-02-17T15:00:00.000Z",
-      "position": 1000,
+      "position": 500,
       "ownerId": "u8"
     },
     {
