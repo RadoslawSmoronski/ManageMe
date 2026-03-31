@@ -5,6 +5,7 @@ import { ProjectStatusBadge } from '../components/projects/ProjectStatusBadge';
 import { useProjects } from '../context/ProjectContext';
 import { confirmDelete } from '../utils/alerts';
 import { StoriesColumns } from '../components/stories/StoriesColumns'; 
+import { StoriesList } from '../components/stories/StoriesList';
 
 
 export default function ProjectDetailsPage() {
@@ -129,7 +130,7 @@ export default function ProjectDetailsPage() {
           {activeTab === 'columns' ? (
             <StoriesColumns projectId={id} />
           ) : (
-            "list"
+            <StoriesList projectId={id} />
           )}
         </section>
 
