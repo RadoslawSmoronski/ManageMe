@@ -193,6 +193,27 @@
       "status": "Planned",
       "description": "elo4",
       "ownerId": "u1"
+    },
+    {
+      "id": "ce73",
+      "name": "project name",
+      "ownerId": "u4",
+      "status": "Planned",
+      "description": "elo"
+    },
+    {
+      "id": "046a",
+      "name": "test123",
+      "ownerId": "u4",
+      "status": "Planned",
+      "description": "elo2"
+    },
+    {
+      "id": "34af",
+      "name": "testowy4",
+      "ownerId": "u7",
+      "status": "In Progress",
+      "description": "witam4"
     }
   ],
   "stories": [
@@ -201,30 +222,33 @@
       "name": "PCI-DSS Compliance Check",
       "description": "Security standards.",
       "priority": "High",
-      "projectId": null,
+      "projectId": "p12",
       "status": "Done",
       "createdAt": "2026-02-11T11:00:00.000Z",
-      "position": 78.125
+      "position": 78.125,
+      "ownerId": "u1"
     },
     {
       "id": "st-202",
       "name": "Webhook Notification System",
       "description": "Notify merchants.",
       "priority": "Medium",
-      "projectId": null,
+      "projectId": "p13",
       "status": "Doing",
       "createdAt": "2026-02-12T12:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u2"
     },
     {
       "id": "st-203",
       "name": "Apple Pay Integration",
       "description": "Implement SDK.",
       "priority": "High",
-      "projectId": null,
+      "projectId": "p13",
       "status": "Todo",
       "createdAt": "2026-02-13T13:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u4"
     },
     {
       "id": "st-301",
@@ -234,7 +258,8 @@
       "projectId": "p7",
       "status": "Done",
       "createdAt": "2026-02-16T14:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u5"
     },
     {
       "id": "st-302",
@@ -244,7 +269,8 @@
       "projectId": "p7",
       "status": "Doing",
       "createdAt": "2026-02-17T15:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u8"
     },
     {
       "id": "st-401",
@@ -254,7 +280,8 @@
       "projectId": "p8",
       "status": "Done",
       "createdAt": "2026-02-21T16:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u10"
     },
     {
       "id": "st-402",
@@ -264,7 +291,8 @@
       "projectId": "p8",
       "status": "Doing",
       "createdAt": "2026-02-22T17:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u11"
     },
     {
       "id": "st-501",
@@ -274,7 +302,8 @@
       "projectId": "p9",
       "status": "Doing",
       "createdAt": "2026-02-26T18:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u14"
     },
     {
       "id": "st-502",
@@ -284,7 +313,8 @@
       "projectId": "p9",
       "status": "Todo",
       "createdAt": "2026-02-27T19:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u4"
     },
     {
       "id": "st-601",
@@ -294,7 +324,8 @@
       "projectId": "p10",
       "status": "Todo",
       "createdAt": "2026-03-02T20:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u5"
     },
     {
       "id": "st-602",
@@ -304,7 +335,8 @@
       "projectId": "p10",
       "status": "Todo",
       "createdAt": "2026-03-03T21:00:00.000Z",
-      "position": 2000
+      "position": 2000,
+      "ownerId": "u8"
     },
     {
       "id": "st-701",
@@ -314,7 +346,8 @@
       "projectId": "p11",
       "status": "Done",
       "createdAt": "2026-03-06T22:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u2"
     },
     {
       "id": "st-702",
@@ -324,7 +357,8 @@
       "projectId": "p11",
       "status": "Doing",
       "createdAt": "2026-03-07T23:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u11"
     },
     {
       "id": "st-801",
@@ -334,7 +368,8 @@
       "projectId": "p12",
       "status": "Done",
       "createdAt": "2026-03-11T08:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u1"
     },
     {
       "id": "st-901",
@@ -344,7 +379,8 @@
       "projectId": "p13",
       "status": "Doing",
       "createdAt": "2026-03-13T09:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u14"
     },
     {
       "id": "st-1001",
@@ -354,7 +390,8 @@
       "projectId": "p14",
       "status": "Todo",
       "createdAt": "2026-03-16T10:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u1"
     },
     {
       "id": "st-1101",
@@ -364,7 +401,8 @@
       "projectId": "p15",
       "status": "Done",
       "createdAt": "2026-03-21T11:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u7"
     },
     {
       "id": "st-test-1",
@@ -374,7 +412,8 @@
       "projectId": "ee3c",
       "status": "Todo",
       "createdAt": "2026-03-22T12:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u5"
     },
     {
       "id": "st-test-2",
@@ -384,7 +423,8 @@
       "projectId": "0dee",
       "status": "Todo",
       "createdAt": "2026-03-23T13:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u8"
     },
     {
       "id": "st-test-3",
@@ -394,7 +434,8 @@
       "projectId": "b7d0",
       "status": "Doing",
       "createdAt": "2026-03-24T14:00:00.000Z",
-      "position": 1000
+      "position": 1000,
+      "ownerId": "u1"
     },
     {
       "id": "st-test-4",
@@ -404,27 +445,8 @@
       "projectId": "2393",
       "status": "Todo",
       "createdAt": "2026-03-25T15:00:00.000Z",
-      "position": 1000
-    },
-    {
-      "id": "a0c1",
-      "name": "test",
-      "description": "elo",
-      "priority": "Medium",
-      "status": "Doing",
-      "projectId": "p5",
       "position": 1000,
-      "createdAt": "2026-03-27T12:26:10.198Z"
-    },
-    {
-      "id": "5caf",
-      "name": "test2",
-      "description": "elo4",
-      "priority": "Medium",
-      "status": "Todo",
-      "projectId": "p5",
-      "position": 1000,
-      "createdAt": "2026-03-27T12:26:27.261Z"
+      "ownerId": "u10"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

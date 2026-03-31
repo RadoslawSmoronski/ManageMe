@@ -1,44 +1,52 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { Container, Button, Form } from 'react-bootstrap';
+import { Container, Button, Form, Spinner } from 'react-bootstrap';
 import { useProjects } from '../context/ProjectContext';
+import { useUser } from '../context/UserContext';
+import { UserSelector } from '../components/UserSelector';
 import type { ProjectFormData } from '../types/project';
 
-export default function ProjectEditDetailsPage() {
+export default function ProjectFormPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { projects, editProject, isLoading } = useProjects();
+  const { projects, addProject, editProject, isLoading } = useProjects();
+  const { currentUser } = useUser();
 
+  const isEditMode = Boolean(id);
   const project = projects.find((p) => p.id === id);
 
-  if (isLoading) {
+  if (!currentUser && !isEditMode) {
+    navigate('/');
+    return null;
+  }
+
+  if (isEditMode && isLoading) {
     return (
       <Container className="py-5 text-center">
-        <div className="spinner-border text-dark" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
+        <Spinner animation="border" variant="dark" />
       </Container>
     );
   }
 
-  if (!project) {
+  if (isEditMode && !project) {
     return (
       <Container className="py-5 text-center">
         <h3 className="fw-bold">Project not found</h3>
-        <Button variant="dark" onClick={() => navigate('/')} className="mt-3 rounded-3 px-4">
-          Back to Dashboard
-        </Button>
+        <Button variant="dark" onClick={() => navigate('/')} className="mt-3 rounded-3">Back to Dashboard</Button>
       </Container>
     );
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const updatedData = Object.fromEntries(formData.entries()) as unknown as ProjectFormData;
+    const data = new FormData(e.currentTarget);
+    const formData = Object.fromEntries(data.entries()) as unknown as ProjectFormData;
 
-    if (id) {
-      await editProject(id, updatedData);
-      navigate(`/projects/${id}`)
+    if (isEditMode && id) {
+      await editProject(id, formData);
+      navigate(`/projects/${id}`);
+    } else {
+      await addProject(formData);
+      navigate('/');
     }
   };
 
@@ -46,23 +54,33 @@ export default function ProjectEditDetailsPage() {
     <div className="bg-white min-vh-100 py-5">
       <Container style={{ maxWidth: '600px' }}>
         
-        {/* Header */}
-        <div className="d-flex align-items-center gap-3 mb-5">
-          <Button variant="link" onClick={() => navigate(`/projects/${id}`)} className="text-dark p-0 border-0 shadow-none">
+        <div className="d-flex align-items-center gap-3 mb-4">
+          <Button variant="link" onClick={() => navigate(-1)} className="text-dark p-0 border-0 shadow-none">
             <i className="bi bi-arrow-left fs-3"></i>
           </Button>
-          <h2 className="fw-bold mb-0">Edit Project</h2>
+          <h2 className="fw-bold mb-0">
+            {isEditMode ? 'Edit Project' : 'New Project'}
+          </h2>
         </div>
 
         <Form onSubmit={handleSubmit} className="d-grid gap-4">
+          
           <div>
             <label className="fw-bold small text-uppercase mb-2 text-muted">Project Name</label>
             <Form.Control 
               name="name" 
               required 
-              defaultValue={project.name} 
-              placeholder="Enter project name"
+              defaultValue={project?.name || ''} 
+              placeholder="e.g. Manage Me" 
               className="py-3 rounded-3 shadow-none border-light-subtle" 
+            />
+          </div>
+
+          <div>
+            <UserSelector 
+              label="Project Owner" 
+              name="ownerId" 
+              defaultValue={project?.ownerId || currentUser?.id} 
             />
           </div>
 
@@ -70,7 +88,7 @@ export default function ProjectEditDetailsPage() {
             <label className="fw-bold small text-uppercase mb-2 text-muted">Status</label>
             <Form.Select 
               name="status" 
-              defaultValue={project.status} 
+              defaultValue={project?.status || 'Planned'} 
               className="py-3 rounded-3 shadow-none cursor-pointer border-light-subtle"
             >
               <option value="Planned">Planned</option>
@@ -84,22 +102,23 @@ export default function ProjectEditDetailsPage() {
             <Form.Control 
               name="description" 
               as="textarea" 
-              rows={6} 
-              defaultValue={project.description} 
-              placeholder="Describe your project..."
+              rows={4} 
+              defaultValue={project?.description || ''} 
+              placeholder="Description..." 
               className="py-3 rounded-3 shadow-none border-light-subtle" 
               style={{ resize: 'none' }}
             />
           </div>
 
-          <div className="d-grid gap-2 pt-4">
-            <Button type="submit" variant="dark" className="py-3 fw-bold rounded-3">
-              Update Project
+          <div className="d-grid gap-2 pt-2">
+            <Button type="submit" variant="dark" className="py-3 fw-bold rounded-3 shadow-sm">
+              {isEditMode ? 'Update Project' : 'Create Project'}
             </Button>
-            <Button variant="link" onClick={() => navigate(`/projects/${id}`)} className="text-muted text-decoration-none small">
-              Cancel and go back
+            <Button variant="link" onClick={() => navigate(-1)} className="text-muted text-decoration-none small">
+              Discard changes
             </Button>
           </div>
+
         </Form>
       </Container>
     </div>

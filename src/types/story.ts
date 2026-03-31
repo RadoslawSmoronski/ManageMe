@@ -10,6 +10,7 @@ export interface Story {
     status: StoryStatus
     projectId: string
     position: number
+    ownerId: string
 }
 
 export type StoryFormData = Omit<Story, "id" | "createdAt">;

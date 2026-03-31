@@ -1,6 +1,7 @@
 import { Container, Button, Form, Row, Col, Spinner } from 'react-bootstrap';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useStories } from '../context/StoriesContext';
+import { UserSelector } from '../components/UserSelector';
 import type { StoryFormData, StoryPriority, StoryStatus } from '../types/story';
 import { confirmDelete } from '../utils/alerts'; 
 
@@ -12,7 +13,6 @@ export default function StoryFormPage() {
 
   const isEditMode = Boolean(storyId);
   const currentStory = stories.find(s => s.id === storyId);
-
 
   const defaultStatus = currentStory?.status || (searchParams.get('status') as StoryStatus) || "Todo";
 
@@ -27,18 +27,20 @@ export default function StoryFormPage() {
     const data = new FormData(e.currentTarget);
     const formValues = Object.fromEntries(data.entries());
 
-    const storyData = {
+    const storyData: StoryFormData = {
       name: formValues.name as string,
       description: formValues.description as string,
       priority: formValues.priority as StoryPriority,
       status: formValues.status as StoryStatus,
       projectId: projectId as string,
+      ownerId: formValues.ownerId as string,
+      position: currentStory?.position || 0
     };
 
     if (isEditMode && storyId) {
       await editStory(storyId, storyData);
     } else {
-      await addStory(storyData as StoryFormData);
+      await addStory(storyData);
     }
 
     navigate(`/projects/${projectId}`);
@@ -78,7 +80,15 @@ export default function StoryFormPage() {
               required 
               defaultValue={currentStory?.name}
               placeholder="e.g. User Authentication" 
-              className="py-3 rounded-3 shadow-none" 
+              className="py-3 rounded-3 shadow-none border-light-subtle" 
+            />
+          </div>
+
+          <div>
+            <UserSelector 
+              label="Assigned To (Owner)" 
+              name="ownerId" 
+              defaultValue={currentStory?.ownerId} 
             />
           </div>
 
@@ -90,7 +100,8 @@ export default function StoryFormPage() {
               rows={4} 
               defaultValue={currentStory?.description}
               placeholder="Provide more details..." 
-              className="py-3 rounded-3 shadow-none" 
+              className="py-3 rounded-3 shadow-none border-light-subtle" 
+              style={{ resize: 'none' }}
             />
           </div>
 
@@ -101,7 +112,7 @@ export default function StoryFormPage() {
                 <Form.Select 
                   name="priority" 
                   defaultValue={currentStory?.priority || "Medium"} 
-                  className="py-3 rounded-3 shadow-none cursor-pointer"
+                  className="py-3 rounded-3 shadow-none cursor-pointer border-light-subtle"
                 >
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>
@@ -116,7 +127,7 @@ export default function StoryFormPage() {
                 <Form.Select 
                   name="status" 
                   defaultValue={defaultStatus} 
-                  className="py-3 rounded-3 shadow-none cursor-pointer"
+                  className="py-3 rounded-3 shadow-none cursor-pointer border-light-subtle"
                 >
                   <option value="Todo">To Do</option>
                   <option value="Doing">In Progress</option>

@@ -4,62 +4,72 @@ import { useUser } from '../context/UserContext';
 
 interface UserSelectorProps {
   label: string;
-  onSelect: (userId: string) => void;
-  selectedUserId?: string;
+  name: string;
+  defaultValue?: string;
 }
 
-export const UserSelector: React.FC<UserSelectorProps> = ({ label, onSelect, selectedUserId }) => {
-  const { users } = useUser(); 
+export const UserSelector: React.FC<UserSelectorProps> = ({ 
+  label, 
+  name, 
+  defaultValue 
+}) => {
+  const { users } = useUser();
   const [search, setSearch] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const [internalId, setInternalId] = useState(defaultValue || '');
 
-  const filteredResults = users.filter(user => {
-    const fullName = `${user.firstName} ${user.lastName}`.toLowerCase();
-    return fullName.includes(search.toLowerCase());
-  });
+  const selectedUser = users.find(u => u.id === internalId);
 
-  const selectedUser = users.find(u => u.id === selectedUserId);
+  const filteredResults = users.filter(u => 
+    `${u.firstName} ${u.lastName}`.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <Form.Group className="mb-3 position-relative">
-      <Form.Label className="fw-bold">{label}</Form.Label>
+    <Form.Group className="position-relative">
+      <Form.Label className="fw-bold small text-uppercase mb-2">{label}</Form.Label>
       
+      <input type="hidden" name={name} value={internalId} />
+
       <Form.Control
         type="text"
-        placeholder={selectedUser ? `${selectedUser.firstName} ${selectedUser.lastName}` : "Type name..."}
+        autoComplete="off"
+        placeholder={selectedUser ? `${selectedUser.firstName} ${selectedUser.lastName}` : "Select user..."}
         value={search}
         onChange={(e) => {
           setSearch(e.target.value);
           setIsOpen(true);
         }}
         onFocus={() => setIsOpen(true)}
+        className="py-3 rounded-3 shadow-none"
       />
 
       {isOpen && search.length > 0 && (
-        <ListGroup className="position-absolute w-100 z-3 shadow mt-1">
+        <ListGroup 
+          className="position-absolute w-100 z-3 shadow mt-1 overflow-auto" 
+          style={{ maxHeight: '200px' }}
+        >
           {filteredResults.map(user => (
             <ListGroup.Item 
               key={user.id} 
               action 
               onClick={() => {
-                onSelect(user.id);
+                setInternalId(user.id);
                 setSearch(''); 
                 setIsOpen(false);
               }}
+              className="d-flex justify-content-between align-items-center"
             >
-              {user.firstName} {user.lastName} <small className="text-muted">({user.role})</small>
+              <span>{user.firstName} {user.lastName}</span>
+              <small className="text-muted">{user.role}</small>
             </ListGroup.Item>
           ))}
+          
           {filteredResults.length === 0 && (
-            <ListGroup.Item className="text-muted">No users found</ListGroup.Item>
+            <ListGroup.Item className="text-muted small text-center py-3">
+              User not found...
+            </ListGroup.Item>
           )}
         </ListGroup>
-      )}
-      
-      {selectedUser && !search && (
-        <div className="mt-1 small text-success">
-          Selected: <strong>{selectedUser.firstName} {selectedUser.lastName}</strong>
-        </div>
       )}
     </Form.Group>
   );
