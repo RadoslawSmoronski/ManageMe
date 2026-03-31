@@ -1,11 +1,12 @@
-export type StoryPriority = "Low" | "Medium" | "High";
+import type { Priority } from "./priority";
+
 export type StoryStatus = "Todo" | "Doing" | "Done";
 
 export interface Story {
     id: string,
     name: string,
     description: string,
-    priority: StoryPriority
+    priority: Priority
     createdAt: Date
     status: StoryStatus
     projectId: string

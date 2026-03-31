@@ -4,6 +4,8 @@ import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { ProjectStatusBadge } from '../components/projects/ProjectStatusBadge';
 import { useProjects } from '../context/ProjectContext';
 import { confirmDelete } from '../utils/alerts';
+import { StoriesColumns } from '../components/stories/StoriesColumns'; 
+
 
 export default function ProjectDetailsPage() {
   const { id } = useParams();
@@ -28,7 +30,7 @@ export default function ProjectDetailsPage() {
     );
   }
 
-  if (!activeProject) {
+  if (!activeProject || !id) {
     return (
       <Container className="text-center py-5">
         <h3 className="text-muted">Project not found</h3>
@@ -37,14 +39,14 @@ export default function ProjectDetailsPage() {
     );
   }
 
-  const handleDeleteClick = async (e: React.MouseEvent, id: string, name: string) => {
+  const handleDeleteClick = async (e: React.MouseEvent, projectId: string, name: string) => {
     e.stopPropagation();
     const isConfirmed = await confirmDelete(
       "Delete Project?", 
       `Are you sure you want to delete "${name}"? This action is permanent.`
     );
     if (isConfirmed) {
-      await removeProject(id);
+      await removeProject(projectId);
       navigate(`/`);
     }
   };
@@ -57,7 +59,6 @@ export default function ProjectDetailsPage() {
     <div className="bg-white min-vh-100 py-4">
       <Container style={{ maxWidth: '1100px' }}>
         
-        {/* Header Section */}
         <section className="py-4 border-bottom mb-4">
           <Row className="align-items-start gy-3">
             <Col xs={12} md={8}>
@@ -95,7 +96,6 @@ export default function ProjectDetailsPage() {
           </Row>
         </section>
 
-        {/* Tabs & Actions Section */}
         <div className="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
           <Nav 
             variant="pills" 
@@ -115,22 +115,19 @@ export default function ProjectDetailsPage() {
             </Nav.Item>
           </Nav>
 
-          <div className="d-flex gap-2">
-              <Button 
-                variant="dark" 
-                className="fw-bold px-4 py-2 rounded-3 shadow-sm d-flex align-items-center gap-2"
-                onClick={() => navigate(`/projects/${activeProject.id}/stories/add`)}
-              >
-                <i className="bi bi-plus-lg"></i>
-                <span>Add Story</span>
-              </Button>
-          </div>
+          <Button 
+            variant="dark" 
+            className="fw-bold px-4 py-2 rounded-3 shadow-sm d-flex align-items-center gap-2"
+            onClick={() => navigate(`/projects/${id}/stories/add`)}
+          >
+            <i className="bi bi-plus-lg"></i>
+            <span>Add Story</span>
+          </Button>
         </div>
 
-        {/* Content Section */}
         <section className="animate-fade-in">
           {activeTab === 'columns' ? (
-            "columns"
+            <StoriesColumns projectId={id} />
           ) : (
             "list"
           )}
@@ -139,23 +136,10 @@ export default function ProjectDetailsPage() {
       </Container>
 
       <style>{`
-        .custom-tabs .nav-link {
-          color: #6c757d;
-          border-radius: 8px;
-          transition: all 0.2s;
-        }
-        .custom-tabs .nav-link.active {
-          background-color: #212529;
-          color: white;
-          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.3s ease-in;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
+        .custom-tabs .nav-link { color: #6c757d; border-radius: 8px; transition: all 0.2s; }
+        .custom-tabs .nav-link.active { background-color: #212529; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .animate-fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
       `}</style>
     </div>
   );

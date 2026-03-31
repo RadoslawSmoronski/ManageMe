@@ -447,6 +447,28 @@
       "createdAt": "2026-03-25T15:00:00.000Z",
       "position": 1000,
       "ownerId": "u10"
+    },
+    {
+      "id": "40d9",
+      "name": "test",
+      "description": "elo",
+      "priority": "Low",
+      "status": "Done",
+      "projectId": "p7",
+      "ownerId": "u4",
+      "position": 1000,
+      "createdAt": "2026-03-31T13:41:52.499Z"
+    },
+    {
+      "id": "3a74",
+      "name": "test",
+      "description": "witam",
+      "priority": "Medium",
+      "status": "Todo",
+      "projectId": "p8",
+      "ownerId": "u4",
+      "position": 0,
+      "createdAt": "2026-03-31T13:56:42.148Z"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
