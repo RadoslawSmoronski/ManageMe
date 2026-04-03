@@ -217,278 +217,392 @@
     {
       "id": "s1",
       "name": "User Auth",
+      "description": "Core authentication system",
       "priority": "High",
       "projectId": "p1",
-      "status": "Completed"
+      "status": "Completed",
+      "ownerId": "u2",
+      "position": 1000
     },
     {
       "id": "s2",
       "name": "Cart Logic",
+      "description": "Advanced shopping cart features",
       "priority": "High",
       "projectId": "p1",
       "status": "Doing",
-      "description": "",
       "ownerId": "u7",
-      "position": 0
+      "position": 2000
     },
     {
       "id": "s3",
       "name": "Data Scrubbing",
+      "description": "Cleanup of old datasets",
       "priority": "Medium",
       "projectId": "p2",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u2",
+      "position": 1000
     },
     {
       "id": "s4",
       "name": "ML Model v1",
+      "description": "Initial routing model",
       "priority": "High",
       "projectId": "p2",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u5",
+      "position": 2000
     },
     {
       "id": "s5",
       "name": "Network Audit",
+      "description": "Security sweep",
       "priority": "High",
       "projectId": "p3",
-      "status": "Doing"
+      "status": "Doing",
+      "ownerId": "u3",
+      "position": 1000
     },
     {
       "id": "s6",
       "name": "Reporting UI",
+      "description": "Analytics views",
       "priority": "Low",
       "projectId": "p3",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u4",
+      "position": 2000
     },
     {
       "id": "s7",
       "name": "Sync Engine",
+      "description": "Device synchronization",
       "priority": "Medium",
       "projectId": "p4",
-      "status": "Completed"
+      "status": "Completed",
+      "ownerId": "u6",
+      "position": 1000
     },
     {
       "id": "s8",
       "name": "Health Dashboard",
+      "description": "Patient metrics",
       "priority": "High",
       "projectId": "p4",
-      "status": "Completed"
+      "status": "Completed",
+      "ownerId": "u10",
+      "position": 2000
     },
     {
       "id": "s9",
       "name": "Wallet Core",
+      "description": "Transactions engine",
       "priority": "High",
       "projectId": "p5",
-      "status": "Doing"
+      "status": "Doing",
+      "ownerId": "u15",
+      "position": 1000
     },
     {
       "id": "s10",
       "name": "Transaction History",
+      "description": "History logs",
       "priority": "Medium",
       "projectId": "p5",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u11",
+      "position": 2000
     },
     {
       "id": "s11",
       "name": "Sensor API",
+      "description": "Hardware communication",
       "priority": "High",
       "projectId": "p6",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u12",
+      "position": 1000
     },
     {
       "id": "s12",
       "name": "Alert System",
+      "description": "Push notifications",
       "priority": "Medium",
       "projectId": "p6",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u9",
+      "position": 2000
     },
     {
       "id": "s13",
       "name": "Stream Engine",
+      "description": "Live video processing",
       "priority": "High",
       "projectId": "p7",
-      "status": "Doing"
+      "status": "Doing",
+      "ownerId": "u4",
+      "position": 1000
     },
     {
       "id": "s14",
       "name": "Course Builder",
+      "description": "CMS for teachers",
       "priority": "Medium",
       "projectId": "p7",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u8",
+      "position": 2000
     },
     {
       "id": "s15",
       "name": "VR Rendering",
+      "description": "3D engine logic",
       "priority": "High",
       "projectId": "p8",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u2",
+      "position": 1000
     },
     {
       "id": "s16",
       "name": "Polygon Import",
+      "description": "CAD file support",
       "priority": "Medium",
       "projectId": "p8",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u2",
+      "position": 2000
     },
     {
       "id": "s17",
       "name": "DID Schema",
+      "description": "Identity formats",
       "priority": "High",
       "projectId": "p9",
-      "status": "Doing"
+      "status": "Doing",
+      "ownerId": "u11",
+      "position": 1000
     },
     {
       "id": "s18",
       "name": "Key Management",
+      "description": "Vault integration",
       "priority": "High",
       "projectId": "p9",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u3",
+      "position": 2000
     },
     {
       "id": "s19",
       "name": "Predictor Bot",
+      "description": "AI forecasting",
       "priority": "Medium",
       "projectId": "p10",
-      "status": "Completed"
+      "status": "Completed",
+      "ownerId": "u10",
+      "position": 1000
     },
     {
       "id": "s20",
       "name": "Ad Optimizer",
+      "description": "Marketing tweaks",
       "priority": "Low",
       "projectId": "p10",
-      "status": "Completed"
+      "status": "Completed",
+      "ownerId": "u4",
+      "position": 2000
     },
     {
       "id": "s21",
       "name": "OCR Core",
+      "description": "Image to text engine",
       "priority": "High",
       "projectId": "p11",
-      "status": "Doing"
+      "status": "Doing",
+      "ownerId": "u5",
+      "position": 1000
     },
     {
       "id": "s22",
       "name": "Legal Dictionary",
+      "description": "Term translation",
       "priority": "Medium",
       "projectId": "p11",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u5",
+      "position": 2000
     },
     {
       "id": "s23",
       "name": "Friend Logic",
+      "description": "Social graph",
       "priority": "Low",
       "projectId": "p12",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u14",
+      "position": 1000
     },
     {
       "id": "s24",
       "name": "Feed System",
+      "description": "Dynamic timeline",
       "priority": "Medium",
       "projectId": "p12",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u14",
+      "position": 2000
     },
     {
       "id": "s25",
       "name": "Video Bridge",
+      "description": "Signal routing",
       "priority": "High",
       "projectId": "p13",
-      "status": "Doing"
+      "status": "Doing",
+      "ownerId": "u9",
+      "position": 1000
     },
     {
       "id": "s26",
       "name": "Chat Module",
+      "description": "Real-time messaging",
       "priority": "Medium",
       "projectId": "p13",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u14",
+      "position": 2000
     },
     {
       "id": "s27",
       "name": "GPS Polling",
+      "description": "Location tracking",
       "priority": "High",
       "projectId": "p14",
-      "status": "Doing"
+      "status": "Doing",
+      "ownerId": "u12",
+      "position": 1000
     },
     {
       "id": "s28",
       "name": "Map Overlays",
+      "description": "GIS layers",
       "priority": "Medium",
       "projectId": "p14",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u12",
+      "position": 2000
     },
     {
       "id": "s29",
       "name": "Kubernetes Pods",
+      "description": "Cluster management",
       "priority": "High",
       "projectId": "p15",
-      "status": "Doing"
+      "status": "Doing",
+      "ownerId": "u3",
+      "position": 1000
     },
     {
       "id": "s30",
       "name": "Terraform Scripts",
+      "description": "IaC automation",
       "priority": "High",
       "projectId": "p15",
-      "status": "Doing"
+      "status": "Doing",
+      "ownerId": "u6",
+      "position": 2000
     },
     {
       "id": "s31",
       "name": "Checkout Flow",
+      "description": "Payment process",
       "priority": "High",
       "projectId": "p1",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u2",
+      "position": 3000
     },
     {
       "id": "s32",
       "name": "Product Filters",
+      "description": "Search categories",
       "priority": "Low",
       "projectId": "p1",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u2",
+      "position": 4000
     },
     {
       "id": "s34",
       "name": "Password Reset",
+      "description": "Recovery flow",
       "priority": "Medium",
       "projectId": "p1",
-      "status": "Completed"
+      "status": "Completed",
+      "ownerId": "u4",
+      "position": 5000
     },
     {
       "id": "s35",
       "name": "Patient Records",
+      "description": "Encrypted logs",
       "priority": "High",
       "projectId": "p4",
-      "status": "Completed"
+      "status": "Completed",
+      "ownerId": "u12",
+      "position": 3000
     },
     {
       "id": "s36",
       "name": "NFT Rewards",
+      "description": "Gamification",
       "priority": "Low",
       "projectId": "p5",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u15",
+      "position": 3000
     },
     {
       "id": "s37",
       "name": "Quiz Module",
+      "description": "Student tests",
       "priority": "Medium",
       "projectId": "p7",
-      "status": "Doing"
+      "status": "Doing",
+      "ownerId": "u14",
+      "position": 3000
     },
     {
       "id": "s38",
       "name": "Asset Library",
+      "description": "Media storage",
       "priority": "Medium",
       "projectId": "p8",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u2",
+      "position": 3000
     },
     {
       "id": "s39",
       "name": "Audit Logs",
+      "description": "Security history",
       "priority": "Low",
       "projectId": "p9",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u3",
+      "position": 3000
     },
     {
       "id": "s40",
       "name": "Contract Templates",
+      "description": "Legal docs",
       "priority": "Medium",
       "projectId": "p11",
-      "status": "Planned"
+      "status": "Planned",
+      "ownerId": "u5",
+      "position": 3000
     }
   ],
   "tasks": [
@@ -503,7 +617,8 @@
       "ownerId": "u3",
       "createdAt": "2026-01-02T10:00:00Z",
       "startedAt": "2026-01-02T11:00:00Z",
-      "finishedAt": "2026-01-02T16:00:00Z"
+      "finishedAt": "2026-01-02T16:00:00Z",
+      "position": 1000
     },
     {
       "id": "t2",
@@ -516,7 +631,8 @@
       "ownerId": "u2",
       "createdAt": "2026-01-02T16:30:00Z",
       "startedAt": "2026-01-03T09:00:00Z",
-      "finishedAt": "2026-01-03T11:00:00Z"
+      "finishedAt": "2026-01-03T11:00:00Z",
+      "position": 2000
     },
     {
       "id": "t3",
@@ -529,7 +645,8 @@
       "ownerId": "u4",
       "createdAt": "2026-01-04T12:00:00Z",
       "startedAt": "2026-01-04T13:00:00Z",
-      "finishedAt": "2026-01-04T16:00:00Z"
+      "finishedAt": "2026-01-04T16:00:00Z",
+      "position": 1000
     },
     {
       "id": "t4",
@@ -541,19 +658,20 @@
       "estimatedTime": 8,
       "ownerId": "u5",
       "createdAt": "2026-01-05T09:00:00Z",
-      "startedAt": "2026-04-03T08:00:00Z"
+      "position": 250,
+      "startedAt": "2026-04-03T19:18:58.567Z"
     },
     {
       "id": "t5",
       "name": "Cart Sync",
       "description": "Redis store setup.",
       "priority": "Medium",
-      "status": "Doing",
+      "status": "Planned",
       "storyId": "s2",
       "estimatedTime": 5,
       "ownerId": "u8",
       "createdAt": "2026-01-05T10:00:00Z",
-      "startedAt": "2026-04-03T10:00:00Z"
+      "position": 1000
     },
     {
       "id": "t6",
@@ -563,17 +681,22 @@
       "status": "Planned",
       "storyId": "s31",
       "estimatedTime": 2,
-      "createdAt": "2026-01-05T11:00:00Z"
+      "createdAt": "2026-01-05T11:00:00Z",
+      "position": 1000,
+      "ownerId": "u2"
     },
     {
       "id": "t7",
       "name": "Elastic Index",
       "description": "Product mapping.",
       "priority": "Medium",
-      "status": "Planned",
+      "status": "Doing",
       "storyId": "s3",
       "estimatedTime": 6,
-      "createdAt": "2026-01-10T12:00:00Z"
+      "createdAt": "2026-01-10T12:00:00Z",
+      "startedAt": "2026-04-03T14:20:09Z",
+      "ownerId": "u2",
+      "position": 1000
     },
     {
       "id": "t8",
@@ -583,7 +706,9 @@
       "status": "Planned",
       "storyId": "s3",
       "estimatedTime": 10,
-      "createdAt": "2026-01-11T09:00:00Z"
+      "createdAt": "2026-01-11T09:00:00Z",
+      "ownerId": "u2",
+      "position": 2000
     },
     {
       "id": "t9",
@@ -595,7 +720,8 @@
       "estimatedTime": 6,
       "ownerId": "u3",
       "createdAt": "2026-01-11T10:00:00Z",
-      "startedAt": "2026-04-03T09:00:00Z"
+      "startedAt": "2026-04-03T09:00:00Z",
+      "position": 1000
     },
     {
       "id": "t10",
@@ -607,7 +733,8 @@
       "estimatedTime": 4,
       "ownerId": "u9",
       "createdAt": "2026-01-11T11:00:00Z",
-      "startedAt": "2026-04-03T11:00:00Z"
+      "startedAt": "2026-04-03T11:00:00Z",
+      "position": 2000
     },
     {
       "id": "t11",
@@ -620,7 +747,8 @@
       "ownerId": "u6",
       "createdAt": "2026-01-16T10:00:00Z",
       "startedAt": "2026-01-16T11:00:00Z",
-      "finishedAt": "2026-01-16T15:00:00Z"
+      "finishedAt": "2026-01-16T15:00:00Z",
+      "position": 1000
     },
     {
       "id": "t12",
@@ -633,7 +761,8 @@
       "ownerId": "u10",
       "createdAt": "2026-01-17T09:00:00Z",
       "startedAt": "2026-01-17T10:00:00Z",
-      "finishedAt": "2026-01-17T17:00:00Z"
+      "finishedAt": "2026-01-17T17:00:00Z",
+      "position": 1000
     },
     {
       "id": "t13",
@@ -645,7 +774,8 @@
       "estimatedTime": 10,
       "ownerId": "u15",
       "createdAt": "2026-01-21T08:00:00Z",
-      "startedAt": "2026-04-03T08:30:00Z"
+      "startedAt": "2026-04-03T08:30:00Z",
+      "position": 1000
     },
     {
       "id": "t14",
@@ -655,7 +785,9 @@
       "status": "Planned",
       "storyId": "s10",
       "estimatedTime": 4,
-      "createdAt": "2026-01-22T09:00:00Z"
+      "createdAt": "2026-01-22T09:00:00Z",
+      "position": 4000,
+      "ownerId": "u2"
     },
     {
       "id": "t15",
@@ -667,19 +799,20 @@
       "estimatedTime": 12,
       "ownerId": "u11",
       "createdAt": "2026-02-02T10:00:00Z",
-      "startedAt": "2026-04-03T09:00:00Z"
+      "startedAt": "2026-04-03T09:00:00Z",
+      "position": 1000
     },
     {
       "id": "t16",
       "name": "WASM module",
       "description": "Video decoder.",
       "priority": "High",
-      "status": "Doing",
+      "status": "Planned",
       "storyId": "s13",
       "estimatedTime": 8,
       "ownerId": "u2",
       "createdAt": "2026-02-02T11:00:00Z",
-      "startedAt": "2026-04-03T11:00:00Z"
+      "position": 2000
     },
     {
       "id": "t17",
@@ -691,7 +824,8 @@
       "estimatedTime": 15,
       "ownerId": "u5",
       "createdAt": "2026-02-21T08:00:00Z",
-      "startedAt": "2026-04-03T07:00:00Z"
+      "startedAt": "2026-04-03T07:00:00Z",
+      "position": 1000
     },
     {
       "id": "t18",
@@ -703,7 +837,8 @@
       "estimatedTime": 6,
       "ownerId": "u4",
       "createdAt": "2026-03-02T09:00:00Z",
-      "startedAt": "2026-04-03T10:00:00Z"
+      "startedAt": "2026-04-03T10:00:00Z",
+      "position": 1000
     },
     {
       "id": "t19",
@@ -715,7 +850,8 @@
       "estimatedTime": 4,
       "ownerId": "u12",
       "createdAt": "2026-03-06T10:00:00Z",
-      "startedAt": "2026-04-03T12:00:00Z"
+      "startedAt": "2026-04-03T12:00:00Z",
+      "position": 1000
     },
     {
       "id": "t20",
@@ -727,7 +863,8 @@
       "estimatedTime": 5,
       "ownerId": "u3",
       "createdAt": "2026-03-11T09:00:00Z",
-      "startedAt": "2026-04-03T13:00:00Z"
+      "startedAt": "2026-04-03T13:00:00Z",
+      "position": 1000
     },
     {
       "id": "t21",
@@ -739,7 +876,8 @@
       "estimatedTime": 3,
       "ownerId": "u6",
       "createdAt": "2026-03-12T10:00:00Z",
-      "startedAt": "2026-04-03T14:00:00Z"
+      "startedAt": "2026-04-03T14:00:00Z",
+      "position": 1000
     },
     {
       "id": "t22",
@@ -752,7 +890,8 @@
       "ownerId": "u14",
       "createdAt": "2026-01-04T10:00:00Z",
       "startedAt": "2026-01-04T11:00:00Z",
-      "finishedAt": "2026-01-04T17:00:00Z"
+      "finishedAt": "2026-01-04T17:00:00Z",
+      "position": 3000
     },
     {
       "id": "t23",
@@ -765,11 +904,13 @@
       "ownerId": "u15",
       "createdAt": "2026-01-01T11:00:00Z",
       "startedAt": "2026-01-01T12:00:00Z",
-      "finishedAt": "2026-01-01T13:00:00Z"
+      "finishedAt": "2026-01-01T13:00:00Z",
+      "position": 4000
     },
     {
       "id": "t24",
       "name": "Logo design",
+      "description": "Initial branding assets",
       "priority": "Low",
       "status": "Completed",
       "storyId": "s1",
@@ -777,7 +918,8 @@
       "ownerId": "u8",
       "createdAt": "2026-01-01T14:00:00Z",
       "startedAt": "2026-01-01T15:00:00Z",
-      "finishedAt": "2026-01-01T17:00:00Z"
+      "finishedAt": "2026-01-01T17:00:00Z",
+      "position": 5000
     },
     {
       "id": "t25",
@@ -787,7 +929,8 @@
       "status": "Planned",
       "storyId": "s11",
       "estimatedTime": 4,
-      "createdAt": "2026-01-26T10:00:00Z"
+      "createdAt": "2026-01-26T10:00:00Z",
+      "position": 1000
     },
     {
       "id": "t26",
@@ -799,7 +942,8 @@
       "estimatedTime": 6,
       "ownerId": "u12",
       "createdAt": "2026-01-26T11:00:00Z",
-      "startedAt": "2026-04-03T08:00:00Z"
+      "startedAt": "2026-04-03T08:00:00Z",
+      "position": 2000
     },
     {
       "id": "t27",
@@ -809,7 +953,8 @@
       "status": "Planned",
       "storyId": "s12",
       "estimatedTime": 3,
-      "createdAt": "2026-01-27T09:00:00Z"
+      "createdAt": "2026-01-27T09:00:00Z",
+      "position": 1000
     },
     {
       "id": "t28",
@@ -819,29 +964,36 @@
       "status": "Planned",
       "storyId": "s12",
       "estimatedTime": 2,
-      "createdAt": "2026-01-27T10:00:00Z"
+      "createdAt": "2026-01-27T10:00:00Z",
+      "position": 2000
     },
     {
       "id": "t29",
       "name": "Video Compression",
       "description": "FFmpeg tuning.",
       "priority": "High",
-      "status": "Doing",
+      "status": "Completed",
       "storyId": "s13",
       "estimatedTime": 7,
       "ownerId": "u3",
       "createdAt": "2026-02-02T12:00:00Z",
-      "startedAt": "2026-04-03T09:00:00Z"
+      "startedAt": "2026-04-03T09:00:00Z",
+      "finishedAt": "2026-04-03T14:23:16Z",
+      "position": 3000
     },
     {
       "id": "t30",
       "name": "CDN Distribution",
       "description": "Edge node setup.",
       "priority": "Medium",
-      "status": "Planned",
+      "status": "Completed",
       "storyId": "s13",
       "estimatedTime": 4,
-      "createdAt": "2026-02-02T13:00:00Z"
+      "createdAt": "2026-02-02T13:00:00Z",
+      "startedAt": "2026-04-03T14:23:30Z",
+      "finishedAt": "2026-04-03T14:23:30Z",
+      "ownerId": "u2",
+      "position": 4000
     },
     {
       "id": "t31",
@@ -851,7 +1003,8 @@
       "status": "Planned",
       "storyId": "s14",
       "estimatedTime": 10,
-      "createdAt": "2026-02-03T10:00:00Z"
+      "createdAt": "2026-02-03T10:00:00Z",
+      "position": 1000
     },
     {
       "id": "t32",
@@ -863,7 +1016,8 @@
       "estimatedTime": 5,
       "ownerId": "u14",
       "createdAt": "2026-02-04T09:00:00Z",
-      "startedAt": "2026-04-03T10:00:00Z"
+      "startedAt": "2026-04-03T10:00:00Z",
+      "position": 1000
     },
     {
       "id": "t33",
@@ -873,7 +1027,8 @@
       "status": "Planned",
       "storyId": "s15",
       "estimatedTime": 15,
-      "createdAt": "2026-02-06T10:00:00Z"
+      "createdAt": "2026-02-06T10:00:00Z",
+      "position": 1000
     },
     {
       "id": "t34",
@@ -883,7 +1038,8 @@
       "status": "Planned",
       "storyId": "s15",
       "estimatedTime": 8,
-      "createdAt": "2026-02-06T11:00:00Z"
+      "createdAt": "2026-02-06T11:00:00Z",
+      "position": 2000
     },
     {
       "id": "t35",
@@ -893,7 +1049,8 @@
       "status": "Planned",
       "storyId": "s16",
       "estimatedTime": 4,
-      "createdAt": "2026-02-07T09:00:00Z"
+      "createdAt": "2026-02-07T09:00:00Z",
+      "position": 1000
     },
     {
       "id": "t36",
@@ -905,7 +1062,8 @@
       "estimatedTime": 6,
       "ownerId": "u2",
       "createdAt": "2026-02-11T10:00:00Z",
-      "startedAt": "2026-04-03T11:00:00Z"
+      "startedAt": "2026-04-03T11:00:00Z",
+      "position": 1000
     },
     {
       "id": "t37",
@@ -915,7 +1073,8 @@
       "status": "Planned",
       "storyId": "s18",
       "estimatedTime": 5,
-      "createdAt": "2026-02-11T11:00:00Z"
+      "createdAt": "2026-02-11T11:00:00Z",
+      "position": 1000
     },
     {
       "id": "t38",
@@ -925,7 +1084,8 @@
       "status": "Planned",
       "storyId": "s18",
       "estimatedTime": 8,
-      "createdAt": "2026-02-11T12:00:00Z"
+      "createdAt": "2026-02-11T12:00:00Z",
+      "position": 2000
     },
     {
       "id": "t39",
@@ -938,7 +1098,8 @@
       "ownerId": "u10",
       "createdAt": "2026-02-16T10:00:00Z",
       "startedAt": "2026-02-17T08:00:00Z",
-      "finishedAt": "2026-02-20T16:00:00Z"
+      "finishedAt": "2026-02-20T16:00:00Z",
+      "position": 1000
     },
     {
       "id": "t40",
@@ -951,7 +1112,8 @@
       "ownerId": "u4",
       "createdAt": "2026-02-17T09:00:00Z",
       "startedAt": "2026-02-18T10:00:00Z",
-      "finishedAt": "2026-02-18T14:00:00Z"
+      "finishedAt": "2026-02-18T14:00:00Z",
+      "position": 1000
     },
     {
       "id": "t41",
@@ -963,7 +1125,8 @@
       "estimatedTime": 6,
       "ownerId": "u5",
       "createdAt": "2026-02-21T09:00:00Z",
-      "startedAt": "2026-04-03T08:00:00Z"
+      "startedAt": "2026-04-03T08:00:00Z",
+      "position": 1000
     },
     {
       "id": "t42",
@@ -973,7 +1136,8 @@
       "status": "Planned",
       "storyId": "s22",
       "estimatedTime": 12,
-      "createdAt": "2026-02-22T10:00:00Z"
+      "createdAt": "2026-02-22T10:00:00Z",
+      "position": 1000
     },
     {
       "id": "t43",
@@ -983,7 +1147,8 @@
       "status": "Planned",
       "storyId": "s23",
       "estimatedTime": 5,
-      "createdAt": "2026-02-26T11:00:00Z"
+      "createdAt": "2026-02-26T11:00:00Z",
+      "position": 1000
     },
     {
       "id": "t44",
@@ -993,7 +1158,8 @@
       "status": "Planned",
       "storyId": "s24",
       "estimatedTime": 7,
-      "createdAt": "2026-02-27T09:00:00Z"
+      "createdAt": "2026-02-27T09:00:00Z",
+      "position": 1000
     },
     {
       "id": "t45",
@@ -1005,7 +1171,8 @@
       "estimatedTime": 4,
       "ownerId": "u9",
       "createdAt": "2026-03-02T10:00:00Z",
-      "startedAt": "2026-04-03T10:00:00Z"
+      "startedAt": "2026-04-03T10:00:00Z",
+      "position": 1000
     },
     {
       "id": "t46",
@@ -1015,7 +1182,8 @@
       "status": "Planned",
       "storyId": "s25",
       "estimatedTime": 6,
-      "createdAt": "2026-03-02T11:00:00Z"
+      "createdAt": "2026-03-02T11:00:00Z",
+      "position": 2000
     },
     {
       "id": "t47",
@@ -1025,7 +1193,8 @@
       "status": "Planned",
       "storyId": "s26",
       "estimatedTime": 3,
-      "createdAt": "2026-03-03T10:00:00Z"
+      "createdAt": "2026-03-03T10:00:00Z",
+      "position": 1000
     },
     {
       "id": "t48",
@@ -1035,7 +1204,8 @@
       "status": "Planned",
       "storyId": "s28",
       "estimatedTime": 5,
-      "createdAt": "2026-03-06T11:00:00Z"
+      "createdAt": "2026-03-06T11:00:00Z",
+      "position": 1000
     },
     {
       "id": "t49",
@@ -1047,7 +1217,8 @@
       "estimatedTime": 4,
       "ownerId": "u3",
       "createdAt": "2026-03-11T10:00:00Z",
-      "startedAt": "2026-04-03T12:00:00Z"
+      "startedAt": "2026-04-03T12:00:00Z",
+      "position": 1000
     },
     {
       "id": "t50",
@@ -1059,7 +1230,8 @@
       "estimatedTime": 3,
       "ownerId": "u6",
       "createdAt": "2026-03-12T11:00:00Z",
-      "startedAt": "2026-04-03T14:00:00Z"
+      "startedAt": "2026-04-03T14:00:00Z",
+      "position": 1000
     },
     {
       "id": "t51",
@@ -1069,7 +1241,8 @@
       "status": "Planned",
       "storyId": "s32",
       "estimatedTime": 4,
-      "createdAt": "2026-01-07T09:00:00Z"
+      "createdAt": "2026-01-07T09:00:00Z",
+      "position": 1000
     },
     {
       "id": "t52",
@@ -1077,9 +1250,10 @@
       "description": "Anomaly model.",
       "priority": "High",
       "status": "Planned",
-      "storyId": null,
+      "storyId": "s32",
       "estimatedTime": 8,
-      "createdAt": "2026-01-08T10:00:00Z"
+      "createdAt": "2026-01-08T10:00:00Z",
+      "position": 2000
     },
     {
       "id": "t53",
@@ -1092,7 +1266,8 @@
       "ownerId": "u12",
       "createdAt": "2026-01-18T10:00:00Z",
       "startedAt": "2026-01-19T08:00:00Z",
-      "finishedAt": "2026-01-19T14:00:00Z"
+      "finishedAt": "2026-01-19T14:00:00Z",
+      "position": 1000
     },
     {
       "id": "t54",
@@ -1102,7 +1277,8 @@
       "status": "Planned",
       "storyId": "s36",
       "estimatedTime": 5,
-      "createdAt": "2026-01-21T11:00:00Z"
+      "createdAt": "2026-01-21T11:00:00Z",
+      "position": 1000
     },
     {
       "id": "t55",
@@ -1112,7 +1288,8 @@
       "status": "Planned",
       "storyId": "s38",
       "estimatedTime": 6,
-      "createdAt": "2026-02-08T10:00:00Z"
+      "createdAt": "2026-02-08T10:00:00Z",
+      "position": 1000
     },
     {
       "id": "t56",
@@ -1122,7 +1299,8 @@
       "status": "Planned",
       "storyId": "s39",
       "estimatedTime": 3,
-      "createdAt": "2026-02-12T11:00:00Z"
+      "createdAt": "2026-02-12T11:00:00Z",
+      "position": 1000
     },
     {
       "id": "t57",
@@ -1132,27 +1310,36 @@
       "status": "Planned",
       "storyId": "s40",
       "estimatedTime": 5,
-      "createdAt": "2026-02-23T10:00:00Z"
+      "createdAt": "2026-02-23T10:00:00Z",
+      "position": 1000
     },
     {
       "id": "t58",
       "name": "Route Cleanup",
       "description": "API cleanup.",
       "priority": "Low",
-      "status": "Planned",
+      "status": "Completed",
       "storyId": "s3",
       "estimatedTime": 2,
-      "createdAt": "2026-04-03T09:00:00Z"
+      "createdAt": "2026-04-03T09:00:00Z",
+      "ownerId": "u2",
+      "startedAt": "2026-04-03T14:20:33Z",
+      "finishedAt": "2026-04-03T14:20:33Z",
+      "position": 3000
     },
     {
       "id": "t59",
       "name": "Doc Strings",
       "description": "Type documentation.",
       "priority": "Low",
-      "status": "Planned",
+      "status": "Completed",
       "storyId": "s4",
       "estimatedTime": 1,
-      "createdAt": "2026-04-03T10:00:00Z"
+      "createdAt": "2026-04-03T10:00:00Z",
+      "ownerId": "u2",
+      "startedAt": "2026-04-03T14:22:55Z",
+      "finishedAt": "2026-04-03T14:22:56Z",
+      "position": 1000
     },
     {
       "id": "t60",
@@ -1162,7 +1349,8 @@
       "status": "Planned",
       "storyId": "s6",
       "estimatedTime": 2,
-      "createdAt": "2026-04-03T11:00:00Z"
+      "createdAt": "2026-04-03T11:00:00Z",
+      "position": 1000
     },
     {
       "id": "t61",
@@ -1175,7 +1363,8 @@
       "ownerId": "u14",
       "createdAt": "2026-01-04T12:00:00Z",
       "startedAt": "2026-01-05T08:00:00Z",
-      "finishedAt": "2026-01-05T12:00:00Z"
+      "finishedAt": "2026-01-05T12:00:00Z",
+      "position": 6000
     },
     {
       "id": "t62",
@@ -1185,7 +1374,8 @@
       "status": "Planned",
       "storyId": "s12",
       "estimatedTime": 6,
-      "createdAt": "2026-01-28T09:00:00Z"
+      "createdAt": "2026-01-28T09:00:00Z",
+      "position": 3000
     },
     {
       "id": "t63",
@@ -1197,7 +1387,8 @@
       "estimatedTime": 5,
       "ownerId": "u3",
       "createdAt": "2026-01-06T10:00:00Z",
-      "startedAt": "2026-04-03T12:00:00Z"
+      "position": 500,
+      "startedAt": "2026-04-03T19:18:59.384Z"
     },
     {
       "id": "t64",
@@ -1209,7 +1400,8 @@
       "estimatedTime": 3,
       "ownerId": "u12",
       "createdAt": "2026-02-03T11:00:00Z",
-      "startedAt": "2026-04-03T13:00:00Z"
+      "startedAt": "2026-04-03T13:00:00Z",
+      "position": 5000
     },
     {
       "id": "t65",
@@ -1219,7 +1411,9 @@
       "status": "Planned",
       "storyId": "s10",
       "estimatedTime": 2,
-      "createdAt": "2026-01-23T10:00:00Z"
+      "createdAt": "2026-01-23T10:00:00Z",
+      "position": 3000,
+      "ownerId": "u2"
     },
     {
       "id": "t66",
@@ -1231,7 +1425,8 @@
       "estimatedTime": 4,
       "ownerId": "u11",
       "createdAt": "2026-02-12T10:00:00Z",
-      "startedAt": "2026-04-03T14:00:00Z"
+      "startedAt": "2026-04-03T14:00:00Z",
+      "position": 2000
     },
     {
       "id": "t67",
@@ -1241,7 +1436,8 @@
       "status": "Planned",
       "storyId": "s14",
       "estimatedTime": 6,
-      "createdAt": "2026-02-05T11:00:00Z"
+      "createdAt": "2026-02-05T11:00:00Z",
+      "position": 2000
     },
     {
       "id": "t68",
@@ -1253,7 +1449,8 @@
       "estimatedTime": 3,
       "ownerId": "u2",
       "createdAt": "2026-02-06T09:00:00Z",
-      "startedAt": "2026-04-03T15:00:00Z"
+      "startedAt": "2026-04-03T15:00:00Z",
+      "position": 2000
     },
     {
       "id": "t69",
@@ -1263,7 +1460,8 @@
       "status": "Planned",
       "storyId": "s11",
       "estimatedTime": 2,
-      "createdAt": "2026-01-28T10:00:00Z"
+      "createdAt": "2026-01-28T10:00:00Z",
+      "position": 3000
     },
     {
       "id": "t70",
@@ -1273,7 +1471,8 @@
       "status": "Planned",
       "storyId": "s12",
       "estimatedTime": 4,
-      "createdAt": "2026-01-29T11:00:00Z"
+      "createdAt": "2026-01-29T11:00:00Z",
+      "position": 4000
     },
     {
       "id": "t71",
@@ -1283,7 +1482,8 @@
       "status": "Planned",
       "storyId": "s13",
       "estimatedTime": 5,
-      "createdAt": "2026-02-07T12:00:00Z"
+      "createdAt": "2026-02-07T12:00:00Z",
+      "position": 6000
     },
     {
       "id": "t72",
@@ -1293,7 +1493,8 @@
       "status": "Planned",
       "storyId": "s14",
       "estimatedTime": 4,
-      "createdAt": "2026-02-08T13:00:00Z"
+      "createdAt": "2026-02-08T13:00:00Z",
+      "position": 3000
     },
     {
       "id": "t73",
@@ -1306,7 +1507,8 @@
       "ownerId": "u15",
       "createdAt": "2026-01-02T09:00:00Z",
       "startedAt": "2026-01-02T10:00:00Z",
-      "finishedAt": "2026-01-02T12:00:00Z"
+      "finishedAt": "2026-01-02T12:00:00Z",
+      "position": 7000
     },
     {
       "id": "t74",
@@ -1319,7 +1521,8 @@
       "ownerId": "u8",
       "createdAt": "2026-01-03T10:00:00Z",
       "startedAt": "2026-01-03T11:00:00Z",
-      "finishedAt": "2026-01-03T14:00:00Z"
+      "finishedAt": "2026-01-03T14:00:00Z",
+      "position": 8000
     },
     {
       "id": "t75",
@@ -1332,7 +1535,8 @@
       "ownerId": "u4",
       "createdAt": "2026-01-04T11:00:00Z",
       "startedAt": "2026-01-04T12:00:00Z",
-      "finishedAt": "2026-01-04T14:00:00Z"
+      "finishedAt": "2026-01-04T14:00:00Z",
+      "position": 9000
     },
     {
       "id": "t76",
@@ -1345,7 +1549,8 @@
       "ownerId": "u14",
       "createdAt": "2026-01-05T09:00:00Z",
       "startedAt": "2026-01-05T10:00:00Z",
-      "finishedAt": "2026-01-05T11:00:00Z"
+      "finishedAt": "2026-01-05T11:00:00Z",
+      "position": 10000
     },
     {
       "id": "t77",
@@ -1358,7 +1563,8 @@
       "ownerId": "u2",
       "createdAt": "2026-01-06T10:00:00Z",
       "startedAt": "2026-01-06T11:00:00Z",
-      "finishedAt": "2026-01-06T13:00:00Z"
+      "finishedAt": "2026-01-06T13:00:00Z",
+      "position": 11000
     },
     {
       "id": "t78",
@@ -1371,7 +1577,8 @@
       "ownerId": "u5",
       "createdAt": "2026-01-07T11:00:00Z",
       "startedAt": "2026-01-07T12:00:00Z",
-      "finishedAt": "2026-01-07T13:00:00Z"
+      "finishedAt": "2026-01-07T13:00:00Z",
+      "position": 12000
     },
     {
       "id": "t79",
@@ -1384,7 +1591,8 @@
       "ownerId": "u11",
       "createdAt": "2026-01-08T12:00:00Z",
       "startedAt": "2026-01-08T13:00:00Z",
-      "finishedAt": "2026-01-08T15:00:00Z"
+      "finishedAt": "2026-01-08T15:00:00Z",
+      "position": 13000
     },
     {
       "id": "t80",
@@ -1397,7 +1605,8 @@
       "ownerId": "u3",
       "createdAt": "2026-01-09T13:00:00Z",
       "startedAt": "2026-01-09T14:00:00Z",
-      "finishedAt": "2026-01-09T17:00:00Z"
+      "finishedAt": "2026-01-09T17:00:00Z",
+      "position": 14000
     },
     {
       "id": "t81",
@@ -1410,7 +1619,8 @@
       "ownerId": "u12",
       "createdAt": "2026-01-10T14:00:00Z",
       "startedAt": "2026-01-10T15:00:00Z",
-      "finishedAt": "2026-01-10T17:00:00Z"
+      "finishedAt": "2026-01-10T17:00:00Z",
+      "position": 15000
     },
     {
       "id": "t82",
@@ -1423,7 +1633,8 @@
       "ownerId": "u6",
       "createdAt": "2026-01-11T15:00:00Z",
       "startedAt": "2026-01-11T16:00:00Z",
-      "finishedAt": "2026-01-11T19:00:00Z"
+      "finishedAt": "2026-01-11T19:00:00Z",
+      "position": 16000
     },
     {
       "id": "t83",
@@ -1436,7 +1647,8 @@
       "ownerId": "u15",
       "createdAt": "2026-01-12T16:00:00Z",
       "startedAt": "2026-01-12T17:00:00Z",
-      "finishedAt": "2026-01-12T18:00:00Z"
+      "finishedAt": "2026-01-12T18:00:00Z",
+      "position": 17000
     },
     {
       "id": "t84",
@@ -1449,7 +1661,8 @@
       "ownerId": "u9",
       "createdAt": "2026-01-13T17:00:00Z",
       "startedAt": "2026-01-13T18:00:00Z",
-      "finishedAt": "2026-01-13T20:00:00Z"
+      "finishedAt": "2026-01-13T20:00:00Z",
+      "position": 18000
     },
     {
       "id": "t85",
@@ -1462,7 +1675,8 @@
       "ownerId": "u12",
       "createdAt": "2026-01-14T18:00:00Z",
       "startedAt": "2026-01-14T19:00:00Z",
-      "finishedAt": "2026-01-14T21:00:00Z"
+      "finishedAt": "2026-01-14T21:00:00Z",
+      "position": 19000
     },
     {
       "id": "t86",
@@ -1475,7 +1689,8 @@
       "ownerId": "u3",
       "createdAt": "2026-01-15T19:00:00Z",
       "startedAt": "2026-01-15T20:00:00Z",
-      "finishedAt": "2026-01-15T23:00:00Z"
+      "finishedAt": "2026-01-15T23:00:00Z",
+      "position": 20000
     },
     {
       "id": "t87",
@@ -1488,7 +1703,8 @@
       "ownerId": "u6",
       "createdAt": "2026-01-16T20:00:00Z",
       "startedAt": "2026-01-16T21:00:00Z",
-      "finishedAt": "2026-01-16T22:00:00Z"
+      "finishedAt": "2026-01-16T22:00:00Z",
+      "position": 21000
     },
     {
       "id": "t88",
@@ -1501,7 +1717,8 @@
       "ownerId": "u9",
       "createdAt": "2026-01-17T21:00:00Z",
       "startedAt": "2026-01-17T22:00:00Z",
-      "finishedAt": "2026-01-17T23:00:00Z"
+      "finishedAt": "2026-01-17T23:00:00Z",
+      "position": 22000
     },
     {
       "id": "t89",
@@ -1514,7 +1731,8 @@
       "ownerId": "u15",
       "createdAt": "2026-01-18T22:00:00Z",
       "startedAt": "2026-01-18T23:00:00Z",
-      "finishedAt": "2026-01-19T00:00:00Z"
+      "finishedAt": "2026-01-19T00:00:00Z",
+      "position": 23000
     },
     {
       "id": "t90",
@@ -1527,7 +1745,8 @@
       "ownerId": "u4",
       "createdAt": "2026-01-19T23:00:00Z",
       "startedAt": "2026-01-20T00:00:00Z",
-      "finishedAt": "2026-01-20T01:00:00Z"
+      "finishedAt": "2026-01-20T01:00:00Z",
+      "position": 24000
     },
     {
       "id": "t91",
@@ -1537,17 +1756,21 @@
       "status": "Planned",
       "storyId": "s22",
       "estimatedTime": 8,
-      "createdAt": "2026-04-03T10:00:00Z"
+      "createdAt": "2026-04-03T10:00:00Z",
+      "position": 2000
     },
     {
       "id": "t92",
       "name": "Redux Tool",
       "description": "State slices.",
       "priority": "Medium",
-      "status": "Planned",
+      "status": "Doing",
       "storyId": "s10",
       "estimatedTime": 4,
-      "createdAt": "2026-04-03T11:00:00Z"
+      "createdAt": "2026-04-03T11:00:00Z",
+      "position": 1000,
+      "ownerId": "u2",
+      "startedAt": "2026-04-03T19:13:09.596Z"
     },
     {
       "id": "t93",
@@ -1557,7 +1780,9 @@
       "status": "Planned",
       "storyId": "s10",
       "estimatedTime": 3,
-      "createdAt": "2026-04-03T12:00:00Z"
+      "createdAt": "2026-04-03T12:00:00Z",
+      "position": 3500,
+      "ownerId": "u2"
     },
     {
       "id": "t94",
@@ -1567,7 +1792,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 5,
-      "createdAt": "2026-04-03T13:00:00Z"
+      "createdAt": "2026-04-03T13:00:00Z",
+      "position": 25000
     },
     {
       "id": "t95",
@@ -1577,7 +1803,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 2,
-      "createdAt": "2026-04-03T14:00:00Z"
+      "createdAt": "2026-04-03T14:00:00Z",
+      "position": 26000
     },
     {
       "id": "t96",
@@ -1587,7 +1814,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 1,
-      "createdAt": "2026-04-03T15:00:00Z"
+      "createdAt": "2026-04-03T15:00:00Z",
+      "position": 27000
     },
     {
       "id": "t97",
@@ -1597,7 +1825,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 4,
-      "createdAt": "2026-04-03T16:00:00Z"
+      "createdAt": "2026-04-03T16:00:00Z",
+      "position": 28000
     },
     {
       "id": "t98",
@@ -1607,7 +1836,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 2,
-      "createdAt": "2026-04-03T17:00:00Z"
+      "createdAt": "2026-04-03T17:00:00Z",
+      "position": 29000
     },
     {
       "id": "t99",
@@ -1617,7 +1847,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 3,
-      "createdAt": "2026-04-03T18:00:00Z"
+      "createdAt": "2026-04-03T18:00:00Z",
+      "position": 30000
     },
     {
       "id": "t100",
@@ -1627,7 +1858,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 1,
-      "createdAt": "2026-04-03T19:00:00Z"
+      "createdAt": "2026-04-03T19:00:00Z",
+      "position": 31000
     },
     {
       "id": "t101",
@@ -1637,7 +1869,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 2,
-      "createdAt": "2026-04-03T20:00:00Z"
+      "createdAt": "2026-04-03T20:00:00Z",
+      "position": 32000
     },
     {
       "id": "t102",
@@ -1647,7 +1880,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 2,
-      "createdAt": "2026-04-03T21:00:00Z"
+      "createdAt": "2026-04-03T21:00:00Z",
+      "position": 33000
     },
     {
       "id": "t103",
@@ -1657,7 +1891,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 5,
-      "createdAt": "2026-04-03T22:00:00Z"
+      "createdAt": "2026-04-03T22:00:00Z",
+      "position": 34000
     },
     {
       "id": "t104",
@@ -1667,7 +1902,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 4,
-      "createdAt": "2026-04-03T23:00:00Z"
+      "createdAt": "2026-04-03T23:00:00Z",
+      "position": 35000
     },
     {
       "id": "t105",
@@ -1677,7 +1913,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 6,
-      "createdAt": "2026-04-03T00:00:00Z"
+      "createdAt": "2026-04-03T00:00:00Z",
+      "position": 36000
     },
     {
       "id": "t106",
@@ -1687,7 +1924,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 1,
-      "createdAt": "2026-04-03T01:00:00Z"
+      "createdAt": "2026-04-03T01:00:00Z",
+      "position": 37000
     },
     {
       "id": "t107",
@@ -1697,7 +1935,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 20,
-      "createdAt": "2026-04-03T02:00:00Z"
+      "createdAt": "2026-04-03T02:00:00Z",
+      "position": 38000
     },
     {
       "id": "t108",
@@ -1707,7 +1946,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 15,
-      "createdAt": "2026-04-03T03:00:00Z"
+      "createdAt": "2026-04-03T03:00:00Z",
+      "position": 39000
     },
     {
       "id": "t109",
@@ -1717,7 +1957,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 4,
-      "createdAt": "2026-04-03T04:00:00Z"
+      "createdAt": "2026-04-03T04:00:00Z",
+      "position": 40000
     },
     {
       "id": "t110",
@@ -1727,7 +1968,8 @@
       "status": "Planned",
       "storyId": "s1",
       "estimatedTime": 2,
-      "createdAt": "2026-04-03T05:00:00Z"
+      "createdAt": "2026-04-03T05:00:00Z",
+      "position": 41000
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -4,6 +4,7 @@ import { AppBadge } from '../components/AppBadge';
 import { useTasks } from '../context/TasksContext';
 import { useStories } from '../context/StoriesContext';
 import { confirmDelete } from '../utils/alerts';
+import { TasksBoard } from '../components/tasks/TasksBoard';
 
 export const TaskPage = () => {
   const { projectId, storyId } = useParams();
@@ -110,6 +111,7 @@ export const TaskPage = () => {
 
 
         <section className="animate-fade-in">
+            <TasksBoard projectId={projectId!} storyId={storyId!} />
         </section>
 
       </Container>

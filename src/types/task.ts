@@ -8,6 +8,7 @@ interface BaseTask {
   storyId: string;
   estimatedTime: number;
   createdAt: string;
+  position: number;
 }
 
 export interface PlannedTask extends BaseTask {

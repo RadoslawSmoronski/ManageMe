@@ -6,6 +6,7 @@ interface TaskContextType {
   loading: boolean;
   addTask: (task: Omit<PlannedTask, 'id' | 'createdAt' | 'status'>) => Promise<void>;
   updateTask: (id: string, updates: Partial<Task>) => Promise<void>;
+  updateTaskInApi: (updatedTask: Task) => Promise<void>; // Added this to interface
   deleteTask: (id: string) => Promise<void>;
   assignUserToTask: (taskId: string, userId: string) => Promise<void>;
   completeTask: (taskId: string) => Promise<void>;
@@ -24,6 +25,8 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const res = await fetch(API_URL);
       const data = await res.json();
       setTasks(data);
+    } catch (error) {
+      console.error("Fetch tasks failed:", error);
     } finally {
       setLoading(false);
     }
@@ -110,8 +113,14 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   return (
     <TaskContext.Provider value={{ 
-      tasks, loading, addTask, updateTask, deleteTask, 
-      assignUserToTask, completeTask 
+      tasks, 
+      loading, 
+      addTask, 
+      updateTask, 
+      updateTaskInApi, // Added this to provider value
+      deleteTask, 
+      assignUserToTask, 
+      completeTask 
     }}>
       {children}
     </TaskContext.Provider>
