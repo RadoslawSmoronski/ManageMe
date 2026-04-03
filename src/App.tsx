@@ -8,6 +8,7 @@ import AppNavbar from "./components/navbar";
 import { StoryProvider } from "./context/StoriesContext";
 import StoryFormPage from "./pages/StoryFormPage";
 import ProjectFormPage from "./pages/ProjectFormPage";
+import { TaskProvider } from "./context/TasksContext";
 
 
 function App() {
@@ -15,18 +16,20 @@ function App() {
     <UserProvider>
       <ProjectProvider>
         <StoryProvider>
-          <AppNavbar />
-          
-          <div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/projects/:id" element={<ProjectPage />} />
-              <Route path="/projects/new" element={<ProjectFormPage />} />
-              <Route path="/projects/edit/:id" element={<ProjectFormPage />} />
-              <Route path="/projects/:id/stories/add" element={<StoryFormPage />} />
-              <Route path="/projects/:id/stories/edit/:storyId" element={<StoryFormPage />} />
-            </Routes>
-          </div>
+          <TaskProvider>
+            <AppNavbar />
+            
+            <div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects/:id" element={<ProjectPage />} />
+                <Route path="/projects/new" element={<ProjectFormPage />} />
+                <Route path="/projects/edit/:id" element={<ProjectFormPage />} />
+                <Route path="/projects/:id/stories/add" element={<StoryFormPage />} />
+                <Route path="/projects/:id/stories/edit/:storyId" element={<StoryFormPage />} />
+              </Routes>
+            </div>
+          </TaskProvider>
         </StoryProvider>
       </ProjectProvider>
     </UserProvider>
