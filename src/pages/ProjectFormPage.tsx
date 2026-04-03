@@ -92,7 +92,7 @@ export default function ProjectFormPage() {
               className="py-3 rounded-3 shadow-none cursor-pointer border-light-subtle"
             >
               <option value="Planned">Planned</option>
-              <option value="In Progress">In Progress</option>
+              <option value="Doing">Doing</option>
               <option value="Completed">Completed</option>
             </Form.Select>
           </div>

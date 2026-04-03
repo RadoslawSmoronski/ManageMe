@@ -1,7 +1,7 @@
 import { Row, Col, Card } from 'react-bootstrap';
 import type { Project } from '../../types/project';
 import { useNavigate } from 'react-router-dom';
-import { ProjectStatusBadge } from './ProjectStatusBadge';
+import { AppBadge } from '../AppBadge';
 import { confirmDelete } from '../../utils/alerts';
 
 export interface ProjectsMobileListProps {
@@ -43,7 +43,7 @@ export default function ProjectsMobileList({ projects, removeProject }: Projects
                     {p.description}
                   </p>
                   <div>
-                    <ProjectStatusBadge status={p.status} />
+                    <AppBadge value={p.status} />
                   </div>
                 </Card.Body>
 

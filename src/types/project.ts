@@ -1,10 +1,10 @@
-export type ProjectStatus = "Planned" | "In Progress" | "Completed";
+import type { ProgressStatus } from "./common";
 
 export interface Project {
   id: string;
   name: string;
   description: string;
-  status: ProjectStatus;
+  status: ProgressStatus;
   ownerId: string;
   createdAt: Date;
 }

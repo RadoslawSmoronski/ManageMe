@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Container, Row, Col, Button, Badge, Spinner, Nav } from 'react-bootstrap';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
-import { ProjectStatusBadge } from '../components/projects/ProjectStatusBadge';
+import { AppBadge } from '../components/AppBadge';
 import { useProjects } from '../context/ProjectContext';
 import { confirmDelete } from '../utils/alerts';
 import { StoriesColumns } from '../components/stories/StoriesColumns'; 
@@ -67,7 +67,7 @@ export default function ProjectDetailsPage() {
                 <Badge bg="dark" className="border rounded-pill px-3 py-2 fw-medium">
                   ID: {activeProject.id}
                 </Badge>
-                <ProjectStatusBadge status={activeProject.status} />
+                <AppBadge value={activeProject.status} />
               </div>
               <h1 className="fw-bold text-dark mb-2">{activeProject.name}</h1>
               <p className="text-muted fs-5 mb-0" style={{ maxWidth: '700px' }}>

@@ -1,89 +1,19 @@
 {
   "users": [
-    {
-      "id": "u1",
-      "firstName": "Jan",
-      "lastName": "Kowalski",
-      "role": "Admin"
-    },
-    {
-      "id": "u2",
-      "firstName": "Anna",
-      "lastName": "Nowak",
-      "role": "Developer"
-    },
-    {
-      "id": "u3",
-      "firstName": "Piotr",
-      "lastName": "Zieliński",
-      "role": "Devops"
-    },
-    {
-      "id": "u4",
-      "firstName": "Magda",
-      "lastName": "Wójcik",
-      "role": "Developer"
-    },
-    {
-      "id": "u5",
-      "firstName": "Łukasz",
-      "lastName": "Mazur",
-      "role": "Developer"
-    },
-    {
-      "id": "u6",
-      "firstName": "Katarzyna",
-      "lastName": "Krawczyk",
-      "role": "Devops"
-    },
-    {
-      "id": "u7",
-      "firstName": "Michał",
-      "lastName": "Jankowski",
-      "role": "Admin"
-    },
-    {
-      "id": "u8",
-      "firstName": "Agnieszka",
-      "lastName": "Kwiatkowska",
-      "role": "Developer"
-    },
-    {
-      "id": "u9",
-      "firstName": "Tomasz",
-      "lastName": "Woźniak",
-      "role": "Devops"
-    },
-    {
-      "id": "u10",
-      "firstName": "Karolina",
-      "lastName": "Duda",
-      "role": "Developer"
-    },
-    {
-      "id": "u11",
-      "firstName": "Paweł",
-      "lastName": "Szymański",
-      "role": "Developer"
-    },
-    {
-      "id": "u12",
-      "firstName": "Małgorzata",
-      "lastName": "Mróz",
-      "role": "Devops"
-    },
-    {
-      "id": "u13",
-      "firstName": "Robert",
-      "lastName": "Lewandowski",
-      "role": "Admin"
-    },
-    {
-      "id": "u14",
-      "firstName": "Julia",
-      "lastName": "Wysocka",
-      "role": "Developer"
-    }
+    { "id": "u1", "firstName": "Jan", "lastName": "Kowalski", "role": "Admin" },
+    { "id": "u2", "firstName": "Anna", "lastName": "Nowak", "role": "Developer" },
+    { "id": "u3", "firstName": "Piotr", "lastName": "Zieliński", "role": "Devops" },
+    { "id": "u4", "firstName": "Magda", "lastName": "Wójcik", "role": "Developer" },
+    { "id": "u5", "firstName": "Łukasz", "lastName": "Mazur", "role": "Developer" },
+    { "id": "u6", "firstName": "Katarzyna", "lastName": "Krawczyk", "role": "Devops" },
+    { "id": "u7", "firstName": "Michał", "lastName": "Jankowski", "role": "Admin" },
+    { "id": "u8", "firstName": "Agnieszka", "lastName": "Kwiatkowska", "role": "Developer" },
+    { "id": "u9", "firstName": "Tomasz", "lastName": "Woźniak", "role": "Devops" },
+    { "id": "u10", "firstName": "Karolina", "lastName": "Duda", "role": "Developer" },
+    { "id": "u11", "firstName": "Paweł", "lastName": "Szymański", "role": "Developer" },
+    { "id": "u12", "firstName": "Małgorzata", "lastName": "Mróz", "role": "Devops" },
+    { "id": "u13", "firstName": "Robert", "lastName": "Lewandowski", "role": "Admin" },
+    { "id": "u14", "firstName": "Julia", "lastName": "Wysocka", "role": "Developer" }
   ],
   "projects": [
     {
@@ -98,7 +28,7 @@
       "id": "p7",
       "name": "Game Engine v2.0",
       "description": "Physics and rendering engine upgrade.",
-      "status": "In Progress",
+      "status": "Doing",
       "ownerId": "u1",
       "createdAt": "2026-02-15T14:00:00.000Z"
     },
@@ -106,7 +36,7 @@
       "id": "p8",
       "name": "HR Management System",
       "description": "Employee onboarding and payroll.",
-      "status": "In Progress",
+      "status": "Doing",
       "ownerId": "u1",
       "createdAt": "2026-02-20T15:00:00.000Z"
     },
@@ -114,7 +44,7 @@
       "id": "p9",
       "name": "Real Estate Listing VR",
       "description": "Virtual tours for property buyers.",
-      "status": "In Progress",
+      "status": "Doing",
       "ownerId": "u1",
       "createdAt": "2026-02-25T16:00:00.000Z"
     },
@@ -130,7 +60,7 @@
       "id": "p11",
       "name": "Education LMS Platform",
       "description": "Video courses and quizzes.",
-      "status": "In Progress",
+      "status": "Doing",
       "ownerId": "u1",
       "createdAt": "2026-03-05T18:00:00.000Z"
     },
@@ -146,7 +76,7 @@
       "id": "p13",
       "name": "Social Media Ad Manager",
       "description": "Automated campaign scheduling.",
-      "status": "In Progress",
+      "status": "Doing",
       "ownerId": "u1",
       "createdAt": "2026-03-12T20:00:00.000Z"
     },
@@ -212,7 +142,7 @@
       "id": "34af",
       "name": "testowy4",
       "ownerId": "u7",
-      "status": "In Progress",
+      "status": "Doing",
       "description": "witam4"
     }
   ],
@@ -223,7 +153,7 @@
       "description": "Security standards.",
       "priority": "High",
       "projectId": "p12",
-      "status": "Done",
+      "status": "Completed",
       "createdAt": "2026-02-11T11:00:00.000Z",
       "position": 78.125,
       "ownerId": "u1"
@@ -245,7 +175,7 @@
       "description": "Implement SDK.",
       "priority": "High",
       "projectId": "p13",
-      "status": "Todo",
+      "status": "Planned",
       "createdAt": "2026-02-13T13:00:00.000Z",
       "position": 1000,
       "ownerId": "u4"
@@ -267,7 +197,7 @@
       "description": "GLTF support.",
       "priority": "Medium",
       "projectId": "p7",
-      "status": "Done",
+      "status": "Completed",
       "createdAt": "2026-02-17T15:00:00.000Z",
       "position": 500,
       "ownerId": "u8"
@@ -278,7 +208,7 @@
       "description": "Regional taxes.",
       "priority": "High",
       "projectId": "p8",
-      "status": "Done",
+      "status": "Completed",
       "createdAt": "2026-02-21T16:00:00.000Z",
       "position": 1000,
       "ownerId": "u10"
@@ -311,7 +241,7 @@
       "description": "Gaze-based menu.",
       "priority": "Medium",
       "projectId": "p9",
-      "status": "Todo",
+      "status": "Planned",
       "createdAt": "2026-02-27T19:00:00.000Z",
       "position": 1000,
       "ownerId": "u4"
@@ -322,7 +252,7 @@
       "description": "Metamask wallet.",
       "priority": "High",
       "projectId": "p10",
-      "status": "Todo",
+      "status": "Planned",
       "createdAt": "2026-03-02T20:00:00.000Z",
       "position": 1000,
       "ownerId": "u5"
@@ -333,7 +263,7 @@
       "description": "ETH polling.",
       "priority": "Medium",
       "projectId": "p10",
-      "status": "Todo",
+      "status": "Planned",
       "createdAt": "2026-03-03T21:00:00.000Z",
       "position": 2000,
       "ownerId": "u8"
@@ -344,7 +274,7 @@
       "description": "GET endpoints.",
       "priority": "Medium",
       "projectId": "p11",
-      "status": "Done",
+      "status": "Completed",
       "createdAt": "2026-03-06T22:00:00.000Z",
       "position": 1000,
       "ownerId": "u2"
@@ -366,7 +296,7 @@
       "description": "Genetic algorithm.",
       "priority": "High",
       "projectId": "p12",
-      "status": "Done",
+      "status": "Completed",
       "createdAt": "2026-03-11T08:00:00.000Z",
       "position": 1000,
       "ownerId": "u1"
@@ -388,7 +318,7 @@
       "description": "Client-side encryption.",
       "priority": "High",
       "projectId": "p14",
-      "status": "Todo",
+      "status": "Planned",
       "createdAt": "2026-03-16T10:00:00.000Z",
       "position": 1000,
       "ownerId": "u1"
@@ -399,7 +329,7 @@
       "description": "Server health data.",
       "priority": "Low",
       "projectId": "p15",
-      "status": "Done",
+      "status": "Completed",
       "createdAt": "2026-03-21T11:00:00.000Z",
       "position": 1000,
       "ownerId": "u7"
@@ -410,7 +340,7 @@
       "description": "Remove imports.",
       "priority": "Low",
       "projectId": "ee3c",
-      "status": "Todo",
+      "status": "Planned",
       "createdAt": "2026-03-22T12:00:00.000Z",
       "position": 1000,
       "ownerId": "u5"
@@ -421,7 +351,7 @@
       "description": "Refactor CSS.",
       "priority": "Medium",
       "projectId": "0dee",
-      "status": "Todo",
+      "status": "Planned",
       "createdAt": "2026-03-23T13:00:00.000Z",
       "position": 1000,
       "ownerId": "u8"
@@ -443,7 +373,7 @@
       "description": "Form schemas.",
       "priority": "Medium",
       "projectId": "2393",
-      "status": "Todo",
+      "status": "Planned",
       "createdAt": "2026-03-25T15:00:00.000Z",
       "position": 1000,
       "ownerId": "u10"
@@ -453,7 +383,7 @@
       "name": "test",
       "description": "elo",
       "priority": "Low",
-      "status": "Done",
+      "status": "Completed",
       "projectId": "p7",
       "ownerId": "u4",
       "position": 1000,
@@ -464,7 +394,7 @@
       "name": "test",
       "description": "witam",
       "priority": "Medium",
-      "status": "Todo",
+      "status": "Planned",
       "projectId": "p8",
       "ownerId": "u4",
       "position": 0,

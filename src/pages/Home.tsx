@@ -67,7 +67,7 @@ export default function Home() {
           >
             <option value="All">All statuses</option>
             <option value="Planned">Planned</option>
-            <option value="In Progress">In Progress</option>
+            <option value="Doing">Doing</option>
             <option value="Completed">Completed</option>
           </Form.Select>
         </div>

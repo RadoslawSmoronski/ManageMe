@@ -1,7 +1,7 @@
 import { Table } from 'react-bootstrap';
 import type { Project } from '../../types/project';
 import { useNavigate } from 'react-router-dom';
-import { ProjectStatusBadge } from './ProjectStatusBadge';
+import { AppBadge } from '../AppBadge';
 import { confirmDelete } from '../../utils/alerts';
 
 export interface ProjectsDesktopListProps {
@@ -67,7 +67,7 @@ export default function ProjectsDesktopList({ projects, removeProject }: Project
                                 </div>
                             </td>
                             <td className="py-4 text-center">
-                                <ProjectStatusBadge status={p.status} />
+                                <AppBadge value={p.status} />
                             </td>
                             <td className="py-4 text-end pe-4" onClick={(e) => e.stopPropagation()}>
                                 <button 

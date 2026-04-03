@@ -2,8 +2,8 @@ import React, { useState, useMemo } from 'react';
 import { Table, Spinner, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useStories } from '../../context/StoriesContext';
-import { PriorityBadge } from '../PriorityBadge';
-import type { Story, StoryStatus } from '../../types/story';
+import { AppBadge } from '../AppBadge';
+import type { ProgressStatus } from '../../types/common';
 
 interface StoriesListProps {
   projectId: string;
@@ -23,7 +23,7 @@ export const StoriesList = ({ projectId }: StoriesListProps) => {
   });
 
   const priorityWeights: Record<string, number> = { High: 3, Medium: 2, Low: 1 };
-  const statusWeights: Record<StoryStatus, number> = { Todo: 1, Doing: 2, Done: 3 };
+  const statusWeights: Record<ProgressStatus, number> = { Planned: 1, Doing: 2, Completed: 3 };
 
   const sortedStories = useMemo(() => {
     const sortableItems = [...projectStories];
@@ -68,19 +68,6 @@ export const StoriesList = ({ projectId }: StoriesListProps) => {
       </div>
     );
   }
-
-  const getStatusBadge = (status: StoryStatus) => {
-    const styles: Record<StoryStatus, string> = {
-      Todo: 'bg-light text-dark border',
-      Doing: 'bg-primary-subtle text-primary border border-primary-subtle',
-      Done: 'bg-success-subtle text-success border border-success-subtle'
-    };
-    return (
-      <span className={`badge rounded-pill px-2 py-1 small ${styles[status]}`} style={{ fontSize: '0.7rem' }}>
-        {status}
-      </span>
-    );
-  };
 
   const getSortIcon = (key: SortKeys) => {
     if (sortConfig.key !== key) return <i className="bi bi-arrow-down-up ms-2 opacity-25"></i>;
@@ -127,8 +114,8 @@ export const StoriesList = ({ projectId }: StoriesListProps) => {
                       {story.description}
                     </div>
                   </td>
-                  <td><PriorityBadge priority={story.priority} /></td>
-                  <td>{getStatusBadge(story.status)}</td>
+                  <td><AppBadge value={story.priority} /></td>
+                  <td><AppBadge value={story.status} /></td>
                   <td className="text-end pe-4">
                     <span className="fw-bold small text-dark me-2">0/5</span>
                   </td>

@@ -3,17 +3,14 @@ import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import type { DropResult } from '@hello-pangea/dnd';
 import { useNavigate } from 'react-router-dom'; // Import navigate
 import { useStories } from '../../context/StoriesContext';
-import type { Story, StoryStatus } from '../../types/story';
+import type { ProgressStatus } from '../../types/common';
+import { AppBadge } from '../AppBadge'
 
 interface KanbanBoardProps {
   projectId: string;
 }
 
-const COLUMNS: { label: string; value: StoryStatus }[] = [
-  { label: 'To Do', value: 'Todo' },
-  { label: 'In Progress', value: 'Doing' },
-  { label: 'Done', value: 'Done' },
-];
+export const COLUMNS = ['Todo', 'Doing', 'Done'] as ProgressStatus[];
 
 export const KanbanBoard = ({ projectId }: KanbanBoardProps) => {
   const navigate = useNavigate(); // Hook for navigation
@@ -29,7 +26,7 @@ export const KanbanBoard = ({ projectId }: KanbanBoardProps) => {
     );
   }
 
-  const getStoriesByStatus = (status: StoryStatus) => 
+  const getStoriesByStatus = (status: ProgressStatus) => 
     projectStories.filter(story => story.status === status);
 
   // Handle clicking on a story to edit
@@ -44,7 +41,7 @@ export const KanbanBoard = ({ projectId }: KanbanBoardProps) => {
       return;
     }
 
-    const newStatus = destination.droppableId as StoryStatus;
+    const newStatus = destination.droppableId as ProgressStatus;
     const destStories = getStoriesByStatus(newStatus);
     let newPosition: number;
 
@@ -79,14 +76,14 @@ export const KanbanBoard = ({ projectId }: KanbanBoardProps) => {
       <Container fluid className="py-4 px-3">
         <Row className="g-4">
           {COLUMNS.map((col) => {
-            const filteredStories = getStoriesByStatus(col.value);
+            const filteredStories = getStoriesByStatus(col);
             
             return (
-              <Col key={col.value} xs={12} lg={4}>
+              <Col key={col} xs={12} lg={4}>
                 {/* Column Header */}
                 <div className="d-flex align-items-center justify-content-between mb-3 px-2">
                   <div className="d-flex align-items-center gap-2">
-                    <h5 className="fw-bold text-uppercase small text-muted mb-0">{col.label}</h5>
+                    <h5 className="fw-bold text-uppercase small text-muted mb-0">{col}</h5>
                     <Badge bg="light" text="dark" className="rounded-pill border">
                       {filteredStories.length}
                     </Badge>
@@ -96,13 +93,13 @@ export const KanbanBoard = ({ projectId }: KanbanBoardProps) => {
                   <Button 
                     variant="link" 
                     className="text-dark p-0 border-0 shadow-none d-flex align-items-center"
-                    onClick={() => navigate(`/projects/${projectId}/stories/add?status=${col.value}`)}
+                    onClick={() => navigate(`/projects/${projectId}/stories/add?status=${col}`)}
                   >
                     <i className="bi bi-plus-lg fs-5"></i>
                   </Button>
                 </div>
 
-                <Droppable droppableId={col.value}>
+                <Droppable droppableId={col}>
                   {(provided, snapshot) => (
                     <div
                       {...provided.droppableProps}
@@ -131,7 +128,7 @@ export const KanbanBoard = ({ projectId }: KanbanBoardProps) => {
                             >
                               <Card.Body className="p-3">
                                 <div className="d-flex justify-content-between align-items-start mb-2">
-                                  <PriorityBadge priority={story.priority} />
+                                  <AppBadge value={story.priority} />
                                 </div>
                                 <Card.Title className="fs-6 fw-bold mb-1">{story.name}</Card.Title>
                                 <Card.Text className="text-secondary small text-truncate-2">
@@ -163,14 +160,5 @@ export const KanbanBoard = ({ projectId }: KanbanBoardProps) => {
         </Row>
       </Container>
     </DragDropContext>
-  );
-};
-
-const PriorityBadge = ({ priority }: { priority: Story['priority'] }) => {
-  const colors = { High: 'danger', Medium: 'warning', Low: 'info' };
-  return (
-    <Badge bg={colors[priority]} className="small rounded-pill" style={{ fontSize: '0.65rem' }}>
-      {priority}
-    </Badge>
   );
 };

@@ -1,18 +1,14 @@
 import { Container, Badge, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useStories } from '../../context/StoriesContext';
-import type { StoryStatus } from '../../types/story';
-import { PriorityBadge } from '../PriorityBadge';
+import type { ProgressStatus } from '../../types/common';
+import { AppBadge } from '../AppBadge';
 
 interface StoriesColumnsProps {
   projectId: string;
 }
 
-const COLUMNS: { label: string; value: StoryStatus }[] = [
-  { label: 'To Do', value: 'Todo' },
-  { label: 'In Progress', value: 'Doing' },
-  { label: 'Done', value: 'Done' },
-];
+const COLUMNS = ["Planned", "Doing", "Completed"] as ProgressStatus[];
 
 export const StoriesColumns = ({ projectId }: StoriesColumnsProps) => {
   const navigate = useNavigate();
@@ -27,7 +23,7 @@ export const StoriesColumns = ({ projectId }: StoriesColumnsProps) => {
     );
   }
 
-  const getStoriesByStatus = (status: StoryStatus) => 
+  const getStoriesByStatus = (status: ProgressStatus) => 
     projectStories
       .filter(story => story.status === status)
       .sort((a, b) => a.position - b.position);
@@ -36,14 +32,14 @@ export const StoriesColumns = ({ projectId }: StoriesColumnsProps) => {
     <Container fluid className="px-0">
       <div className="stories-responsive-layout pb-4 pt-2">
         {COLUMNS.map((col) => {
-          const filteredStories = getStoriesByStatus(col.value);
+          const filteredStories = getStoriesByStatus(col);
           
           return (
-            <div key={col.value} className="story-column-wrapper">
+            <div key={col} className="story-column-wrapper">
               <div className="d-flex align-items-center justify-content-between mb-3 px-1">
                 <div className="d-flex align-items-center gap-2">
                   <span className="fw-bold text-dark small text-uppercase" style={{ letterSpacing: '0.5px' }}>
-                    {col.label}
+                    {col}
                   </span>
                   <Badge bg="dark" className="rounded-pill px-2 py-1" style={{ fontSize: '0.6rem' }}>
                     {filteredStories.length}
@@ -59,7 +55,7 @@ export const StoriesColumns = ({ projectId }: StoriesColumnsProps) => {
                     className="story-minimal-card mb-3 p-3 shadow-sm"
                   >
                     <div className="d-flex justify-content-between align-items-start mb-2">
-                       <PriorityBadge priority={story.priority} /> 
+                       <AppBadge value={story.priority} /> 
                        <span className="text-muted font-monospace" style={{ fontSize: '0.65rem' }}>
                         #{story.id.slice(0, 4)}
                        </span>

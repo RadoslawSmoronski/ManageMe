@@ -2,8 +2,9 @@ import { Container, Button, Form, Row, Col, Spinner } from 'react-bootstrap';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useStories } from '../context/StoriesContext';
 import { UserSelector } from '../components/UserSelector';
-import type { StoryFormData, StoryPriority, StoryStatus } from '../types/story';
-import { confirmDelete } from '../utils/alerts'; 
+import type { StoryFormData } from '../types/story';
+import { confirmDelete } from '../utils/alerts';
+import type { ProgressStatus, PriorityStatus} from '../types/common';
 
 export default function StoryFormPage() {
   const { id: projectId, storyId } = useParams<{ id: string; storyId?: string }>();
@@ -14,7 +15,7 @@ export default function StoryFormPage() {
   const isEditMode = Boolean(storyId);
   const currentStory = stories.find(s => s.id === storyId);
 
-  const defaultStatus = currentStory?.status || (searchParams.get('status') as StoryStatus) || "Todo";
+  const defaultStatus = currentStory?.status || (searchParams.get('status') as PriorityStatus) || "Todo";
 
   if (isEditMode && isLoading) {
     return <Container className="py-5 text-center"><Spinner animation="border" /></Container>;
@@ -30,8 +31,8 @@ export default function StoryFormPage() {
     const storyData: StoryFormData = {
       name: formValues.name as string,
       description: formValues.description as string,
-      priority: formValues.priority as StoryPriority,
-      status: formValues.status as StoryStatus,
+      priority: formValues.priority as PriorityStatus,
+      status: formValues.status as ProgressStatus,
       projectId: projectId as string,
       ownerId: formValues.ownerId as string,
       position: currentStory?.position || 0
@@ -130,8 +131,8 @@ export default function StoryFormPage() {
                   className="py-3 rounded-3 shadow-none cursor-pointer border-light-subtle"
                 >
                   <option value="Todo">To Do</option>
-                  <option value="Doing">In Progress</option>
-                  <option value="Done">Done</option>
+                  <option value="Doing">Doing</option>
+                  <option value="Completed">Completed</option>
                 </Form.Select>
               </div>
             </Col>
