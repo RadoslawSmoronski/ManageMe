@@ -1,5 +1,5 @@
-import { Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
+import { Routes, Route, Navigate} from "react-router-dom"
+import ProjectsPage from "./pages/ProjectsPage"
 import { ProjectProvider } from "./context/ProjectContext"
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import ProjectPage from "./pages/ProjectPage"
@@ -22,7 +22,9 @@ function App() {
             
             <div>
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Navigate to="/projects" replace />} />
+
+                <Route path="/projects" element={<ProjectsPage />} />
                 <Route path="/projects/:id" element={<ProjectPage />} />
                 <Route path="/projects/new" element={<ProjectFormPage />} />
                 <Route path="/projects/edit/:id" element={<ProjectFormPage />} />

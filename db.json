@@ -94,7 +94,7 @@
   "projects": [
     {
       "id": "p1",
-      "name": "E-Commerce NextGen",
+      "name": "house",
       "description": "Headless shop migration.",
       "status": "Doing",
       "ownerId": "u1",
@@ -211,6 +211,13 @@
       "status": "Doing",
       "ownerId": "u3",
       "createdAt": "2026-03-10T12:00:00Z"
+    },
+    {
+      "id": "f2af",
+      "name": "House",
+      "ownerId": "u12",
+      "status": "Planned",
+      "description": "elo robie se domekczek"
     }
   ],
   "stories": [
@@ -226,7 +233,7 @@
     },
     {
       "id": "s2",
-      "name": "Cart Logic",
+      "name": "lazienka",
       "description": "Advanced shopping cart features",
       "priority": "High",
       "projectId": "p1",
@@ -603,6 +610,28 @@
       "status": "Planned",
       "ownerId": "u5",
       "position": 3000
+    },
+    {
+      "id": "1060",
+      "name": "lazienke",
+      "description": "zrob to dobrze, ufam ci",
+      "priority": "High",
+      "status": "Todo",
+      "projectId": "f2af",
+      "ownerId": "u5",
+      "position": 0,
+      "createdAt": "2026-04-03T23:29:28.677Z"
+    },
+    {
+      "id": "0a9d",
+      "name": "elo",
+      "description": "dads",
+      "priority": "Medium",
+      "status": "Todo",
+      "projectId": "f2af",
+      "ownerId": "u13",
+      "position": 1000,
+      "createdAt": "2026-04-03T23:29:44.174Z"
     }
   ],
   "tasks": [
@@ -639,13 +668,11 @@
       "name": "Password Hash",
       "description": "Argon2 implementation.",
       "priority": "High",
-      "status": "Completed",
+      "status": "Planned",
       "storyId": "s34",
       "estimatedTime": 3,
       "ownerId": "u4",
       "createdAt": "2026-01-04T12:00:00Z",
-      "startedAt": "2026-01-04T13:00:00Z",
-      "finishedAt": "2026-01-04T16:00:00Z",
       "position": 1000
     },
     {
@@ -653,13 +680,12 @@
       "name": "Vat Logic",
       "description": "EU tax calculations.",
       "priority": "High",
-      "status": "Doing",
+      "status": "Planned",
       "storyId": "s2",
       "estimatedTime": 8,
       "ownerId": "u5",
       "createdAt": "2026-01-05T09:00:00Z",
-      "position": 250,
-      "startedAt": "2026-04-03T19:18:58.567Z"
+      "position": 2000
     },
     {
       "id": "t5",
@@ -1238,22 +1264,28 @@
       "name": "Filter Logic",
       "description": "Search categories.",
       "priority": "Low",
-      "status": "Planned",
+      "status": "Completed",
       "storyId": "s32",
       "estimatedTime": 4,
       "createdAt": "2026-01-07T09:00:00Z",
-      "position": 1000
+      "position": 250,
+      "startedAt": "2026-04-03T20:51:50.471Z",
+      "ownerId": "u2",
+      "finishedAt": "2026-04-03T20:51:55.837Z"
     },
     {
       "id": "t52",
       "name": "Isolation Forest",
       "description": "Anomaly model.",
       "priority": "High",
-      "status": "Planned",
+      "status": "Completed",
       "storyId": "s32",
       "estimatedTime": 8,
       "createdAt": "2026-01-08T10:00:00Z",
-      "position": 2000
+      "position": 125,
+      "startedAt": "2026-04-03T20:51:49.022Z",
+      "ownerId": "u2",
+      "finishedAt": "2026-04-03T20:51:56.655Z"
     },
     {
       "id": "t53",
@@ -1382,13 +1414,12 @@
       "name": "Redis Cluster",
       "description": "Scaling sessions.",
       "priority": "Medium",
-      "status": "Doing",
+      "status": "Planned",
       "storyId": "s2",
       "estimatedTime": 5,
       "ownerId": "u3",
       "createdAt": "2026-01-06T10:00:00Z",
-      "position": 500,
-      "startedAt": "2026-04-03T19:18:59.384Z"
+      "position": 3000
     },
     {
       "id": "t64",
@@ -1789,11 +1820,13 @@
       "name": "Icon Pack",
       "description": "SVG collection.",
       "priority": "Low",
-      "status": "Planned",
+      "status": "Doing",
       "storyId": "s1",
       "estimatedTime": 5,
       "createdAt": "2026-04-03T13:00:00Z",
-      "position": 25000
+      "position": 1000,
+      "startedAt": "2026-04-05T09:36:18.324Z",
+      "ownerId": "u2"
     },
     {
       "id": "t95",
@@ -1811,11 +1844,13 @@
       "name": "Font Pair",
       "description": "Inter & Mono.",
       "priority": "Low",
-      "status": "Planned",
+      "status": "Doing",
       "storyId": "s1",
       "estimatedTime": 1,
       "createdAt": "2026-04-03T15:00:00Z",
-      "position": 27000
+      "position": 2000,
+      "startedAt": "2026-04-05T09:36:19.260Z",
+      "ownerId": "u2"
     },
     {
       "id": "t97",
