@@ -24,13 +24,17 @@ function App() {
               <Routes>
                 <Route path="/" element={<Navigate to="/projects" replace />} />
 
+
                 <Route path="/projects" element={<ProjectsPage />} />
+
                 <Route path="/projects/:id" element={<ProjectPage />} />
                 <Route path="/projects/new" element={<ProjectFormPage />} />
                 <Route path="/projects/edit/:id" element={<ProjectFormPage />} />
-                <Route path="/projects/:id/stories/add" element={<StoryFormPage />} />
-                <Route path="/projects/:id/stories/edit/:storyId" element={<StoryFormPage />} />
+
+
                 <Route path="/projects/:projectId/stories/:storyId" element={<StoryPage />} />
+                <Route path="/projects/:projectId/stories/add" element={<StoryFormPage />} />
+                <Route path="/projects/:projectId/stories/edit/:storyId" element={<StoryFormPage />} />
               </Routes>
             </div>
           </TaskProvider>
@@ -39,7 +43,5 @@ function App() {
     </UserProvider>
   )
 }
-
-
 
 export default App

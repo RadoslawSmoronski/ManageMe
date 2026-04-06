@@ -218,6 +218,13 @@
       "ownerId": "u2",
       "status": "Doing",
       "description": "testy1"
+    },
+    {
+      "id": "69ee",
+      "name": "testproject3",
+      "ownerId": "u10",
+      "status": "Doing",
+      "description": "test"
     }
   ],
   "stories": [
@@ -665,6 +672,17 @@
       "ownerId": "u13",
       "position": 0,
       "createdAt": "2026-04-05T14:25:39.808Z"
+    },
+    {
+      "id": "d399",
+      "name": "test567",
+      "description": "dsfdsfdsds",
+      "priority": "Low",
+      "status": "Todo",
+      "projectId": "69ee",
+      "ownerId": "u13",
+      "position": 0,
+      "createdAt": "2026-04-06T15:09:10.791Z"
     }
   ],
   "tasks": [
@@ -713,27 +731,27 @@
       "name": "Vat Logic",
       "description": "EU tax calculations.",
       "priority": "High",
-      "status": "Completed",
+      "status": "Doing",
       "storyId": "s2",
       "estimatedTime": 8,
       "ownerId": "u5",
       "createdAt": "2026-01-05T09:00:00Z",
       "position": 1000,
-      "startedAt": "2026-04-06T11:43:53.880Z",
-      "finishedAt": "2026-04-06T11:43:53.880Z"
+      "startedAt": "2026-04-06T11:43:53.880Z"
     },
     {
       "id": "t5",
       "name": "Cart Sync",
       "description": "Redis store setup.",
       "priority": "Medium",
-      "status": "Doing",
+      "status": "Completed",
       "storyId": "s2",
       "estimatedTime": 5,
       "ownerId": "u8",
       "createdAt": "2026-01-05T10:00:00Z",
-      "position": 1000,
-      "startedAt": "2026-04-06T11:43:53.064Z"
+      "position": 2000,
+      "startedAt": "2026-04-06T11:43:53.064Z",
+      "finishedAt": "2026-04-06T14:32:22.836Z"
     },
     {
       "id": "t6",

@@ -7,7 +7,7 @@ import { confirmDelete } from '../utils/alerts';
 import type { ProgressStatus, PriorityStatus} from '../types/common';
 
 export default function StoryFormPage() {
-  const { id: projectId, storyId } = useParams<{ id: string; storyId?: string }>();
+  const { projectId: projectId, storyId } = useParams<{ projectId: string; storyId?: string }>();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
   const { addStory, editStory, removeStory, stories, isLoading } = useStories();
@@ -22,6 +22,7 @@ export default function StoryFormPage() {
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
     e.preventDefault();
     if (!projectId) return;
 
@@ -40,11 +41,12 @@ export default function StoryFormPage() {
 
     if (isEditMode && storyId) {
       await editStory(storyId, storyData);
+      navigate(`/projects/${projectId}/stories/${storyId}`);
     } else {
       await addStory(storyData);
+      navigate(`/projects/${projectId}`);
     }
 
-    navigate(`/projects/${projectId}`);
   };
 
   const handleDelete = async () => {
