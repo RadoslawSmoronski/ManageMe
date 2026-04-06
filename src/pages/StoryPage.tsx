@@ -6,7 +6,7 @@ import { useStories } from '../context/StoriesContext';
 import { confirmDelete } from '../utils/alerts';
 import { TasksBoard } from '../components/tasks/TasksBoard';
 
-export const TaskPage = () => {
+export const StoryPage = () => {
   const { projectId, storyId } = useParams();
   const navigate = useNavigate();
 
@@ -46,15 +46,6 @@ export const TaskPage = () => {
         <section className="py-4 border-bottom mb-4">
           <Row className="align-items-start gy-3">
             <Col xs={12} md={8}>
-              <div className="mb-2">
-                <span 
-                  className="text-muted small fw-bold text-uppercase" 
-                  style={{ cursor: 'pointer', letterSpacing: '0.5px' }}
-                  onClick={() => navigate(`/projects/${projectId}`)}
-                >
-                  <i className="bi bi-arrow-left me-1"></i> Back to Project
-                </span>
-              </div>
               <div className="d-flex align-items-center gap-2 mb-2">
                 <Badge bg="dark" className="border rounded-pill px-3 py-2 fw-medium">
                   STORY ID: {activeStory.id}

@@ -9,7 +9,7 @@ import { StoryProvider } from "./context/StoriesContext";
 import StoryFormPage from "./pages/StoryFormPage";
 import ProjectFormPage from "./pages/ProjectFormPage";
 import { TaskProvider } from "./context/TasksContext";
-import { TaskPage } from "./pages/TaskPage";
+import { StoryPage } from "./pages/StoryPage";
 
 
 function App() {
@@ -30,7 +30,7 @@ function App() {
                 <Route path="/projects/edit/:id" element={<ProjectFormPage />} />
                 <Route path="/projects/:id/stories/add" element={<StoryFormPage />} />
                 <Route path="/projects/:id/stories/edit/:storyId" element={<StoryFormPage />} />
-                <Route path="/projects/:projectId/stories/:storyId" element={<TaskPage />} />
+                <Route path="/projects/:projectId/stories/:storyId" element={<StoryPage />} />
               </Routes>
             </div>
           </TaskProvider>
