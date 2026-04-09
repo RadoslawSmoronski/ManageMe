@@ -758,12 +758,13 @@
       "name": "Checkout Button",
       "description": "Button animations.",
       "priority": "Low",
-      "status": "Planned",
+      "status": "Doing",
       "storyId": "s31",
       "estimatedTime": 2,
       "createdAt": "2026-01-05T11:00:00Z",
       "position": 1000,
-      "ownerId": "u2"
+      "ownerId": "u2",
+      "startedAt": "2026-04-09T13:21:22.193Z"
     },
     {
       "id": "t7",

@@ -92,7 +92,8 @@ export const StoryPage = () => {
           </div>
 
           <Button 
-            variant="dark" 
+            variant="dark"
+            onClick={() => navigate(`/projects/${projectId}/stories/${storyId}/tasks/add`)}
             className="fw-bold px-4 py-2 rounded-3 shadow-sm d-flex align-items-center gap-2"
           >
             <i className="bi bi-plus-lg"></i>
