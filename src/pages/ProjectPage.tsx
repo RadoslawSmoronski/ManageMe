@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { Container, Row, Col, Button, Badge, Spinner, Nav } from 'react-bootstrap';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { AppBadge } from '../components/AppBadge';
 import { useProjects } from '../context/ProjectsContext';
+import { useStories } from '../context/StoriesContext';
 import { confirmDelete } from '../utils/alerts';
 import { StoriesColumns } from '../components/stories/StoriesColumns'; 
 import { StoriesList } from '../components/stories/StoriesList';
@@ -14,8 +16,18 @@ export default function ProjectDetailsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const activeTab = (searchParams.get('tab') as 'columns' | 'list') || 'columns';
 
-  const { projects, isLoading, removeProject } = useProjects();
+  const { projects, isLoading, removeProject, loadProjects } = useProjects();
+  const { stories, isLoading: isStoriesLoading, loadStories } = useStories();
+
+  useEffect(() => {
+    loadProjects();
+    loadStories();
+  }, [loadProjects, loadStories]);
+
   const activeProject = projects.find((project) => project.id === id);
+  const projectStories = stories
+    .filter((story) => story.projectId === id)
+    .sort((a, b) => (a.position ?? 0) - (b.position ?? 0));
 
   if (isLoading) {
     return (
@@ -122,9 +134,17 @@ export default function ProjectDetailsPage() {
 
         <section className="animate-fade-in">
           {activeTab === 'columns' ? (
-            <StoriesColumns projectId={id} />
+            <StoriesColumns
+              projectId={id}
+              projectStories={projectStories}
+              isLoading={isStoriesLoading}
+            />
           ) : (
-            <StoriesList projectId={id} />
+            <StoriesList
+              projectId={id}
+              projectStories={projectStories}
+              isLoading={isStoriesLoading}
+            />
           )}
         </section>
 

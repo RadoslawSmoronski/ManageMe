@@ -1,21 +1,26 @@
 import { Container, Button, Form, Row, Col, Spinner } from 'react-bootstrap';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useStories } from '../context/StoriesContext';
 import { UserSelector } from '../components/UserSelector';
 import type { StoryFormData } from '../types/story';
 import { confirmDelete } from '../utils/alerts';
 import type { ProgressStatus, PriorityStatus} from '../types/common';
+import { useEffect } from 'react';
 
 export default function StoryFormPage() {
   const { projectId: projectId, storyId } = useParams<{ projectId: string; storyId?: string }>();
-  const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { addStory, editStory, removeStory, stories, isLoading } = useStories();
+  const { addStory, editStory, removeStory, stories, isLoading, loadStories } = useStories();
 
   const isEditMode = Boolean(storyId);
-  const currentStory = stories.find(s => s.id === storyId);
 
-  const defaultStatus = currentStory?.status || (searchParams.get('status') as PriorityStatus) || "Todo";
+  useEffect(() => {
+    if (isEditMode) {
+      loadStories();
+    }
+  }, [isEditMode, loadStories]);
+
+  const currentStory = stories.find(s => s.id === storyId);
 
   if (isEditMode && isLoading) {
     return <Container className="py-5 text-center"><Spinner animation="border" /></Container>;
@@ -114,7 +119,7 @@ export default function StoryFormPage() {
                 <label className="fw-bold small text-uppercase mb-2 text-muted">Priority</label>
                 <Form.Select 
                   name="priority" 
-                  defaultValue={currentStory?.priority || "Medium"} 
+                  defaultValue={currentStory?.priority || "Low"} 
                   className="py-3 rounded-3 shadow-none cursor-pointer border-light-subtle"
                 >
                   <option value="Low">Low</option>
@@ -129,10 +134,10 @@ export default function StoryFormPage() {
                 <label className="fw-bold small text-uppercase mb-2 text-muted">Status</label>
                 <Form.Select 
                   name="status" 
-                  defaultValue={defaultStatus} 
+                  defaultValue={currentStory?.status || "Planned"} 
                   className="py-3 rounded-3 shadow-none cursor-pointer border-light-subtle"
                 >
-                  <option value="Todo">To Do</option>
+                  <option value="Planned">Planned</option>
                   <option value="Doing">Doing</option>
                   <option value="Completed">Completed</option>
                 </Form.Select>

@@ -1,18 +1,32 @@
-import { Container, Row, Col, Button, Badge } from 'react-bootstrap';
+import { Container, Row, Col, Button, Badge, Spinner } from 'react-bootstrap';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AppBadge } from '../components/AppBadge';
 import { useTasks } from '../context/TasksContext';
 import { useStories } from '../context/StoriesContext';
 import { confirmDelete } from '../utils/alerts';
 import { TasksBoard } from '../components/tasks/TasksBoard';
+import { useEffect } from 'react';
 
 export const StoryPage = () => {
   const { projectId, storyId } = useParams();
   const navigate = useNavigate();
 
-  const { tasks } = useTasks();
-  const { stories, removeStory } = useStories();
+  const { tasks, loadTasks, isLoading: isTasksLoading } = useTasks();
+  const { stories, removeStory, loadStories, isLoading: isStoriesLoading } = useStories();
 
+  useEffect(() => {
+    loadTasks();
+    loadStories();
+  }, [loadTasks, loadStories]);
+
+  if (isTasksLoading || isStoriesLoading) {
+    return (
+      <Container className="text-center py-5">
+        <Spinner animation="border" variant="dark" />
+      </Container>
+    );
+  }
+  
   const activeStory = stories.find(s => s.id === storyId);
   const storyTasks = tasks.filter(t => t.storyId === storyId);
 

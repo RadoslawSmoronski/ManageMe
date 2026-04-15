@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Button, Form, Spinner } from 'react-bootstrap';
 import { useProjects } from '../context/ProjectsContext';
@@ -8,10 +9,17 @@ import type { ProjectFormData } from '../types/project';
 export default function ProjectFormPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { projects, addProject, editProject, isLoading } = useProjects();
+  const { projects, addProject, editProject, isLoading, loadProjects } = useProjects();
   const { currentUser } = useUsers();
 
   const isEditMode = Boolean(id);
+
+  useEffect(() => {
+    if (isEditMode) {
+      loadProjects();
+    }
+  }, [isEditMode, loadProjects]);
+
   const project = projects.find((p) => p.id === id);
 
   if (!currentUser && !isEditMode) {

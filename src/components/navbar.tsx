@@ -1,36 +1,76 @@
 import { Container, Navbar, NavDropdown } from 'react-bootstrap';
 import { useUsers } from '../context/UsersContext';
+import { useProjects } from '../context/ProjectsContext';
+import { useStories } from '../context/StoriesContext';
+import { useTasks } from '../context/TasksContext';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 
 export default function AppNavbar() {
-  const { currentUser } = useUsers();
+  const { currentUser, loadUsers, hasLoaded: hasUsersLoaded, isLoading: isUsersLoading } = useUsers();
+  const { projects} = useProjects();
+  const { stories} = useStories();
+  const { tasks} = useTasks();
   const navigate = useNavigate();
   const location = useLocation();
-  
+
+  useEffect(() => {
+    if (!hasUsersLoaded && !isUsersLoading) {
+      loadUsers();
+    }
+  }, [hasUsersLoaded, isUsersLoading, loadUsers]);
+
   if (!currentUser) return null;
 
   const user = currentUser;
   const pathnames = location.pathname.split('/').filter((x) => x);
 
-  console.log(pathnames);
-
   const truncate = (text: string, limit: number) => {
     return text.length > limit ? text.substring(0, limit) + "..." : text;
   };
 
-  const breadcrumbs = pathnames.reduce((acc: { label: string, to: string }[], value, index) => {
-    const to = `/${pathnames.slice(0, index + 1).join('/')}`;
-    
-    const isTechnical = value === 'stories' || value === 'tasks' || value === 'add' || value === 'edit';
-    const isProjectsRoot = value === 'projects' && pathnames.length === 1;
+  const breadcrumbs: { label: string; to: string }[] = [];
 
-    if (!isTechnical || isProjectsRoot) {
-      const label = value === 'projects' ? 'Projects' : truncate(value, 3);
-      acc.push({ label, to });
+  if (pathnames[0] === 'projects') {
+    breadcrumbs.push({ label: 'Projects', to: '/projects' });
+  }
+
+  const projectIdFromEditRoute = pathnames[1] === 'edit' ? pathnames[2] : undefined;
+  const projectId = projectIdFromEditRoute ?? pathnames[1];
+  if (projectId && projectId !== 'new' && projectId !== 'edit') {
+    const project = projects.find((item) => item.id === projectId);
+    breadcrumbs.push({
+      label: project ? truncate(project.name, 24) : truncate(projectId, 12),
+      to: `/projects/${projectId}`,
+    });
+  }
+
+  const storiesIdx = pathnames.indexOf('stories');
+  if (storiesIdx >= 0) {
+    const storySegment = pathnames[storiesIdx + 1];
+    const storyId = storySegment === 'edit' ? pathnames[storiesIdx + 2] : storySegment;
+    if (storyId && storyId !== 'add' && storyId !== 'edit') {
+      const story = stories.find((item) => item.id === storyId);
+      breadcrumbs.push({
+        label: story ? truncate(story.name, 24) : truncate(storyId, 12),
+        to: `/projects/${projectId}/stories/${storyId}`,
+      });
     }
-    
-    return acc;
-  }, []);
+  }
+
+  const tasksIdx = pathnames.indexOf('tasks');
+  if (tasksIdx >= 0) {
+    const taskSegment = pathnames[tasksIdx + 1];
+    const taskId = taskSegment === 'edit' ? pathnames[tasksIdx + 2] : taskSegment;
+    const storyId = storiesIdx >= 0 ? pathnames[storiesIdx + 1] : undefined;
+    if (taskId && taskId !== 'add' && taskId !== 'edit') {
+      const task = tasks.find((item) => item.id === taskId);
+      breadcrumbs.push({
+        label: task ? truncate(task.name, 24) : truncate(taskId, 12),
+        to: `/projects/${projectId}/stories/${storyId}/tasks/${taskId}`,
+      });
+    }
+  }
 
   return (
     <Navbar bg="white" className="py-2 border-bottom sticky-top shadow-sm">

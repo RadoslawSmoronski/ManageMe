@@ -1,19 +1,19 @@
 import { Container, Badge, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { useStories } from '../../context/StoriesContext';
+import type { Story } from '../../types/story';
 import type { ProgressStatus } from '../../types/common';
 import { AppBadge } from '../AppBadge';
 
 interface StoriesColumnsProps {
   projectId: string;
+  projectStories: Story[];
+  isLoading: boolean;
 }
 
 const COLUMNS = ["Planned", "Doing", "Completed"] as ProgressStatus[];
 
-export const StoriesColumns = ({ projectId }: StoriesColumnsProps) => {
+export const StoriesColumns = ({ projectId, projectStories, isLoading }: StoriesColumnsProps) => {
   const navigate = useNavigate();
-  const { getProjectStories, isLoading } = useStories();
-  const projectStories = getProjectStories(projectId);
 
   if (isLoading) {
     return (

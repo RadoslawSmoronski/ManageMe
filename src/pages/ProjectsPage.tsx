@@ -7,13 +7,17 @@ import { useNavigate } from 'react-router-dom';
 
 export default function ProjectsPage() {
   const navigate = useNavigate();
-  const { projects, isLoading, removeProject } = useProjects();
+  const { projects, isLoading, removeProject, loadProjects } = useProjects();
   
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
   const [visibleCount, setVisibleCount] = useState(10);
 
   useEffect(() => { setVisibleCount(10); }, [searchTerm, statusFilter]);
+
+  useEffect(() => {
+    loadProjects();
+  }, [loadProjects]);
 
   const filteredProjects = projects.filter((p) => {
     const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());

@@ -1,21 +1,21 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Table, Spinner, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { useStories } from '../../context/StoriesContext';
+import type { Story } from '../../types/story';
 import { AppBadge } from '../AppBadge';
 import type { ProgressStatus } from '../../types/common';
 
 interface StoriesListProps {
   projectId: string;
+  projectStories: Story[];
+  isLoading: boolean;
 }
 
 type SortKeys = 'id' | 'name' | 'priority' | 'status';
 type SortOrder = 'asc' | 'desc';
 
-export const StoriesList = ({ projectId }: StoriesListProps) => {
+export const StoriesList = ({ projectId, projectStories, isLoading }: StoriesListProps) => {
   const navigate = useNavigate();
-  const { getProjectStories, isLoading } = useStories();
-  const projectStories = getProjectStories(projectId);
 
   const [sortConfig, setSortConfig] = useState<{ key: SortKeys; order: SortOrder }>({
     key: 'name',
