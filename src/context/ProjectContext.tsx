@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import type { Project, ProjectFormData } from '../types/project';
-import { projectService } from '../services/projectService';
+import { projectService } from '../services/projectsService';
 
 interface ProjectContextType {
   projects: Project[];

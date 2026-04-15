@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import type { User } from '../types/user'; 
+import { usersService } from '../services/usersService';
 
 interface UserContextType {
   currentUser: User | null;
@@ -20,16 +21,12 @@ export const UserProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const fetchUsers = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:3001/users'); 
-        if (!response.ok) throw new Error('Users fetching error');
-        
-        const data: User[] = await response.json();
+        const [data, current] = await Promise.all([
+          usersService.getUsers(),
+          usersService.getCurrentUser('u1'),
+        ]);
         setUsers(data);
-
-        const mockAdmin = data.find(u => u.id === 'u1');
-        if (mockAdmin) {
-          setCurrentUser(mockAdmin);
-        }
+        setCurrentUser(current);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unknown error');
       } finally {
