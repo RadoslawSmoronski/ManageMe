@@ -1,12 +1,17 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import type { Task, PlannedTask, DoingTask, CompletedTask } from '../types/task';
+import { createContext, useCallback, useContext, useState } from "react";
+import type { ReactNode } from "react";
+import type { Task, PlannedTask, DoingTask, CompletedTask } from "../types/task";
+import { tasksService } from "../services/tasksService";
 
 interface TaskContextType {
   tasks: Task[];
-  loading: boolean;
+  isLoading: boolean;
+  hasLoaded: boolean;
+  error: string | null;
+  loadTasks: () => Promise<void>;
   addTask: (task: Omit<PlannedTask, 'id' | 'createdAt' | 'status'>) => Promise<void>;
   updateTask: (id: string, updates: Partial<Task>) => Promise<void>;
-  updateTaskInApi: (updatedTask: Task) => Promise<void>; // Added this to interface
+  updateTaskInApi: (updatedTask: Task) => Promise<void>;
   deleteTask: (id: string) => Promise<void>;
   assignUserToTask: (taskId: string, userId: string) => Promise<void>;
   completeTask: (taskId: string) => Promise<void>;
@@ -14,44 +19,37 @@ interface TaskContextType {
 
 const TaskContext = createContext<TaskContextType | undefined>(undefined);
 
-const API_URL = 'http://localhost:3001/tasks';
-
-export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const TasksProvider = ({ children }: { children: ReactNode }) => {
   const [tasks, setTasks] = useState<Task[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [hasLoaded, setHasLoaded] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const fetchTasks = async () => {
+  const loadTasks = useCallback(async () => {
     try {
-      const res = await fetch(API_URL);
-      const data = await res.json();
+      setIsLoading(true);
+      setError(null);
+      const data = await tasksService.getTasks();
       setTasks(data);
-    } catch (error) {
-      console.error("Fetch tasks failed:", error);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Unknown error");
+      console.error("Fetch tasks failed:", err);
     } finally {
-      setLoading(false);
+      setIsLoading(false);
+      setHasLoaded(true);
     }
-  };
-
-  useEffect(() => {
-    fetchTasks();
   }, []);
 
   const updateTaskInApi = async (updatedTask: Task) => {
-    const res = await fetch(`${API_URL}/${updatedTask.id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updatedTask),
-    });
-    if (res.ok) {
-      setTasks((prev) => prev.map((t) => (t.id === updatedTask.id ? updatedTask : t)));
-    }
+    const savedTask = await tasksService.updateTask(updatedTask.id, updatedTask);
+    setTasks((prev) => prev.map((task) => (task.id === savedTask.id ? savedTask : task)));
   };
 
   const assignUserToTask = async (taskId: string, userId: string) => {
     const task = tasks.find((t) => t.id === taskId);
     if (!task) return;
 
-    const { id, name, description, priority, storyId, estimatedTime, createdAt } = task;
+    const { id, name, description, priority, storyId, estimatedTime, createdAt, position } = task;
 
     const updatedTask: DoingTask = {
       id,
@@ -61,6 +59,7 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
       storyId,
       estimatedTime,
       createdAt,
+      position,
       status: 'Doing',
       ownerId: userId,
       startedAt: new Date().toISOString(),
@@ -89,35 +88,31 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
       status: 'Planned',
       createdAt: new Date().toISOString(),
     };
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newTask),
-    });
-    if (res.ok) setTasks((prev) => [...prev, newTask]);
+    const { id: _id, ...taskRequest } = newTask;
+    const savedTask = await tasksService.createTask(taskRequest);
+    setTasks((prev) => [...prev, savedTask]);
   };
 
-  const updateTask = async (id: string, updates: any) => {
-    const res = await fetch(`${API_URL}/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updates),
-    });
-    if (res.ok) fetchTasks();
+  const updateTask = async (id: string, updates: Partial<Task>) => {
+    const savedTask = await tasksService.updateTask(id, updates);
+    setTasks((prev) => prev.map((task) => (task.id === savedTask.id ? savedTask : task)));
   };
 
   const deleteTask = async (id: string) => {
-    const res = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-    if (res.ok) setTasks((prev) => prev.filter((t) => t.id !== id));
+    await tasksService.deleteTask(id);
+    setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
   return (
     <TaskContext.Provider value={{ 
       tasks, 
-      loading, 
+      isLoading,
+      hasLoaded,
+      error,
+      loadTasks,
       addTask, 
       updateTask, 
-      updateTaskInApi, // Added this to provider value
+      updateTaskInApi,
       deleteTask, 
       assignUserToTask, 
       completeTask 
@@ -129,6 +124,6 @@ export const TaskProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
 export const useTasks = () => {
   const context = useContext(TaskContext);
-  if (!context) throw new Error('useTasks must be used within TaskProvider');
+  if (!context) throw new Error('useTasks must be used within a TasksProvider');
   return context;
 };

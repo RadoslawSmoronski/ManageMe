@@ -1,9 +1,9 @@
 import { Container, Navbar, NavDropdown } from 'react-bootstrap';
-import { useUser } from '../context/UserContext';
+import { useUsers } from '../context/UsersContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 export default function AppNavbar() {
-  const { currentUser } = useUser();
+  const { currentUser } = useUsers();
   const navigate = useNavigate();
   const location = useLocation();
   

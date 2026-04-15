@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
 import { Container, Row, Col, Button, Badge, Spinner, Nav } from 'react-bootstrap';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { AppBadge } from '../components/AppBadge';
-import { useProjects } from '../context/ProjectContext';
+import { useProjects } from '../context/ProjectsContext';
 import { confirmDelete } from '../utils/alerts';
 import { StoriesColumns } from '../components/stories/StoriesColumns'; 
 import { StoriesList } from '../components/stories/StoriesList';
@@ -15,13 +14,8 @@ export default function ProjectDetailsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const activeTab = (searchParams.get('tab') as 'columns' | 'list') || 'columns';
 
-  const { activeProject, isLoading, setActiveProjectId, removeProject } = useProjects();
-
-  useEffect(() => {
-    if (id) {
-      setActiveProjectId(id);
-    }
-  }, [id, setActiveProjectId]);
+  const { projects, isLoading, removeProject } = useProjects();
+  const activeProject = projects.find((project) => project.id === id);
 
   if (isLoading) {
     return (

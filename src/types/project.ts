@@ -6,7 +6,7 @@ export interface Project {
   description: string;
   status: ProgressStatus;
   ownerId: string;
-  createdAt: Date;
+  createdAt: string;
 }
 
 export type ProjectFormData = Omit<Project, "id" | "createdAt">;

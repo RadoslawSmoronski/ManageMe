@@ -15,9 +15,9 @@ const COLUMNS = ['Planned', 'Doing', 'Completed'] as const;
 
 export const TasksBoard = ({ projectId, storyId }: TasksBoardProps) => {
   const navigate = useNavigate();
-  const { tasks, loading, updateTaskInApi } = useTasks();
+  const { tasks, isLoading, updateTaskInApi } = useTasks();
 
-  if (loading) return (
+  if (isLoading) return (
     <div className="text-center py-5"><Spinner animation="border" size="sm" /></div>
   );
 

@@ -1,23 +1,23 @@
 import { Routes, Route, Navigate} from "react-router-dom"
 import ProjectsPage from "./pages/ProjectsPage"
-import { ProjectProvider } from "./context/ProjectContext"
+import { ProjectsProvider } from "./context/ProjectsContext"
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import ProjectPage from "./pages/ProjectPage"
-import { UserProvider } from "./context/UserContext"
+import { UsersProvider } from "./context/UsersContext"
 import AppNavbar from "./components/navbar";
-import { StoryProvider } from "./context/StoriesContext";
+import { StoriesProvider } from "./context/StoriesContext";
 import StoryFormPage from "./pages/StoryFormPage";
 import ProjectFormPage from "./pages/ProjectFormPage";
-import { TaskProvider } from "./context/TasksContext";
+import { TasksProvider } from "./context/TasksContext";
 import { StoryPage } from "./pages/StoryPage";
 
 
 function App() {
   return (
-    <UserProvider>
-      <ProjectProvider>
-        <StoryProvider>
-          <TaskProvider>
+    <UsersProvider>
+      <ProjectsProvider>
+        <StoriesProvider>
+          <TasksProvider>
             <AppNavbar />
             
             <div>
@@ -37,10 +37,10 @@ function App() {
                 <Route path="/projects/:projectId/stories/edit/:storyId" element={<StoryFormPage />} />
               </Routes>
             </div>
-          </TaskProvider>
-        </StoryProvider>
-      </ProjectProvider>
-    </UserProvider>
+          </TasksProvider>
+        </StoriesProvider>
+      </ProjectsProvider>
+    </UsersProvider>
   )
 }
 

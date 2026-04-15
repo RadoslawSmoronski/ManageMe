@@ -5,7 +5,7 @@ export interface Story {
     name: string,
     description: string,
     priority: PriorityStatus
-    createdAt: Date
+    createdAt: string
     status: ProgressStatus
     projectId: string
     position: number

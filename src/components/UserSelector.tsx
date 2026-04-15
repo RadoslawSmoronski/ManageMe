@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, ListGroup } from 'react-bootstrap';
-import { useUser } from '../context/UserContext'; 
+import { useUsers } from '../context/UsersContext'; 
 
 interface UserSelectorProps {
   label: string;
@@ -13,7 +13,7 @@ export const UserSelector: React.FC<UserSelectorProps> = ({
   name, 
   defaultValue 
 }) => {
-  const { users } = useUser();
+  const { users } = useUsers();
   const [search, setSearch] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [internalId, setInternalId] = useState(defaultValue || '');

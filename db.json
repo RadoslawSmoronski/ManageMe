@@ -731,25 +731,26 @@
       "name": "Vat Logic",
       "description": "EU tax calculations.",
       "priority": "High",
-      "status": "Doing",
+      "status": "Completed",
       "storyId": "s2",
       "estimatedTime": 8,
       "ownerId": "u5",
       "createdAt": "2026-01-05T09:00:00Z",
-      "position": 1000,
-      "startedAt": "2026-04-06T11:43:53.880Z"
+      "position": 3000,
+      "startedAt": "2026-04-06T11:43:53.880Z",
+      "finishedAt": "2026-04-15T14:19:29.528Z"
     },
     {
       "id": "t5",
       "name": "Cart Sync",
       "description": "Redis store setup.",
       "priority": "Medium",
-      "status": "Completed",
+      "status": "Doing",
       "storyId": "s2",
       "estimatedTime": 5,
       "ownerId": "u8",
       "createdAt": "2026-01-05T10:00:00Z",
-      "position": 2000,
+      "position": 1000,
       "startedAt": "2026-04-06T11:43:53.064Z",
       "finishedAt": "2026-04-06T14:32:22.836Z"
     },
@@ -1474,7 +1475,9 @@
       "estimatedTime": 5,
       "ownerId": "u3",
       "createdAt": "2026-01-06T10:00:00Z",
-      "position": 3000
+      "position": 1000,
+      "startedAt": "2026-04-15T14:19:28.313Z",
+      "finishedAt": "2026-04-15T14:19:30.511Z"
     },
     {
       "id": "t64",

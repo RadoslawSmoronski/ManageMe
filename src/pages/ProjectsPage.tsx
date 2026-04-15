@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Container, Button, Form, InputGroup, Row, Col, Spinner } from 'react-bootstrap';
-import { useProjects } from '../context/ProjectContext';
+import { useProjects } from '../context/ProjectsContext';
 import ProjectsDesktopList from '../components/projects/ProjectsDesktopList'
 import ProjectsMobileList from '../components/projects/ProjectsMobileList'
 import { useNavigate } from 'react-router-dom';

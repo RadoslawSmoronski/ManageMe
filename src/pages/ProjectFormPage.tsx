@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Button, Form, Spinner } from 'react-bootstrap';
-import { useProjects } from '../context/ProjectContext';
-import { useUser } from '../context/UserContext';
+import { useProjects } from '../context/ProjectsContext';
+import { useUsers } from '../context/UsersContext';
 import { UserSelector } from '../components/UserSelector';
 import type { ProjectFormData } from '../types/project';
 
@@ -9,7 +9,7 @@ export default function ProjectFormPage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { projects, addProject, editProject, isLoading } = useProjects();
-  const { currentUser } = useUser();
+  const { currentUser } = useUsers();
 
   const isEditMode = Boolean(id);
   const project = projects.find((p) => p.id === id);
