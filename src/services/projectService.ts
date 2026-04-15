@@ -1,6 +1,7 @@
+import { API_BASE_URL } from "../config/api";
 import type { Project, ProjectFormData} from '../types/project'
 
-const API_URL = 'http://localhost:3001/projects';
+const API_URL = `${API_BASE_URL}/projects`;
 
 export const projectService = {
     
