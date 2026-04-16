@@ -6,12 +6,14 @@ interface UserSelectorProps {
   label: string;
   name: string;
   defaultValue?: string;
+  disabled?: boolean;
 }
 
 export const UserSelector: React.FC<UserSelectorProps> = ({ 
   label, 
   name, 
-  defaultValue 
+  defaultValue,
+  disabled = false
 }) => {
   const { users } = useUsers();
   const [search, setSearch] = useState('');
@@ -36,14 +38,19 @@ export const UserSelector: React.FC<UserSelectorProps> = ({
         placeholder={selectedUser ? `${selectedUser.firstName} ${selectedUser.lastName}` : "Select user..."}
         value={search}
         onChange={(e) => {
+          if (disabled) return;
           setSearch(e.target.value);
           setIsOpen(true);
         }}
-        onFocus={() => setIsOpen(true)}
+        onFocus={() => {
+          if (disabled) return;
+          setIsOpen(true);
+        }}
         className="py-3 rounded-3 shadow-none"
+        disabled={disabled}
       />
 
-      {isOpen && search.length > 0 && (
+      {!disabled && isOpen && search.length > 0 && (
         <ListGroup 
           className="position-absolute w-100 z-3 shadow mt-1 overflow-auto" 
           style={{ maxHeight: '200px' }}
