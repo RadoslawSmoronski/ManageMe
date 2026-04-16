@@ -10,6 +10,7 @@ import StoryFormPage from "./pages/StoryFormPage";
 import ProjectFormPage from "./pages/ProjectFormPage";
 import { TasksProvider } from "./context/TasksContext";
 import { StoryPage } from "./pages/StoryPage";
+import TaskFormPage from "./pages/TaskFormPage";
 
 
 function App() {
@@ -35,6 +36,8 @@ function App() {
                 <Route path="/projects/:projectId/stories/:storyId" element={<StoryPage />} />
                 <Route path="/projects/:projectId/stories/add" element={<StoryFormPage />} />
                 <Route path="/projects/:projectId/stories/edit/:storyId" element={<StoryFormPage />} />
+                <Route path="/projects/:projectId/stories/:storyId/tasks/add" element={<TaskFormPage />} />
+                <Route path="/projects/:projectId/stories/:storyId/tasks/:taskId" element={<TaskFormPage />} />
               </Routes>
             </div>
           </TasksProvider>

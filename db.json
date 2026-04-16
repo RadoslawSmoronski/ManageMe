@@ -240,7 +240,7 @@
     },
     {
       "id": "s2",
-      "name": "lazienka",
+      "name": "lazienka jest i działa",
       "description": "Advanced shopping cart features",
       "priority": "High",
       "projectId": "p1",
@@ -683,6 +683,16 @@
       "ownerId": "u13",
       "position": 0,
       "createdAt": "2026-04-06T15:09:10.791Z"
+    },
+    {
+      "id": "476e",
+      "name": "house",
+      "description": "dsdsd",
+      "priority": "Low",
+      "status": "Planned",
+      "projectId": "p1",
+      "ownerId": "u10",
+      "position": 2000
     }
   ],
   "tasks": [
@@ -705,7 +715,7 @@
       "name": "Login UI",
       "description": "Responsive form.",
       "priority": "Medium",
-      "status": "Completed",
+      "status": "Doing",
       "storyId": "s1",
       "estimatedTime": 2,
       "ownerId": "u2",
@@ -727,32 +737,18 @@
       "position": 1000
     },
     {
-      "id": "t4",
-      "name": "Vat Logic",
-      "description": "EU tax calculations.",
-      "priority": "High",
+      "id": "t5",
+      "name": "Cart Sync 2",
+      "description": "Redis store setup. 2",
+      "priority": "Medium",
       "status": "Completed",
       "storyId": "s2",
       "estimatedTime": 8,
-      "ownerId": "u5",
-      "createdAt": "2026-01-05T09:00:00Z",
-      "position": 3000,
-      "startedAt": "2026-04-06T11:43:53.880Z",
-      "finishedAt": "2026-04-15T14:19:29.528Z"
-    },
-    {
-      "id": "t5",
-      "name": "Cart Sync",
-      "description": "Redis store setup.",
-      "priority": "Medium",
-      "status": "Doing",
-      "storyId": "s2",
-      "estimatedTime": 5,
-      "ownerId": "u8",
+      "ownerId": "u15",
       "createdAt": "2026-01-05T10:00:00Z",
       "position": 1000,
       "startedAt": "2026-04-06T11:43:53.064Z",
-      "finishedAt": "2026-04-06T14:32:22.836Z"
+      "finishedAt": "2026-04-16T09:05:51.362Z"
     },
     {
       "id": "t6",
@@ -966,7 +962,7 @@
       "name": "E2E Tests",
       "description": "Cypress suite.",
       "priority": "Medium",
-      "status": "Completed",
+      "status": "Doing",
       "storyId": "s1",
       "estimatedTime": 5,
       "ownerId": "u14",
@@ -980,28 +976,28 @@
       "name": "Babel setup",
       "description": "Transpiler config.",
       "priority": "Low",
-      "status": "Completed",
+      "status": "Doing",
       "storyId": "s1",
       "estimatedTime": 1,
       "ownerId": "u15",
       "createdAt": "2026-01-01T11:00:00Z",
       "startedAt": "2026-01-01T12:00:00Z",
       "finishedAt": "2026-01-01T13:00:00Z",
-      "position": 4000
+      "position": 1500
     },
     {
       "id": "t24",
       "name": "Logo design",
       "description": "Initial branding assets",
       "priority": "Low",
-      "status": "Completed",
+      "status": "Doing",
       "storyId": "s1",
       "estimatedTime": 2,
       "ownerId": "u8",
       "createdAt": "2026-01-01T14:00:00Z",
       "startedAt": "2026-01-01T15:00:00Z",
       "finishedAt": "2026-01-01T17:00:00Z",
-      "position": 5000
+      "position": 1750
     },
     {
       "id": "t25",
@@ -1590,14 +1586,14 @@
       "name": "Babel Poly",
       "description": "IE11 support.",
       "priority": "Low",
-      "status": "Completed",
+      "status": "Doing",
       "storyId": "s1",
       "estimatedTime": 2,
       "ownerId": "u15",
       "createdAt": "2026-01-02T09:00:00Z",
       "startedAt": "2026-01-02T10:00:00Z",
       "finishedAt": "2026-01-02T12:00:00Z",
-      "position": 7000
+      "position": 1875
     },
     {
       "id": "t74",
@@ -1632,14 +1628,14 @@
       "name": "Favicon Set",
       "description": "All device icons.",
       "priority": "Low",
-      "status": "Completed",
+      "status": "Doing",
       "storyId": "s1",
       "estimatedTime": 1,
       "ownerId": "u14",
       "createdAt": "2026-01-05T09:00:00Z",
       "startedAt": "2026-01-05T10:00:00Z",
       "finishedAt": "2026-01-05T11:00:00Z",
-      "position": 10000
+      "position": 2500
     },
     {
       "id": "t77",
@@ -1660,14 +1656,14 @@
       "name": "Robots.txt",
       "description": "Crawler config.",
       "priority": "Low",
-      "status": "Completed",
+      "status": "Doing",
       "storyId": "s1",
       "estimatedTime": 1,
       "ownerId": "u5",
       "createdAt": "2026-01-07T11:00:00Z",
       "startedAt": "2026-01-07T12:00:00Z",
       "finishedAt": "2026-01-07T13:00:00Z",
-      "position": 12000
+      "position": 2750
     },
     {
       "id": "t79",
@@ -1902,13 +1898,14 @@
       "name": "Font Pair",
       "description": "Inter & Mono.",
       "priority": "Low",
-      "status": "Doing",
+      "status": "Completed",
       "storyId": "s1",
       "estimatedTime": 1,
       "createdAt": "2026-04-03T15:00:00Z",
-      "position": 2000,
+      "position": 1500,
       "startedAt": "2026-04-05T09:36:19.260Z",
-      "ownerId": "u2"
+      "ownerId": "u2",
+      "finishedAt": "2026-04-16T08:30:39.214Z"
     },
     {
       "id": "t97",
