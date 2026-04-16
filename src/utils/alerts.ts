@@ -3,6 +3,14 @@ import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
+const Toast = MySwal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 2200,
+  timerProgressBar: true,
+});
+
 export const confirmDelete = async (title: string, text: string) => {
   const result = await MySwal.fire({
     title: title,
@@ -17,4 +25,11 @@ export const confirmDelete = async (title: string, text: string) => {
   });
 
   return result.isConfirmed;
+};
+
+export const successToast = async (title: string) => {
+  await Toast.fire({
+    icon: 'success',
+    title,
+  });
 };
