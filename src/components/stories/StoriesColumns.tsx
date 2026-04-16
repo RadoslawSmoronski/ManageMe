@@ -1,4 +1,5 @@
-import { Container, Badge, Spinner } from 'react-bootstrap';
+import { useState } from 'react';
+import { Container, Badge, Spinner, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import type { Story } from '../../types/story';
 import type { ProgressStatus } from '../../types/common';
@@ -11,9 +12,16 @@ interface StoriesColumnsProps {
 }
 
 const COLUMNS = ["Planned", "Doing", "Completed"] as ProgressStatus[];
+type SortOption = 'priorityDesc' | 'priorityAsc' | 'nameAsc' | 'nameDesc';
 
 export const StoriesColumns = ({ projectId, projectStories, isLoading }: StoriesColumnsProps) => {
   const navigate = useNavigate();
+  const [columnSort, setColumnSort] = useState<Record<ProgressStatus, SortOption>>({
+    Planned: 'priorityDesc',
+    Doing: 'priorityDesc',
+    Completed: 'priorityDesc',
+  });
+  const priorityWeights: Record<string, number> = { High: 3, Medium: 2, Low: 1 };
 
   if (isLoading) {
     return (
@@ -26,7 +34,28 @@ export const StoriesColumns = ({ projectId, projectStories, isLoading }: Stories
   const getStoriesByStatus = (status: ProgressStatus) => 
     projectStories
       .filter(story => story.status === status)
-      .sort((a, b) => a.position - b.position);
+      .sort((a, b) => {
+        if (columnSort[status] === 'nameAsc') {
+          return a.name.localeCompare(b.name);
+        }
+
+        if (columnSort[status] === 'nameDesc') {
+          return b.name.localeCompare(a.name);
+        }
+
+        if (columnSort[status] === 'priorityAsc') {
+          return (priorityWeights[a.priority] || 0) - (priorityWeights[b.priority] || 0) || (a.position - b.position);
+        }
+
+        return (priorityWeights[b.priority] || 0) - (priorityWeights[a.priority] || 0) || (a.position - b.position);
+      });
+
+  const handleColumnSortChange = (status: ProgressStatus, value: SortOption) => {
+    setColumnSort((prev) => ({
+      ...prev,
+      [status]: value,
+    }));
+  };
 
   return (
     <Container fluid className="px-0">
@@ -45,6 +74,18 @@ export const StoriesColumns = ({ projectId, projectStories, isLoading }: Stories
                     {filteredStories.length}
                   </Badge>
                 </div>
+                <Form.Select
+                  size="sm"
+                  value={columnSort[col]}
+                  onChange={(e) => handleColumnSortChange(col, e.target.value as SortOption)}
+                  className="rounded-3 shadow-none border-light-subtle"
+                  style={{ maxWidth: '170px' }}
+                >
+                  <option value="priorityDesc">Priority high to low</option>
+                  <option value="priorityAsc">Priority low to high</option>
+                  <option value="nameAsc">Name A to Z</option>
+                  <option value="nameDesc">Name Z to A</option>
+                </Form.Select>
               </div>
 
               <div className="stories-list-container">
