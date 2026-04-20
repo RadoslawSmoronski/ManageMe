@@ -1,4 +1,4 @@
-import { Container, Badge, Button, Spinner } from 'react-bootstrap';
+import { Container, Badge, Spinner } from 'react-bootstrap';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import type { DropResult } from '@hello-pangea/dnd';
 import { useNavigate } from 'react-router-dom';
@@ -18,7 +18,7 @@ export const TasksBoard = ({ projectId, storyId }: TasksBoardProps) => {
   const { tasks, isLoading, updateTaskInApi } = useTasks();
 
   if (isLoading) return (
-    <div className="text-center py-5"><Spinner animation="border" size="sm" /></div>
+    <div className="text-center py-5"><Spinner animation="border" variant="primary" size="sm" /></div>
   );
 
   // 1. Data Preparation
@@ -80,8 +80,10 @@ export const TasksBoard = ({ projectId, storyId }: TasksBoardProps) => {
               {/* Header */}
               <div className="d-flex align-items-center justify-content-between mb-3 px-1">
                 <div className="d-flex align-items-center gap-2">
-                  <span className="fw-bold text-dark small text-uppercase">{col}</span>
-                  <Badge bg="dark" className="rounded-pill px-2">{getTasksByStatus(col).length}</Badge>
+                  <span className="fw-bold text-body small text-uppercase">{col}</span>
+                  <Badge bg="secondary-subtle" className="text-body-emphasis border border-secondary-subtle rounded-pill px-2">
+                    {getTasksByStatus(col).length}
+                  </Badge>
                 </div>
               </div>
 
@@ -91,7 +93,7 @@ export const TasksBoard = ({ projectId, storyId }: TasksBoardProps) => {
                   <div
                     {...provided.droppableProps}
                     ref={provided.innerRef}
-                    className={`task-container p-2 rounded-4 ${snapshot.isDraggingOver ? 'bg-secondary-subtle' : 'bg-light'}`}
+                    className={`task-container p-2 rounded-4 ${snapshot.isDraggingOver ? 'bg-secondary-subtle' : 'bg-body-tertiary'}`}
                   >
                     {getTasksByStatus(col).map((task, index) => (
                       <Draggable key={task.id} draggableId={task.id} index={index}>
@@ -105,12 +107,12 @@ export const TasksBoard = ({ projectId, storyId }: TasksBoardProps) => {
                           >
                             <div className="d-flex justify-content-between align-items-start mb-2">
                               <AppBadge value={task.priority} />
-                              <span className="text-muted font-monospace small">#{task.id.slice(0, 4)}</span>
+                              <span className="text-body-secondary font-monospace small">#{task.id.slice(0, 4)}</span>
                             </div>
-                            <h6 className="fw-bold text-dark mb-1 text-truncate-2">{task.name}</h6>
-                            <p className="text-muted small mb-3 text-truncate-2">{task.description}</p>
+                            <h6 className="fw-bold text-body mb-1 text-truncate-2">{task.name}</h6>
+                            <p className="text-body-secondary small mb-3 text-truncate-2">{task.description}</p>
                             <div className="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
-                              <div className="text-muted small fw-bold"><i className="bi bi-clock me-1"></i>{task.estimatedTime}h</div>
+                              <div className="text-body-secondary small fw-bold"><i className="bi bi-clock me-1"></i>{task.estimatedTime}h</div>
                               <div className="user-avatar">{task.ownerId ? task.ownerId.charAt(0).toUpperCase() : '?'}</div>
                             </div>
                           </div>
@@ -135,13 +137,13 @@ export const TasksBoard = ({ projectId, storyId }: TasksBoardProps) => {
           .kanban-col { min-width: 0; }
         }
 
-        .task-container { min-height: 65vh; border: 1px solid #eee; }
-        .task-card { background: white; border: 1px solid #eee; border-radius: 12px; cursor: pointer; }
-        .task-card.dragging { border-color: #212529; z-index: 1000; }
-        .task-card:hover { border-color: #aaa; }
+        .task-container { min-height: 65vh; border: 1px solid var(--bs-border-color-translucent); }
+        .task-card { background: var(--bs-body-bg); border: 1px solid var(--bs-border-color-translucent); border-radius: 12px; cursor: pointer; }
+        .task-card.dragging { border-color: var(--bs-secondary-color); z-index: 1000; }
+        .task-card:hover { border-color: var(--bs-secondary-color); }
         
         .user-avatar { 
-          background: #212529; color: white; width: 22px; height: 22px; 
+          background: var(--bs-secondary-color); color: white; width: 22px; height: 22px; 
           border-radius: 50%; display: flex; align-items: center; 
           justify-content: center; font-size: 0.65rem; font-weight: bold;
         }

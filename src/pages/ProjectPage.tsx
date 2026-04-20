@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Container, Row, Col, Button, Badge, Spinner, Nav } from 'react-bootstrap';
+import { Container, Row, Col, Badge, Spinner, Nav } from 'react-bootstrap';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { AppBadge } from '../components/AppBadge';
 import { useProjects } from '../context/ProjectsContext';
@@ -7,6 +7,7 @@ import { useStories } from '../context/StoriesContext';
 import { confirmDelete } from '../utils/alerts';
 import { StoriesColumns } from '../components/stories/StoriesColumns'; 
 import { StoriesList } from '../components/stories/StoriesList';
+import AppButton from '../components/AppButton';
 
 
 export default function ProjectDetailsPage() {
@@ -32,7 +33,7 @@ export default function ProjectDetailsPage() {
   if (isLoading) {
     return (
       <Container className="text-center py-5">
-        <Spinner animation="border" variant="dark" />
+        <Spinner animation="border" variant="primary" />
       </Container>
     );
   }
@@ -40,8 +41,10 @@ export default function ProjectDetailsPage() {
   if (!activeProject || !id) {
     return (
       <Container className="text-center py-5">
-        <h3 className="text-muted">Project not found</h3>
-        <Button variant="dark" onClick={() => navigate('/')} className="mt-3">Back to Dashboard</Button>
+        <h3 className="text-body-secondary">Project not found</h3>
+        <AppButton intent="primary" onClick={() => navigate('/')} className="mt-3">
+          Back to Dashboard
+        </AppButton>
       </Container>
     );
   }
@@ -63,42 +66,42 @@ export default function ProjectDetailsPage() {
   };
 
   return (
-    <div className="bg-white min-vh-100 py-4">
+    <div className="bg-body min-vh-100 py-4">
       <Container style={{ maxWidth: '1100px' }}>
         
         <section className="py-4 border-bottom mb-4">
           <Row className="align-items-start gy-3">
             <Col xs={12} md={8}>
               <div className="d-flex align-items-center gap-2 mb-2">
-                <Badge bg="dark" className="border rounded-pill px-3 py-2 fw-medium">
+                <Badge bg="secondary-subtle" className="text-body-emphasis border border-secondary-subtle rounded-pill px-3 py-2 fw-medium">
                   ID: {activeProject.id}
                 </Badge>
                 <AppBadge value={activeProject.status} />
               </div>
-              <h1 className="fw-bold text-dark mb-2">{activeProject.name}</h1>
-              <p className="text-muted fs-5 mb-0" style={{ maxWidth: '700px' }}>
+              <h1 className="fw-bold text-body mb-2">{activeProject.name}</h1>
+              <p className="text-body-secondary fs-5 mb-0" style={{ maxWidth: '700px' }}>
                 {activeProject.description}
               </p>
             </Col>
             
             <Col xs={12} md={4} className="text-md-end d-flex flex-wrap justify-content-md-end gap-2 align-items-center">
-              <Button 
-                variant="outline-dark" 
+              <AppButton
+                intent="ghost"
                 className="fw-semibold px-4 py-2 shadow-sm rounded-3 d-flex align-items-center gap-2 border-2"
                 onClick={() => navigate(`/projects/edit/${activeProject.id}`)}
               >
                 <i className="bi bi-pencil"></i>
                 <span>Edit Project</span>
-              </Button>
+              </AppButton>
 
-              <Button 
-                variant="danger" 
+              <AppButton
+                intent="danger"
                 className="fw-semibold px-3 py-2 shadow-sm rounded-3 d-flex align-items-center justify-content-center border-0"
                 onClick={(e) => handleDeleteClick(e, activeProject.id, activeProject.name)}
                 style={{ height: '42px', width: '45px' }}
               >
                 <i className="bi bi-trash3 fs-5"></i>
-              </Button>
+              </AppButton>
             </Col>
           </Row>
         </section>
@@ -106,7 +109,7 @@ export default function ProjectDetailsPage() {
         <div className="mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
           <Nav 
             variant="pills" 
-            className="custom-tabs p-1 bg-light rounded-3 d-inline-flex"
+            className="custom-tabs p-1 bg-body-tertiary rounded-3 d-inline-flex border border-secondary-subtle"
             activeKey={activeTab}
             onSelect={handleTabSelect}
           >
@@ -122,14 +125,14 @@ export default function ProjectDetailsPage() {
             </Nav.Item>
           </Nav>
 
-          <Button 
-            variant="dark" 
+          <AppButton
+            intent="primary"
             className="fw-bold px-4 py-2 rounded-3 shadow-sm d-flex align-items-center gap-2"
             onClick={() => navigate(`/projects/${id}/stories/add`)}
           >
             <i className="bi bi-plus-lg"></i>
             <span>Add Story</span>
-          </Button>
+          </AppButton>
         </div>
 
         <section className="animate-fade-in">
@@ -151,8 +154,8 @@ export default function ProjectDetailsPage() {
       </Container>
 
       <style>{`
-        .custom-tabs .nav-link { color: #6c757d; border-radius: 8px; transition: all 0.2s; }
-        .custom-tabs .nav-link.active { background-color: #212529; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .custom-tabs .nav-link { color: var(--bs-secondary-color); border-radius: 8px; transition: all 0.2s; }
+        .custom-tabs .nav-link.active { background-color: var(--bs-secondary-color); color: var(--bs-body-bg); box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .animate-fade-in { animation: fadeIn 0.3s ease-in; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
       `}</style>

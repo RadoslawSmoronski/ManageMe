@@ -5,12 +5,14 @@ import { useStories } from '../context/StoriesContext';
 import { useTasks } from '../context/TasksContext';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 export default function AppNavbar() {
   const { currentUser, loadUsers, hasLoaded: hasUsersLoaded, isLoading: isUsersLoading } = useUsers();
   const { projects} = useProjects();
   const { stories} = useStories();
   const { tasks} = useTasks();
+  const { theme, toggleTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -27,6 +29,11 @@ export default function AppNavbar() {
 
   const truncate = (text: string, limit: number) => {
     return text.length > limit ? text.substring(0, limit) + "..." : text;
+  };
+
+  const getUserInitials = (firstName?: string, lastName?: string) => {
+    const initials = `${firstName?.trim().charAt(0) ?? ''}${lastName?.trim().charAt(0) ?? ''}`.toUpperCase();
+    return initials || 'U';
   };
 
   const breadcrumbs: { label: string; to: string }[] = [];
@@ -73,7 +80,7 @@ export default function AppNavbar() {
   }
 
   return (
-    <Navbar bg="white" className="py-2 border-bottom sticky-top shadow-sm">
+    <Navbar className="py-2 border-bottom bg-body sticky-top shadow-sm">
       <Container style={{ maxWidth: '1100px' }}>
         
         <div className="d-flex align-items-center flex-grow-1 overflow-hidden">
@@ -83,9 +90,9 @@ export default function AppNavbar() {
             className="fw-bold d-flex align-items-center me-0 me-md-3 border-0 bg-transparent" 
             style={{ cursor: 'pointer' }}
           >
-            <i className="bi bi-layers-half text-dark fs-3"></i>
-            <span className="d-none d-md-inline ms-2 fs-4 text-dark" style={{ letterSpacing: '-1px' }}>
-              Manage<span className="text-muted">Me</span>
+            <i className="bi bi-layers-half fs-3"></i>
+            <span className="d-none d-md-inline ms-2 fs-4 text-body" style={{ letterSpacing: '-1px' }}>
+              Manage<span className="text-body-secondary">Me</span>
             </span>
           </Navbar.Brand>
 
@@ -95,7 +102,7 @@ export default function AppNavbar() {
               
               {/* Fallback dla pustej ścieżki na /projects */}
               {breadcrumbs.length === 0 && location.pathname.includes('projects') && (
-                 <span className="text-dark fw-bold">Projects</span>
+                 <span className="text-body fw-bold">Projects</span>
               )}
 
               {breadcrumbs.map((bc, index) => {
@@ -104,16 +111,16 @@ export default function AppNavbar() {
                 return (
                   <div key={bc.to} className="d-flex align-items-center">
                     {index > 0 && (
-                      <span className="text-muted mx-2" style={{ fontSize: '0.8rem' }}>/</span>
+                      <span className="text-body-secondary mx-2" style={{ fontSize: '0.8rem' }}>/</span>
                     )}
                     
                     {isLast ? (
-                      <span className="text-dark fw-bold text-truncate">
+                      <span className="text-body fw-bold text-truncate">
                         {bc.label}
                       </span>
                     ) : (
                       <span 
-                        className="text-muted bc-link text-truncate" 
+                        className="text-body-secondary bc-link text-truncate" 
                         style={{ cursor: 'pointer' }}
                         onClick={() => navigate(bc.to)}
                       >
@@ -132,9 +139,11 @@ export default function AppNavbar() {
           <NavDropdown
             align="end"
             title={
-              <div className="d-flex align-items-center justify-content-center bg-dark text-white rounded-circle fw-bold shadow-sm" 
-                   style={{ width: '36px', height: '36px', fontSize: '0.8rem' }}>
-                {user.firstName?.[0]}{user.lastName?.[0]}
+              <div
+                className="d-flex align-items-center justify-content-center user-avatar rounded-circle fw-bold shadow-sm"
+                style={{ width: '36px', height: '36px', fontSize: '0.8rem' }}
+              >
+                {getUserInitials(user.firstName, user.lastName)}
               </div>
             }
             id="user-dropdown"
@@ -143,6 +152,10 @@ export default function AppNavbar() {
             <NavDropdown.Header>
               <strong>{user.firstName} {user.lastName}</strong>
             </NavDropdown.Header>
+            <NavDropdown.Item onClick={toggleTheme}>
+              <i className={`bi ${theme === 'dark' ? 'bi-sun' : 'bi-moon'} me-2`}></i>
+              Switch to {theme === 'dark' ? 'light' : 'dark'} mode
+            </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item className="text-danger">
                <i className="bi bi-box-arrow-right me-2"></i> Logout
@@ -155,6 +168,11 @@ export default function AppNavbar() {
       <style>{`
         .bc-link:hover { color: #0d6efd !important; text-decoration: underline; }
         .no-caret .dropdown-toggle::after { display: none; }
+        .user-avatar {
+          background: var(--bs-secondary-bg-subtle);
+          color: var(--bs-body-color);
+          border: 1px solid var(--bs-border-color-translucent);
+        }
       `}</style>
     </Navbar>
   );

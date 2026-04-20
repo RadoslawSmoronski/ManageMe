@@ -6,6 +6,7 @@ import type { StoryFormData } from '../types/story';
 import { confirmDelete } from '../utils/alerts';
 import type { ProgressStatus, PriorityStatus} from '../types/common';
 import { useEffect } from 'react';
+import AppButton from '../components/AppButton';
 
 export default function StoryFormPage() {
   const { projectId: projectId, storyId } = useParams<{ projectId: string; storyId?: string }>();
@@ -23,7 +24,7 @@ export default function StoryFormPage() {
   const currentStory = stories.find(s => s.id === storyId);
 
   if (isEditMode && isLoading) {
-    return <Container className="py-5 text-center"><Spinner animation="border" /></Container>;
+    return <Container className="py-5 text-center"><Spinner animation="border" variant="primary" /></Container>;
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -69,11 +70,11 @@ export default function StoryFormPage() {
   };
 
   return (
-    <div className="bg-white min-vh-100 py-5">
+    <div className="bg-body min-vh-100 py-5">
       <Container style={{ maxWidth: '600px' }}>
         
         <div className="d-flex align-items-center gap-3 mb-4">
-          <Button variant="link" onClick={() => navigate(-1)} className="text-dark p-0 border-0 shadow-none">
+          <Button variant="link" onClick={() => navigate(-1)} className="text-body p-0 border-0 shadow-none">
             <i className="bi bi-arrow-left fs-3"></i>
           </Button>
           <h2 className="fw-bold mb-0">{isEditMode ? 'Edit Story' : 'New Story'}</h2>
@@ -82,13 +83,13 @@ export default function StoryFormPage() {
         <Form onSubmit={handleSubmit} className="d-grid gap-4">
           
           <div>
-            <label className="fw-bold small text-uppercase mb-2 text-muted">Story Name</label>
+            <label className="fw-bold small text-uppercase mb-2 text-body-secondary">Story Name</label>
             <Form.Control 
               name="name" 
               required 
               defaultValue={currentStory?.name}
               placeholder="e.g. User Authentication" 
-              className="py-3 rounded-3 shadow-none border-light-subtle" 
+              className="py-3 rounded-3 shadow-none bg-body-tertiary text-body border-secondary-subtle" 
             />
           </div>
 
@@ -101,14 +102,14 @@ export default function StoryFormPage() {
           </div>
 
           <div>
-            <label className="fw-bold small text-uppercase mb-2 text-muted">Description</label>
+            <label className="fw-bold small text-uppercase mb-2 text-body-secondary">Description</label>
             <Form.Control 
               name="description" 
               as="textarea" 
               rows={4} 
               defaultValue={currentStory?.description}
               placeholder="Provide more details..." 
-              className="py-3 rounded-3 shadow-none border-light-subtle" 
+              className="py-3 rounded-3 shadow-none bg-body-tertiary text-body border-secondary-subtle" 
               style={{ resize: 'none' }}
             />
           </div>
@@ -116,11 +117,11 @@ export default function StoryFormPage() {
           <Row className="g-3">
             <Col md={6}>
               <div>
-                <label className="fw-bold small text-uppercase mb-2 text-muted">Priority</label>
+                <label className="fw-bold small text-uppercase mb-2 text-body-secondary">Priority</label>
                 <Form.Select 
                   name="priority" 
                   defaultValue={currentStory?.priority || "Low"} 
-                  className="py-3 rounded-3 shadow-none cursor-pointer border-light-subtle"
+                  className="py-3 rounded-3 shadow-none cursor-pointer bg-body-tertiary text-body border-secondary-subtle"
                 >
                   <option value="Low">Low</option>
                   <option value="Medium">Medium</option>
@@ -131,11 +132,11 @@ export default function StoryFormPage() {
 
             <Col md={6}>
               <div>
-                <label className="fw-bold small text-uppercase mb-2 text-muted">Status</label>
+                <label className="fw-bold small text-uppercase mb-2 text-body-secondary">Status</label>
                 <Form.Select 
                   name="status" 
                   defaultValue={currentStory?.status || "Planned"} 
-                  className="py-3 rounded-3 shadow-none cursor-pointer border-light-subtle"
+                  className="py-3 rounded-3 shadow-none cursor-pointer bg-body-tertiary text-body border-secondary-subtle"
                 >
                   <option value="Planned">Planned</option>
                   <option value="Doing">Doing</option>
@@ -146,14 +147,14 @@ export default function StoryFormPage() {
           </Row>
 
           <div className="d-grid gap-2 pt-2">
-            <Button type="submit" variant="dark" className="py-3 fw-bold rounded-3">
+            <AppButton type="submit" intent="primary" className="py-3 fw-bold rounded-3">
               {isEditMode ? 'Save Changes' : 'Create Story'}
-            </Button>
+            </AppButton>
             
             <Button 
               variant="link" 
               onClick={() => navigate(`/projects/${projectId}`)} 
-              className="text-muted text-decoration-none small"
+              className="text-body-secondary text-decoration-none small"
             >
               Discard
             </Button>

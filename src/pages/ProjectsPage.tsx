@@ -4,6 +4,7 @@ import { useProjects } from '../context/ProjectsContext';
 import ProjectsDesktopList from '../components/projects/ProjectsDesktopList'
 import ProjectsMobileList from '../components/projects/ProjectsMobileList'
 import { useNavigate } from 'react-router-dom';
+import AppButton from '../components/AppButton';
 
 export default function ProjectsPage() {
   const navigate = useNavigate();
@@ -28,26 +29,25 @@ export default function ProjectsPage() {
   const displayedProjects = filteredProjects.slice(0, visibleCount);
 
   return (
-    <div className="bg-white min-vh-100 py-4">
+    <div className="bg-body min-vh-100 py-4">
       <Container style={{ maxWidth: '1100px' }}>
         
         {/* Header */}
         <Container fluid className="px-0 mb-4">
           <Row className="align-items-center gy-3">
             <Col xs={12} sm="auto" className="flex-grow-1">
-              <h2 className="fw-bold mb-0 text-dark">Projects</h2>
-              <p className="text-muted mb-0 mt-1">Manage and track your progress</p>
+              <h2 className="fw-bold mb-0 text-body">Projects</h2>
+              <p className="text-body-secondary mb-0 mt-1">Manage and track your progress</p>
             </Col>
             <Col xs={12} sm="auto">
-            <Button 
-              variant="dark" 
+            <AppButton
+              intent="primary"
               onClick={() => navigate('/projects/new')}
               className="fw-semibold px-4 py-2 shadow-sm rounded-3 d-flex align-items-center gap-2 transition-all"
-              style={{ border: 'none' }}
             >
               <i className="bi bi-plus-lg fs-5"></i>
               <span>New Project</span>
-            </Button>
+            </AppButton>
             </Col>
           </Row>
         </Container>
@@ -55,7 +55,7 @@ export default function ProjectsPage() {
         {/* Filters */}
         <div className="d-flex flex-column flex-md-row gap-3 mb-5">
           <InputGroup className="border rounded-3 shadow-none flex-grow-1">
-            <InputGroup.Text className="bg-white border-0 text-muted ps-3"><i className="bi bi-search"></i></InputGroup.Text>
+            <InputGroup.Text className="bg-body border-0 text-body-secondary ps-3"><i className="bi bi-search"></i></InputGroup.Text>
             <Form.Control 
               placeholder="Search projects..." 
               value={searchTerm}
@@ -77,7 +77,7 @@ export default function ProjectsPage() {
         </div>
 
         {isLoading ? (
-          <div className="text-center py-5"><Spinner animation="border" variant="dark" /></div>
+          <div className="text-center py-5"><Spinner animation="border" variant="primary" /></div>
         ) : (
           <>
             {/* Desktop Table */}
@@ -96,7 +96,7 @@ export default function ProjectsPage() {
             {/* Load More */}
             {visibleCount < filteredProjects.length && (
               <div className="text-center mt-5">
-                <Button variant="outline-dark" className="rounded-pill px-5 py-2 fw-bold border-2" onClick={() => setVisibleCount(v => v + 10)}>
+                <Button variant="outline-secondary" className="rounded-pill px-5 py-2 fw-bold border-2" onClick={() => setVisibleCount(v => v + 10)}>
                   Load More
                 </Button>
               </div>
@@ -106,8 +106,8 @@ export default function ProjectsPage() {
       </Container>
 
       <style>{`
-        .pointer-row { cursor: pointer; transition: 0.2s; border-bottom: 1px solid #f8f8f8 !important; }
-        .pointer-row:hover { background-color: #fafafa !important; }
+        .pointer-row { cursor: pointer; transition: 0.2s; border-bottom: 1px solid var(--bs-border-color-translucent) !important; }
+        .pointer-row:hover { background-color: var(--bs-tertiary-bg) !important; }
         .no-caret::after { display: none !important; }
         .small { font-size: 0.85rem; }
       `}</style>

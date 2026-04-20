@@ -28,7 +28,7 @@ export const UserSelector: React.FC<UserSelectorProps> = ({
 
   return (
     <Form.Group className="position-relative">
-      <Form.Label className="fw-bold small text-uppercase mb-2">{label}</Form.Label>
+      <Form.Label className="fw-bold small text-uppercase mb-2 text-body-secondary">{label}</Form.Label>
       
       <input type="hidden" name={name} value={internalId} />
 
@@ -46,13 +46,13 @@ export const UserSelector: React.FC<UserSelectorProps> = ({
           if (disabled) return;
           setIsOpen(true);
         }}
-        className="py-3 rounded-3 shadow-none"
+        className="py-3 rounded-3 shadow-none bg-body-tertiary text-body border-secondary-subtle"
         disabled={disabled}
       />
 
       {!disabled && isOpen && search.length > 0 && (
         <ListGroup 
-          className="position-absolute w-100 z-3 shadow mt-1 overflow-auto" 
+          className="position-absolute w-100 z-3 shadow mt-1 overflow-auto border border-secondary-subtle rounded-3" 
           style={{ maxHeight: '200px' }}
         >
           {filteredResults.map(user => (
@@ -64,15 +64,15 @@ export const UserSelector: React.FC<UserSelectorProps> = ({
                 setSearch(''); 
                 setIsOpen(false);
               }}
-              className="d-flex justify-content-between align-items-center"
+              className="d-flex justify-content-between align-items-center bg-body text-body border-secondary-subtle"
             >
               <span>{user.firstName} {user.lastName}</span>
-              <small className="text-muted">{user.role}</small>
+              <small className="text-body-secondary">{user.role}</small>
             </ListGroup.Item>
           ))}
           
           {filteredResults.length === 0 && (
-            <ListGroup.Item className="text-muted small text-center py-3">
+            <ListGroup.Item className="text-body-secondary small text-center py-3 bg-body border-secondary-subtle">
               User not found...
             </ListGroup.Item>
           )}

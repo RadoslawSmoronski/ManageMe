@@ -64,7 +64,7 @@ export const StoriesList = ({ projectId, projectStories, isLoading }: StoriesLis
   if (isLoading) {
     return (
       <div className="text-center py-5">
-        <Spinner animation="border" variant="dark" size="sm" />
+        <Spinner animation="border" variant="primary" size="sm" />
       </div>
     );
   }
@@ -72,29 +72,29 @@ export const StoriesList = ({ projectId, projectStories, isLoading }: StoriesLis
   const getSortIcon = (key: SortKeys) => {
     if (sortConfig.key !== key) return <i className="bi bi-arrow-down-up ms-2 opacity-25"></i>;
     return sortConfig.order === 'asc' 
-      ? <i className="bi bi-sort-down ms-2 text-dark"></i> 
-      : <i className="bi bi-sort-up ms-2 text-dark"></i>;
+      ? <i className="bi bi-sort-down ms-2 text-body"></i> 
+      : <i className="bi bi-sort-up ms-2 text-body"></i>;
   };
 
   return (
     <Container fluid className="px-0 py-2">
-      <div className="table-responsive rounded-3 border bg-white shadow-sm overflow-hidden">
+      <div className="table-responsive rounded-3 border border-secondary-subtle bg-body shadow-sm overflow-hidden">
         <Table hover className="align-middle mb-0 custom-stories-table">
-          <thead className="bg-light">
+          <thead className="bg-body-tertiary">
             <tr>
-              <th className="ps-4 py-3 text-muted small text-uppercase fw-bold sortable-header" onClick={() => requestSort('id')}>
+              <th className="ps-4 py-3 text-body-secondary small text-uppercase fw-bold sortable-header" onClick={() => requestSort('id')}>
                 ID {getSortIcon('id')}
               </th>
-              <th className="py-3 text-muted small text-uppercase fw-bold sortable-header" onClick={() => requestSort('name')}>
+              <th className="py-3 text-body-secondary small text-uppercase fw-bold sortable-header" onClick={() => requestSort('name')}>
                 Story Name {getSortIcon('name')}
               </th>
-              <th className="py-3 text-muted small text-uppercase fw-bold sortable-header" onClick={() => requestSort('priority')}>
+              <th className="py-3 text-body-secondary small text-uppercase fw-bold sortable-header" onClick={() => requestSort('priority')}>
                 Priority {getSortIcon('priority')}
               </th>
-              <th className="py-3 text-muted small text-uppercase fw-bold sortable-header" onClick={() => requestSort('status')}>
+              <th className="py-3 text-body-secondary small text-uppercase fw-bold sortable-header" onClick={() => requestSort('status')}>
                 Status {getSortIcon('status')}
               </th>
-              <th className="py-3 text-muted small text-uppercase fw-bold text-end pe-4">Tasks</th>
+              <th className="py-3 text-body-secondary small text-uppercase fw-bold text-end pe-4">Tasks</th>
             </tr>
           </thead>
           <tbody>
@@ -105,24 +105,24 @@ export const StoriesList = ({ projectId, projectStories, isLoading }: StoriesLis
                   onClick={() => navigate(`/projects/${projectId}/stories/${story.id}`)}
                   className="animate-row"
                 >
-                  <td className="ps-4 font-monospace text-muted small" style={{ fontSize: '0.8rem' }}>
+                  <td className="ps-4 font-monospace text-body-secondary small" style={{ fontSize: '0.8rem' }}>
                     #{story.id.slice(0, 4)}
                   </td>
                   <td>
-                    <div className="fw-bold text-dark">{story.name}</div>
-                    <div className="text-muted small text-truncate" style={{ maxWidth: '350px' }}>
+                    <div className="fw-bold text-body">{story.name}</div>
+                    <div className="text-body-secondary small text-truncate" style={{ maxWidth: '350px' }}>
                       {story.description}
                     </div>
                   </td>
                   <td><AppBadge value={story.priority} /></td>
                   <td><AppBadge value={story.status} /></td>
                   <td className="text-end pe-4">
-                    <span className="fw-bold small text-dark me-2">0/5</span>
+                    <span className="fw-bold small text-body me-2">0/5</span>
                   </td>
                 </tr>
               ))
             ) : (
-              <tr><td colSpan={5} className="text-center py-5 text-muted">No stories found.</td></tr>
+              <tr><td colSpan={5} className="text-center py-5 text-body-secondary">No stories found.</td></tr>
             )}
           </tbody>
         </Table>
@@ -135,18 +135,18 @@ export const StoriesList = ({ projectId, projectStories, isLoading }: StoriesLis
           transition: background-color 0.1s ease;
         }
         .sortable-header:hover {
-          background-color: #f1f1f1 !important;
+          background-color: var(--bs-tertiary-bg) !important;
         }
         .custom-stories-table td {
           padding-top: 1rem;
           padding-bottom: 1rem;
-          border-bottom: 1px solid #f8f9fa;
+          border-bottom: 1px solid var(--bs-border-color-translucent);
         }
         .animate-row {
           cursor: pointer;
         }
         .animate-row:hover {
-          background-color: #fbfbfb !important;
+          background-color: var(--bs-tertiary-bg) !important;
         }
       `}</style>
     </Container>

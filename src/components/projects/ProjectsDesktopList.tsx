@@ -41,9 +41,9 @@ export default function ProjectsDesktopList({ projects, removeProject }: Project
                 }
             `}</style>
 
-            <Table hover className="align-middle border-top border-light">
+            <Table hover className="align-middle border-top border-secondary-subtle">
                 <thead>
-                    <tr className="text-muted small">
+                    <tr className="text-body-secondary small">
                         <th className="py-3 border-0 ps-4">NAME</th>
                         <th className="py-3 border-0">DESCRIPTION</th>
                         <th className="py-3 border-0 text-center">STATUS</th>
@@ -58,10 +58,10 @@ export default function ProjectsDesktopList({ projects, removeProject }: Project
                             onClick={() => navigate(`/projects/${p.id}`)}
                         >
                             <td className="py-4 ps-4">
-                                <span className="fw-bold d-block mb-1 text-dark">{p.name}</span>
-                                <span className="text-muted small uppercase">ID-{p.id.slice(0, 5)}</span>
+                                <span className="fw-bold d-block mb-1 text-body">{p.name}</span>
+                                <span className="text-body-secondary small uppercase">ID-{p.id.slice(0, 5)}</span>
                             </td>
-                            <td className="py-4 text-muted small pe-5">
+                            <td className="py-4 text-body-secondary small pe-5">
                                 <div className="text-truncate" style={{ maxWidth: '350px' }}>
                                     {p.description}
                                 </div>

@@ -14,7 +14,7 @@ const BADGE_CONFIG: Record<string, { bg: string; text: string }> = {
   'Medium':    { bg: 'warning-subtle', text: 'text-warning-emphasis' },
   'Low':       { bg: 'info-subtle',    text: 'text-info' },
   
-  'Default':   { bg: 'light',          text: 'text-dark' },
+  'Default':   { bg: 'secondary-subtle', text: 'text-body-emphasis' },
 };
 
 export const AppBadge = ({ value }: AppBadgeProps) => {

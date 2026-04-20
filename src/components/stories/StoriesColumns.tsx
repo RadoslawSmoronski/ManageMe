@@ -26,7 +26,7 @@ export const StoriesColumns = ({ projectId, projectStories, isLoading }: Stories
   if (isLoading) {
     return (
       <div className="text-center py-5">
-        <Spinner animation="border" variant="dark" size="sm" />
+        <Spinner animation="border" variant="primary" size="sm" />
       </div>
     );
   }
@@ -67,10 +67,10 @@ export const StoriesColumns = ({ projectId, projectStories, isLoading }: Stories
             <div key={col} className="story-column-wrapper">
               <div className="d-flex align-items-center justify-content-between mb-3 px-1">
                 <div className="d-flex align-items-center gap-2">
-                  <span className="fw-bold text-dark small text-uppercase" style={{ letterSpacing: '0.5px' }}>
+                  <span className="fw-bold text-body small text-uppercase" style={{ letterSpacing: '0.5px' }}>
                     {col}
                   </span>
-                  <Badge bg="dark" className="rounded-pill px-2 py-1" style={{ fontSize: '0.6rem' }}>
+                  <Badge bg="secondary-subtle" className="text-body-emphasis border border-secondary-subtle rounded-pill px-2 py-1" style={{ fontSize: '0.6rem' }}>
                     {filteredStories.length}
                   </Badge>
                 </div>
@@ -78,7 +78,7 @@ export const StoriesColumns = ({ projectId, projectStories, isLoading }: Stories
                   size="sm"
                   value={columnSort[col]}
                   onChange={(e) => handleColumnSortChange(col, e.target.value as SortOption)}
-                  className="rounded-3 shadow-none border-light-subtle"
+                  className="rounded-3 shadow-none bg-body-tertiary text-body border-secondary-subtle"
                   style={{ maxWidth: '170px' }}
                 >
                   <option value="priorityDesc">Priority high to low</option>
@@ -97,25 +97,25 @@ export const StoriesColumns = ({ projectId, projectStories, isLoading }: Stories
                   >
                     <div className="d-flex justify-content-between align-items-start mb-2">
                        <AppBadge value={story.priority} /> 
-                       <span className="text-muted font-monospace" style={{ fontSize: '0.65rem' }}>
+                       <span className="text-body-secondary font-monospace" style={{ fontSize: '0.65rem' }}>
                         #{story.id.slice(0, 4)}
                        </span>
                     </div>
                     
-                    <h6 className="fw-bold text-dark mb-2 text-truncate-2" style={{ fontSize: '0.95rem' }}>
+                    <h6 className="fw-bold text-body mb-2 text-truncate-2" style={{ fontSize: '0.95rem' }}>
                       {story.name}
                     </h6>
                     
-                    <p className="text-muted small mb-3 text-truncate-2" style={{ fontSize: '0.85rem' }}>
+                    <p className="text-body-secondary small mb-3 text-truncate-2" style={{ fontSize: '0.85rem' }}>
                       {story.description}
                     </p>
                     
                     <div className="mt-2 pt-2 border-top d-flex align-items-center justify-content-between">
-                      <div className="d-flex align-items-center gap-1 text-muted" style={{ fontSize: '0.65rem' }}>
+                      <div className="d-flex align-items-center gap-1 text-body-secondary" style={{ fontSize: '0.65rem' }}>
                         <i className="bi bi-list-task"></i>
                         <span className="fw-bold text-uppercase">Tasks: 0/5</span>
                       </div>
-                      <div className="bg-dark rounded-circle text-white d-flex align-items-center justify-content-center fw-bold shadow-sm" style={{ width: 20, height: 20, fontSize: '0.6rem' }}>
+                      <div className="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm" style={{ width: 20, height: 20, fontSize: '0.6rem' }}>
                         {story.name.charAt(0).toUpperCase()}
                       </div>
                     </div>
@@ -123,7 +123,7 @@ export const StoriesColumns = ({ projectId, projectStories, isLoading }: Stories
                 ))}
 
                 {filteredStories.length === 0 && (
-                    <div className="text-center py-5 text-muted small italic">No stories here</div>
+                    <div className="text-center py-5 text-body-secondary small italic">No stories here</div>
                 )}
               </div>
             </div>
@@ -173,8 +173,8 @@ export const StoriesColumns = ({ projectId, projectStories, isLoading }: Stories
 
         /* KARTA STORY */
         .story-minimal-card {
-          background: white;
-          border: 1px solid #eee;
+          background: var(--bs-body-bg);
+          border: 1px solid var(--bs-border-color-translucent);
           border-radius: 12px;
           transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
           cursor: pointer;
@@ -186,7 +186,7 @@ export const StoriesColumns = ({ projectId, projectStories, isLoading }: Stories
 
         @media (hover: hover) {
           .story-minimal-card:hover {
-            border-color: #212529;
+            border-color: var(--bs-secondary-color);
             box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important;
             transform: translateY(-2px);
           }

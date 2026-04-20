@@ -36,10 +36,10 @@ export default function ProjectsMobileList({ projects, removeProject }: Projects
                 <Card.Body 
                   className="p-4 flex-grow-1 d-flex flex-column justify-content-center" 
                   onClick={() => navigate(`/projects/${p.id}`)}
-                  style={{ cursor: 'pointer', backgroundColor: '#fff' }}
+                  style={{ cursor: 'pointer' }}
                 >
-                  <h5 className="fw-bold mb-1 text-dark text-truncate">{p.name}</h5>
-                  <p className="text-muted small mb-3 text-truncate-2" style={{ lineHeight: '1.2' }}>
+                  <h5 className="fw-bold mb-1 text-body text-truncate">{p.name}</h5>
+                  <p className="text-body-secondary small mb-3 text-truncate-2" style={{ lineHeight: '1.2' }}>
                     {p.description}
                   </p>
                   <div>
@@ -52,10 +52,10 @@ export default function ProjectsMobileList({ projects, removeProject }: Projects
                   onClick={(e) => handleDeleteClick(e, p.id, p.name)}
                   style={{ 
                     width: '100px',
-                    backgroundColor: '#fff1f1',
+                    backgroundColor: 'var(--bs-danger-bg-subtle)',
                     cursor: 'pointer',
-                    borderLeft: '1px solid #fde2e2',
-                    color: '#dc3545',
+                    borderLeft: '1px solid var(--bs-danger-border-subtle)',
+                    color: 'var(--bs-danger-text-emphasis)',
                     transition: 'all 0.2s'
                   }}
                 >
