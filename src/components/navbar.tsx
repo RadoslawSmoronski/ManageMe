@@ -12,7 +12,7 @@ export default function AppNavbar() {
   const { projects} = useProjects();
   const { stories} = useStories();
   const { tasks} = useTasks();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -152,9 +152,23 @@ export default function AppNavbar() {
             <NavDropdown.Header>
               <strong>{user.firstName} {user.lastName}</strong>
             </NavDropdown.Header>
-            <NavDropdown.Item onClick={toggleTheme}>
-              <i className={`bi ${theme === 'dark' ? 'bi-sun' : 'bi-moon'} me-2`}></i>
-              Switch to {theme === 'dark' ? 'light' : 'dark'} mode
+            <NavDropdown.Header className="text-body-secondary small">
+              Appearance
+            </NavDropdown.Header>
+            <NavDropdown.Item onClick={() => setTheme('system')}>
+              <i className="bi bi-circle-half me-2"></i>
+              System {theme === 'system' && `(${resolvedTheme})`}
+              {theme === 'system' && <i className="bi bi-check2 ms-2"></i>}
+            </NavDropdown.Item>
+            <NavDropdown.Item onClick={() => setTheme('light')}>
+              <i className="bi bi-sun me-2"></i>
+              Light
+              {theme === 'light' && <i className="bi bi-check2 ms-2"></i>}
+            </NavDropdown.Item>
+            <NavDropdown.Item onClick={() => setTheme('dark')}>
+              <i className="bi bi-moon me-2"></i>
+              Dark
+              {theme === 'dark' && <i className="bi bi-check2 ms-2"></i>}
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item className="text-danger">
