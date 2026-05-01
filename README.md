@@ -1,73 +1,166 @@
-# React + TypeScript + Vite
+🌐 [English](README.md) | 🇵🇱 [Polski](README-pl.md)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ManageMe - Frontend
 
-Currently, two official plugins are available:
+Kanban-style frontend application for team workflow management with Projects, Stories and Tasks.
+Built with React, TypeScript and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Table of contents
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. [Project overview](#project-overview)
+2. [Technologies](#technologies)
+3. [Features](#features)
+4. [Current scope](#current-scope)
+5. [Solution structure](#solution-structure)
+6. [Configuration](#configuration)
+7. [How to run locally](#how-to-run-locally)
+8. [Available scripts](#available-scripts)
+9. [Mock API](#mock-api)
+10. [Project status](#project-status)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project overview
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**ManageMe** is a frontend app focused on project execution flow in a Kanban format.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+You can:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- create and manage projects,
+- create and manage stories inside projects,
+- create and manage tasks inside stories,
+- move tasks between columns using drag & drop,
+- assign tasks to users from mock data.
+
+At this stage, data is mocked with `json-server` from `db.json`.
+
+---
+
+## Technologies
+
+- React 19
+- TypeScript 5
+- Vite 7
+- React Router 7
+- Bootstrap 5 + React-Bootstrap + Bootstrap Icons
+- `@hello-pangea/dnd`
+- SweetAlert2
+- `json-server`
+
+---
+
+## Features
+
+- Projects CRUD.
+- Stories CRUD.
+- Tasks CRUD.
+- Kanban board for tasks (`Planned`, `Doing`, `Completed`).
+- Drag & drop task ordering.
+- Theme mode: system / light / dark.
+
+---
+
+## Current scope
+
+Currently implemented:
+
+- `projects`
+- `stories`
+- `tasks`
+- mock `users` data for assignment/context
+
+Not implemented yet:
+
+- real user accounts,
+- authentication/authorization,
+- backend API integration (currently mocked only).
+
+Planned backend: a lightweight RESTful Minimal Web API built with .NET.
+
+---
+
+## Solution structure
+
+Main folders:
+
+- `src/components` - reusable UI and domain components.
+- `src/pages` - route-level pages.
+- `src/context` - state management with React Context.
+- `src/services` - HTTP communication layer.
+- `src/types` - TypeScript models.
+- `src/config` - runtime config (API URL).
+- `db.json` - mock database for `json-server`.
+
+---
+
+## Configuration
+
+Environment variable:
+
+```env
+VITE_API_URL=http://localhost:3001
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+If not set, the app uses `http://localhost:3001` by default.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## How to run locally
+
+1. Install dependencies:
+
+```bash
+npm install
 ```
+
+2. Start mock API:
+
+```bash
+npm run server
+```
+
+3. Start frontend:
+
+```bash
+npm run dev
+```
+
+---
+
+## Available scripts
+
+- `npm run dev` - start Vite dev server.
+- `npm run build` - build production bundle.
+- `npm run preview` - preview production build.
+- `npm run server` - run `json-server` on port `3001`.
+
+---
+
+## Mock API
+
+The app currently relies on `json-server` with these collections:
+
+- `users`
+- `projects`
+- `stories`
+- `tasks`
+
+Base URL:
+
+```text
+http://localhost:3001
+```
+
+---
+
+## Project status
+
+The project is in active development.
+
+Current focus:
+
+- improve UX and flow consistency,
+- keep clean TypeScript models and contexts,
+- prepare for future real backend integration.
